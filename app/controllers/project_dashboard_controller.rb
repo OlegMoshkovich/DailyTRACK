@@ -1,0 +1,2 @@
+class ProjectDashboardController < ApplicationController
+end
