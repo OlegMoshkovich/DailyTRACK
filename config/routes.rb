@@ -13,7 +13,7 @@ DailyTrack::Application.routes.draw do
 
 resources :daily_reports, only: [:index] 
 resources :project_dashboard, only: [:index] 
-
+resources :project_visuals, only: [:index] 
 
   resources :inspection_reports do
     resources :inspections,only: [:show, :create, :destroy] 
