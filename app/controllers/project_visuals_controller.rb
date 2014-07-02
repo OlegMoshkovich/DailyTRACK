@@ -1,0 +1,2 @@
+class ProjectVisualsController < ApplicationController
+end
