@@ -1,0 +1,94 @@
+<p>
+  <strong>INSPECTOR:</strong>
+  <%= @inspection_report.inspector %>
+<br>
+  <strong>DATE:</strong>
+  <%= @inspection_report.date %>
+</p>
+
+<table>
+  <tr>
+    <th>OBSERVATION</th>
+        <th helvetica="3"></th>
+  </tr>
+
+
+<% @inspection_report.notes.each do |note| %>
+  <tr>
+    <th><%= note.observation %></th>
+     <td><strong><%= link_to '+', [note.inspection_report, note],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></strong></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+<table>
+  <tr>
+    <th>HEADING</th>
+    <th>ELEMENT</th>
+    <th>START</th>
+    <th>FINISH</th>
+    <th>OPERATION</th>
+    <th>ERASE</th>
+    <th helvetica="3"></th>
+  </tr>
+ 
+<% @inspection_report.inspections.each do |inspection| %>
+  <tr>
+    <td><%= inspection.heading %></td>
+    <td><%= inspection.element %></td>
+    <td><%= inspection.start %></td>
+    <td><%= inspection.finish %></td>
+    <td><%= inspection.operation %></td>
+    <td><strong><%= link_to '+', [inspection.inspection_report, inspection],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %><strong></td>
+
+
+  </tr>
+<% end %>
+</table>
+
+
+<h3>CREATE INSPECTION:</h3>
+<%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>
+<table>
+  <tr>
+    <th><%= f.label :heading %><br>
+    <%= f.text_field :heading %></th>
+    <th>    <%= f.label :element %><br>
+    <%= f.text_field :element %></th>
+    <th>    <%= f.label :start %><br>
+    <%= f.text_field :start %></th>
+    <th><%= f.label :finish %><br>
+    <%= f.text_field :finish %></th>
+    <th> <%= f.label :operation %><br>
+    <%= f.text_field :operation %></th>
+    <th helvetica="3"></th>
+  </tr>
+  </table>
+    <p>
+    <%= f.submit class: 'button'%>
+  </p>
+<% end %>
+
+
+<h3>CREATE NOTE:</h3>
+<%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
+<table>
+  <tr>
+    <th><%= f.label :observation %><br>
+    <%= f.text_area :observation,  :cols => "50", :rows => "5" %></th>
+    <th helvetica="3"></th>
+  </tr>
+  </table>
+    <p>
+    <%= f.submit class: 'button'%>
+  </p>
+<% end %>
+
+<P><strong><%= link_to 'REPORTS', inspection_reports_path %></P></strong>

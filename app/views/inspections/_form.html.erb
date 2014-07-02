@@ -1,0 +1,25 @@
+<%= form_for([@inspection, @inspection_report.inspections.build]) do |f| %>
+  <p>
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading %>
+  </p>
+  <p>
+    <%= f.label :element %><br>
+    <%= f.text_field :element %>
+  </p>
+  <p>
+    <%= f.label :start %><br>
+    <%= f.text_field :start %>
+  </p>
+  <p>
+    <%= f.label :end %><br>
+    <%= f.text_field :end %>
+  </p>
+  <p>
+    <%= f.label :operation %><br>
+    <%= f.text_field :operation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

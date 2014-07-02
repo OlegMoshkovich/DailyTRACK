@@ -1,0 +1,32 @@
+<h1>INSPECTION REPORTS</h1>
+
+
+<h1></h1>
+<p><strong>CHOOSE FROM THE LIST</strong></p>
+
+<p><strong>
+<%= link_to 'NEW REPORT', new_inspection_report_path %>
+<br>
+<%= link_to 'PROJECT CONTROLLER', root_path%></P>
+</strong></p>
+
+
+
+<table>
+  <tr>
+<td>INSPECTOR</td>    
+    <td>DATE</td>
+    <td>ERASE</td>
+  </tr>
+ 
+<% @inspection_reports.each do |inspection_report| %>
+  <tr>
+    <td><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
+    <td><%= inspection_report.date %></td>
+    <td><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+  </tr>
+<% end %>
+</table>
+
+
+<h5><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></h5>

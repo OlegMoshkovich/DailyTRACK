@@ -1,0 +1,20 @@
+<h2>New Inspection Report</h2>
+
+<%= form_for @inspection_report do |f| %>
+  <p>
+    <%= f.label :NAME %><br>
+    <%= f.text_field :inspector %>
+  </p>
+ 
+  <p>
+    <%= f.label :DATE %><br>
+    <%= f.text_area :date, :cols => "15", :rows => "1" %>
+
+  </p>
+ 
+  <p>
+    <%= f.submit 'New Report', class: 'button' %> 
+    <!-- Where do I control the submit button is rendered? -->
+  </p>
+<% end %>
+<P><strong><%= link_to 'REPORTS', inspection_reports_path %></P></strong>
