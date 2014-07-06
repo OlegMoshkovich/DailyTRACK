@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629163828) do
+ActiveRecord::Schema.define(version: 20140706155109) do
 
   create_table "inspection_reports", force: true do |t|
     t.string   "inspector"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20140629163828) do
   end
 
   add_index "notes", ["inspection_report_id"], name: "index_notes_on_inspection_report_id"
+
+  create_table "project_dashboards", force: true do |t|
+    t.string   "contract"
+    t.string   "title"
+    t.string   "contractor"
+    t.string   "cm"
+    t.string   "scheduler"
+    t.string   "period_start"
+    t.date     "period_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

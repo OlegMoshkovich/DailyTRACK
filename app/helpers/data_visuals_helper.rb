@@ -1,0 +1,2 @@
+module DataVisualsHelper
+end

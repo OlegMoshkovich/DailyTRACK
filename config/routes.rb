@@ -12,8 +12,10 @@ DailyTrack::Application.routes.draw do
   root 'welcome#home'
 
 resources :daily_reports, only: [:index] 
-resources :project_dashboard, only: [:index] 
+resources :project_dashboards, only: [:index, :show, :create] 
 resources :project_visuals, only: [:index] 
+resources :data_visuals, only: [:index] 
+resources :export_dashboard, only: [:index] 
 
   resources :inspection_reports do
     resources :inspections,only: [:show, :create, :destroy] 
