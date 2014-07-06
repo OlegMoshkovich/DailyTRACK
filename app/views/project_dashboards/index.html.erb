@@ -1,3 +1,45 @@
 <h1>Project DASHBOARDS</h1>
-
 <h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
+
+<h6> is it posisble to make the headings dynamic?
+<br>
+depending on the data table being imported.
+</h6>
+<%= form_tag import_project_dashboards_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
+
+<strong>
+<p>
+UPLOADED FILE DATA
+</p>
+</strong>
+
+<table>
+  <tr>
+  	<th>Date</th>
+    <th>BSL.E.i</th>
+     <th>BSL.E.c</th>
+     <th>BSL.L.i</th>
+     <th>BSL.L.c</th>
+
+
+    <th helvetica="3"></th>
+  </tr>
+ 
+<% @concrete_summaries.each do |concrete_summary| %>
+  <tr>
+  	<td><%= concrete_summary.date %></td>
+    <td><%= concrete_summary.baseline_early_ind %></td>
+    <td><%= concrete_summary.baseline_early_cum %></td>
+    <td><%= concrete_summary.baseline_late_ind %></td>
+    <td><%= concrete_summary.baseline_late_cum %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+
+
+

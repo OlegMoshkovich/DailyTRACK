@@ -5,7 +5,7 @@ gem 'rails', '4.0.4'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
+gem 'protected_attributes'
 gem "paperclip", "~> 4.1"
 
 # Use SCSS for stylesheets
@@ -44,7 +44,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'pry', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

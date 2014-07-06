@@ -11,11 +11,14 @@ DailyTrack::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#home'
 
-resources :daily_reports, only: [:index] 
-resources :project_dashboards, only: [:index, :show, :create] 
-resources :project_visuals, only: [:index] 
-resources :data_visuals, only: [:index] 
-resources :export_dashboard, only: [:index] 
+  resources :daily_reports, only: [:index] 
+  resources :project_dashboards, only: [:index, :show, :create, :destroy] do
+    collection {post :import}
+  end
+
+  resources :project_visuals, only: [:index] 
+  resources :data_visuals, only: [:index] 
+  resources :export_dashboard, only: [:index] 
 
   resources :inspection_reports do
     resources :inspections,only: [:show, :create, :destroy] 
