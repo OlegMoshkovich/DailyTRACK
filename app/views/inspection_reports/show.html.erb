@@ -100,6 +100,21 @@ AUTOPOPULATE VALUES
   </p>
 <% end %>
 
+<h3>CREATE IMAGE:</h3>
+<%= form_for(@inspection_report, :html =>{:multipart => true}) do |f| %>
+<%= f.label :image %>
+<%= f.file_field :image %>
+    <p>
+    <%= f.submit class: 'button'%>
+  </p>
+<% end %>
+
+
+
+
+
+
+
 <P><strong><%= link_to 'REPORTS', inspection_reports_path %>
 <BR>
 <%= link_to 'PROJECT CONTROLLER', root_path%>
