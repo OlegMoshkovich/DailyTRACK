@@ -13,16 +13,17 @@ DailyTrack::Application.routes.draw do
 
   resources :daily_reports, only: [:index] 
   resources :project_dashboards, only: [:index, :show, :create, :destroy] do
-    collection {post :import}
+      collection {post :import}
   end
 
   resources :project_visuals, only: [:index] 
   resources :data_visuals, only: [:index] 
   resources :export_dashboard, only: [:index] 
+  resources :inspections,only: [:index]
 
   resources :inspection_reports do
-    resources :inspections,only: [:show, :create, :destroy] 
-    resources :notes,only: [:show, :create, :destroy] 
+      resources :inspections,only: [:show, :create, :destroy] 
+      resources :notes,only: [:show, :create, :destroy] 
   end
 
 

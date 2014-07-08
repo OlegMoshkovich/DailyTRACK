@@ -1,5 +1,13 @@
 class InspectionsController < ApplicationController
 
+   
+    def index
+      @inspections = Inspection.search_for(params[:q])
+      @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
+      @slabs = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "SLAB")
+
+    end
+
     def create
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@inspection = @inspection_report.inspections.create(inspection_params)#automatically associates the inspeciton to the report
@@ -18,7 +26,7 @@ class InspectionsController < ApplicationController
     	redirect_to inspection_report_path(@inspection_report)
   	end
  
- 	def edit
+ 	  def edit
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@inspection = @inspection_report.inspections.find(params[:id])
   	end

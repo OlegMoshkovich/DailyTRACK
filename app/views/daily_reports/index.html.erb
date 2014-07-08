@@ -53,5 +53,94 @@ OPERATION</p>
 </p>
 </strong>
 
+
+<%= form_tag "/inspections", method: "GET" do %>
+    <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<br>
+.
+<br>
+
+<table>
+  <tr>
+    <th>HEADING</th>
+    <th>ELEMENT</th>
+    <th>START</th>
+    <th>FINISH</th>
+    <th>OPERATION</th>
+    <th helvetica="3"></th>
+  </tr>
+
+
+<% @inspections.each do |inspection| %>
+ 
+   
+  <tr>
+    <td><%= inspection.heading %></td>
+    <td><%= inspection.element %></td>
+    <td><%= inspection.start %></td>
+    <td><%= inspection.finish %></td>
+    <td><%= inspection.operation %></td>
+  </tr>
+   
+
+<% end %>
+</table>
+
+<h3>Summary</h3>
+
+<table>
+  <tr>
+    <th>HEADING</th>
+    <th>ELEMENT</th>
+    <th>START</th>
+    <th>FINISH</th>
+    <th>OPERATION</th>
+    <th helvetica="3"></th>
+  </tr>
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= wall.heading %></td>
+    <td><%= wall.element %></td>
+    <td><%= wall.start %></td>
+    <td><%= wall.finish %></td>
+    <td><%= wall.operation %></td>
+  </tr>
+   <% end -%>
+   <% @slabs.each do |slab| %>
+  <tr>
+    <td><%= slab.heading %></td>
+    <td><%= slab.element %></td>
+    <td><%= slab.start %></td>
+    <td><%= slab.finish %></td>
+    <td><%= slab.operation %></td>
+  </tr>
+  <% end -%>
+  </table>
+
+<strong><p>SEARCH</p></strong>
+
+  <%= form_tag "/inspections", method: "GET" do %>
+    <%= text_field_tag :q, params[:q] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<table>
+<% @inspections.each do |inspection| %>
+  <tr>
+    <td><%= inspection.heading %></td>
+    <td><%= inspection.element %></td>
+    <td><%= inspection.start %></td>
+    <td><%= inspection.finish %></td>
+    <td><%= inspection.operation %></td>
+  </tr>
+   <% end -%>
+</table>
+
+
+
+
+
 <h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
 
