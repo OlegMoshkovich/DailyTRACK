@@ -1,5 +1,5 @@
 class InspectionReportsController < ApplicationController
-	before_action :authenticate_user!
+	#before_action :authenticate_user!
 
 	def index
 		@inspection_reports = InspectionReport.all
@@ -14,10 +14,13 @@ class InspectionReportsController < ApplicationController
 	end
 
 	def create
+
+#binding.pry
+
   		@inspection_report = InspectionReport.new(inspection_report_params)
 
   		if @inspection_report.save
-  		redirect_to @inspection_report 
+  			redirect_to @inspection_report 
   		else
   			render 'new'
   		end
@@ -31,8 +34,8 @@ class InspectionReportsController < ApplicationController
 	end
  
 	private
+
   	def inspection_report_params
     	params.require(:inspection_report).permit(:inspector, :date)
   	end
-
 end
