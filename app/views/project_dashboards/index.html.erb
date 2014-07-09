@@ -1,10 +1,38 @@
 <h1>Project DASHBOARDS</h1>
 <h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
 
-<h6> is it posisble to make the headings dynamic?
-<br>
-depending on the data table being imported.
-</h6>
+<div id="container" style="width:100%; height:400px;"></div>
+
+
+<script>$(function () { 
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'Baseline Curves'
+        },
+        xAxis: {
+            type: "datetime"
+        },
+        yAxis: {
+            title: {
+                text: 'Cost'
+            }
+        },
+        series: [{
+          
+            data: [1, 0, 4,3,7,4,3,5,4,3,2,4,1,7]
+
+        }, 
+
+        {
+
+        }]
+    });
+});
+</script>
+
 <%= form_tag import_project_dashboards_path, multipart: true do %>
 	<%= file_field_tag :file %>
 	<%= submit_tag "Import" %>

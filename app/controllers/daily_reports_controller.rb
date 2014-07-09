@@ -7,6 +7,7 @@ before_action :authenticate_user!
       	@slabs = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "SLAB")
       	@daily_reports=DailyReport.all
       	@daily_report = DailyReport.new
+      	
 	end
 
 	def new
