@@ -33,7 +33,7 @@ class InspectionsController < ApplicationController
 
 private
     def inspection_params
-      params.require(:inspection).permit(:heading, :element, :start, :finish, :operation )
+      params.require(:inspection).permit(:heading, :element, :start, :finish, :operation, :image )
     end
 
 

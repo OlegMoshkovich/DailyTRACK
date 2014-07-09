@@ -44,6 +44,8 @@
     <td><%= inspection.start %></td>
     <td><%= inspection.finish %></td>
     <td><%= inspection.operation %></td>
+    <td><%= image_tag inspection.image.url %></td>
+
     <td><strong><%= link_to '+', [inspection.inspection_report, inspection],
                method: :delete,
                data: { confirm: 'Are you sure?' } %><strong></td>
@@ -68,6 +70,8 @@
     <%= f.text_field :finish %></th>
     <th> <%= f.label :operation %><br>
     <%= f.text_field :operation %></th>
+    <th><%= f.label :avatar %><br />
+    <%= f.file_field :avatar %></th>
     <th helvetica="3"></th>
   </tr>
   </table>
