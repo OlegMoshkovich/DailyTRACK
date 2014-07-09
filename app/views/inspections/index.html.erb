@@ -1,6 +1,6 @@
 <h1>Search RESULTS</h1>
 
-  <%= form_tag "/daily_reports", method: "GET" do %>
+  <%= form_tag "/inspections", method: "GET" do %>
     <%= text_field_tag :q, params[:q] %>
   <%= submit_tag "Search" %>
 <% end %>
