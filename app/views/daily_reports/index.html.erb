@@ -3,93 +3,36 @@
 <strong>
 <p>Daily REPORT includes the summary of all activities the took place on any given day.
 <br>
-Question: Model for Daily REPORT will be populated with information from  IREPORTS, 
-<br>
-also it is to include additional informaiton, filled out by the LEAD.
-<br>
-Understand the configuration of the Daily REPORT model.
 ...</p>
 </strong>
+
+<%= form_for @daily_report do |f| %>
+  <p>
+    <%= f.text_area :narrative,  :cols => "50", :rows => "5"%>
+  </p>
+ 
+
+  <p>
+    <%= f.submit 'Submit NARRATIVE', class: 'button' %> 
+    <!-- Where do I control the submit button is rendered? -->
+  </p>
+<% end %>
 
 <h3>NARRATIVE</h3>
 
+
+
 <strong>
-<p>LEAD narrative is the story about work that took place today.
-<br>
-...
-<br>
-...</p>
+<% @daily_reports.each do |daily_report| %>
+  <tr>
+    <td><%= daily_report.narrative %></td>
+  </tr>
+   <% end -%>
+
 </strong>
-
-
 
 
 <h3>SUMMARY</h3>
-
-<strong>
-<p>Include informaiton generated from IREPORT model, summarized in the following fashion.
-<br>
-<p>Implements search function, to crawle and summarize inspections.
-<br>
-
-<p>LOCATION
-<br>
-ELEMENT
-<br>
-OPERATION</p>
-</strong>
-
-
-
-<h3>PHOTOS</h3>
-<strong>
-<p>include the photo loading gem. Paperclip.
-<br>
-<p>...
-<br>
-...
-<br>
-...
-</p>
-</strong>
-
-
-<%= form_tag "/inspections", method: "GET" do %>
-    <%= text_field_tag :q, params[:q] %>
-  <%= submit_tag "Search" %>
-<% end %>
-<br>
-.
-<br>
-
-<table>
-  <tr>
-    <th>HEADING</th>
-    <th>ELEMENT</th>
-    <th>START</th>
-    <th>FINISH</th>
-    <th>OPERATION</th>
-    <th helvetica="3"></th>
-  </tr>
-
-
-<% @inspections.each do |inspection| %>
- 
-   
-  <tr>
-    <td><%= inspection.heading %></td>
-    <td><%= inspection.element %></td>
-    <td><%= inspection.start %></td>
-    <td><%= inspection.finish %></td>
-    <td><%= inspection.operation %></td>
-  </tr>
-   
-
-<% end %>
-</table>
-
-<h3>Summary</h3>
-
 <table>
   <tr>
     <th>HEADING</th>
@@ -119,24 +62,12 @@ OPERATION</p>
   <% end -%>
   </table>
 
-<strong><p>SEARCH</p></strong>
 
-  <%= form_tag "/inspections", method: "GET" do %>
-    <%= text_field_tag :q, params[:q] %>
-  <%= submit_tag "Search" %>
-<% end %>
-
-<table>
-<% @inspections.each do |inspection| %>
-  <tr>
-    <td><%= inspection.heading %></td>
-    <td><%= inspection.element %></td>
-    <td><%= inspection.start %></td>
-    <td><%= inspection.finish %></td>
-    <td><%= inspection.operation %></td>
-  </tr>
-   <% end -%>
-</table>
+<h3>PHOTOS</h3>
+<strong>
+<p>Include the photo loading gem. PAPERCLIP.
+</p>
+</strong>
 
 
 

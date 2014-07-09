@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706175659) do
+ActiveRecord::Schema.define(version: 20140709000731) do
 
   create_table "concrete_summaries", force: true do |t|
     t.string   "date"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20140706175659) do
     t.integer  "baseline_early_cum"
     t.integer  "baseline_late_ind"
     t.integer  "baseline_late_cum"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "daily_reports", force: true do |t|
+    t.string   "narrative"
+    t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
