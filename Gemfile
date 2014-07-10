@@ -17,7 +17,7 @@ group :production do
 end
 
 gem 'protected_attributes'
-gem "paperclip", "~> 4.1"
+gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
 
 # Use SCSS for stylesheets

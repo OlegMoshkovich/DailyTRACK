@@ -3,6 +3,7 @@ class InspectionReportsController < ApplicationController
 
 	def index
 		@inspection_reports = InspectionReport.all
+		binding.pry
 	end
 
 	def new
