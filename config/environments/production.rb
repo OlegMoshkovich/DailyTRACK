@@ -87,6 +87,8 @@ config.paperclip_defaults = {
   }
 }
 
+config.serve_static_assets = true
+
 
 
 end
