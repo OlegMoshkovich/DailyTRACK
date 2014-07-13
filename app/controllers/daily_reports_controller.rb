@@ -2,12 +2,20 @@ class DailyReportsController < ApplicationController
 before_action :authenticate_user!
 	
 	def index
-		@inspections = Inspection.search_for(params[:q])
-    	@walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
-      	@slabs = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "SLAB")
-      	@daily_reports=DailyReport.all
-      	@daily_report = DailyReport.new
-      	
+
+    # TODO provide a date for the view 
+    # lookup inspections associated
+
+    # handle no inspections / daily report for the selected date
+
+    @date = Date.today
+
+   # binding.pry
+    @daily_report= DailyReport.find_by_date(@date)
+    @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
+    @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
+  	# @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
+  	# @slabs = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "SLAB")
 	end
 
 	def new
@@ -26,7 +34,11 @@ before_action :authenticate_user!
   	def show
     	@daily_report = DailyReport.find(params[:id])
   	end
-
+  def destroy
+      @observation = @daily_report.observations.find(params[:id])
+      @observation.destroy
+      redirect_to daily_reports_path 
+    end
 	
 	private
 

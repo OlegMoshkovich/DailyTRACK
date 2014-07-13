@@ -44,7 +44,7 @@
     <td><%= inspection.start %></td>
     <td><%= inspection.finish %></td>
     <td><%= inspection.operation %></td>
-    <td><%= image_tag inspection.image.url(:square)  %></td>
+    <td><%= image_tag inspection.image.url(:thumb)  %></td>
 
     <td><strong><%= link_to '+', [inspection.inspection_report, inspection],
                method: :delete,
@@ -52,8 +52,7 @@
 
 
   </tr>
-<% end %>
-</table>
+<% end %></table>
 
 
 <h3>CREATE INSPECTION:</h3>
@@ -61,33 +60,84 @@
 <table>
   <tr>
     <th><%= f.label :heading %><br>
-    <%= f.text_field :heading %></th>
+    <%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ]) %>
     <th>    <%= f.label :element %><br>
-    <%= f.text_field :element %></th>
+    <%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT' ]) %>
     <th>    <%= f.label :start %><br>
     <%= f.text_field :start %></th>
     <th><%= f.label :finish %><br>
-    <%= f.text_field :finish %></th>
+    <%= f.text_field :finish, :cols => "10", :rows => "1" %></th>
     <th> <%= f.label :operation %><br>
-    <%= f.text_field :operation %></th>
+     <%= f.select :operation, options_for_select(['WP', 'RBR','CON']) %>
     <th><%= f.label :image %><br />
     <%= f.file_field :image %></th>
     <th helvetica="3"></th>
   </tr>
   </table>
-    <p>
-    <%= f.submit class: 'button'%>
-  </p>
-<% end %>
 
-<P>
-<strong>
-INCLUDE DROP DOWN MENUS FOR THE INSPECTION FORM
-<BR>
-AUTOPOPULATE VALUES
-<BR>
-</strong>
-</P>
+    <p><%= f.submit 'Submit', class: 'button', value: 'Create INSPECTION' %></p>
+
+
+<% end %> 
+
+<!-- 
+<form action="/inspection_reports/:id/inspections" class="new-inspection" method="post">
+  <ul>
+    <li>
+      <label for="heading">Heading</label>
+      <select name="heading">
+        <option value="choose"></option>
+        <option value="tt">TT</option>
+        <option value="L402">L402</option>
+        <option value="GCT1+2_east">GCT1+2 East</option>
+        <option value="GCT1+2_west">GCT1+2 West</option>
+      </select>
+
+    </li>
+    <li>
+       <label for="element">Element</label>
+      <select name="element">
+        <option value="choose"></option>
+        <option value="wall">wall</option>
+        <option value="slab">slab</option>
+        <option value="arch">arch</option>
+        <option value="invert">invert</option>
+      </select>
+    </li>
+
+    <li>
+      <label for="start">Start</label>
+      <input type="text" name="start" placeholder="Station number">
+
+    </li>
+    <li>
+    <label for="finish">Finish</label>
+      <input type="text" name="finish" placeholder="Station number">
+    </li>
+
+    <li>
+       <label for="operation">Operation</label>
+      <select name="operation">
+         <option value="choose"></option>
+        <option value="concrete">CON</option>
+        <option value="waterproofing">WP</option>
+        <option value="rbr">RBR</option>
+      </select>
+    </li>
+
+
+  </ul>
+
+
+
+    <p>
+  </p>
+
+
+</form>
+
+ -->
+
 
 
 <h3>CREATE NOTE:</h3>
@@ -100,7 +150,7 @@ AUTOPOPULATE VALUES
   </tr>
   </table>
     <p>
-    <%= f.submit class: 'button'%>
+    <%= f.submit class: 'button' , value: 'Create NOTE '%>
   </p>
 <% end %>
 

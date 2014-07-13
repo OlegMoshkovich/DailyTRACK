@@ -1,6 +1,13 @@
 class ProjectDashboardsController < ApplicationController
 	def index
 		@concrete_summaries = ConcreteSummary.all
+		length = @concrete_summaries.length
+		@baseline_early_ind_arr = []
+		binding.pry
+		for i in 0..20
+			@baseline_early_ind_arr.push(@concrete_summaries[i].baseline_early_ind)
+		end
+		#binding.pry
 	end
 
 	def new 

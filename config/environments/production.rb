@@ -78,14 +78,7 @@ DailyTrack::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-config.paperclip_defaults = {
-  :storage => :s3,
-  :bucket => ENV['DailyTrack'],
-  :s3_credentials => {
-    :access_key_id => ENV['AKIAITH4NMYJBWDZIGOA'],
-    :secret_access_key => ENV['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']
-  }
-}
+
 
 config.serve_static_assets = true
 

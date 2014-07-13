@@ -2,9 +2,14 @@
 
 <strong>
 <p>Daily REPORT includes the summary of all activities the took place on any given day.
-<br>
-...</p>
+It is controlled by the lead. Include a mechnism that allows the LEAD to approve inspections.</p>
 </strong>
+<% # TODO add a date selector %>
+
+<div class="datepicker"></div>
+
+
+
 
 <%= form_for @daily_report do |f| %>
   <p>
@@ -19,17 +24,6 @@
 <% end %>
 
 <h3>NARRATIVE</h3>
-
-
-
-<strong>
-<% @daily_reports.each do |daily_report| %>
-  <tr>
-    <td><%= daily_report.narrative %></td>
-  </tr>
-   <% end -%>
-
-</strong>
 
 
 <h3>SUMMARY</h3>
@@ -49,6 +43,7 @@
     <td><%= wall.start %></td>
     <td><%= wall.finish %></td>
     <td><%= wall.operation %></td>
+    <td><%= image_tag wall.image.url(:thumb) %></td>
   </tr>
    <% end -%>
    <% @slabs.each do |slab| %>
@@ -58,9 +53,21 @@
     <td><%= slab.start %></td>
     <td><%= slab.finish %></td>
     <td><%= slab.operation %></td>
+     <td><%= image_tag slab.image.url(:thumb) %></td>
   </tr>
   <% end -%>
   </table>
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= image_tag wall.image.url(:medium) %></td>
+  </tr>
+   <% end -%>
+
+   <% @slabs.each do |slab| %>
+  <tr>
+    <td><%= image_tag slab.image.url(:medium) %></td>
+  </tr>
+   <% end -%>
 
 
 <h3>PHOTOS</h3>

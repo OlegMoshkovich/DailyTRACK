@@ -12,7 +12,7 @@ class InspectionsController < ApplicationController
     	
       @inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@inspection = @inspection_report.inspections.new(inspection_params)#automatically associates the inspeciton to the report
-      #@inspection.image = params["inspection"]["image"]
+      @inspection.image = params["inspection"]["image"]
       #binding.pry
       @inspection.save
       redirect_to inspection_report_path(@inspection_report)
