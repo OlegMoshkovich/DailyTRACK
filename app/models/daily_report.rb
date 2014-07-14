@@ -4,9 +4,6 @@ class DailyReport < ActiveRecord::Base
 	before_create :ensure_date
 	
 	def ensure_date
-
-		binding.pry
-
 		self.date = Date.today
 	end 	
 

@@ -7,7 +7,7 @@ gem 'rails', '4.0.4'
 group :development do
   gem 'sqlite3'
 end
-
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'jquery-ui-rails'
 gem 'unicorn'
 gem 'travis'

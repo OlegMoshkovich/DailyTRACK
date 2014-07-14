@@ -1,13 +1,14 @@
-<h1>INSPECTION REPORTS</h1>
+<h1>Inspeciton REPORTS</h1>
 
 
 <h1></h1>
 <p><strong>CHOOSE FROM THE LIST</strong></p>
 
 <p><strong>
-<%= link_to 'NEW REPORT', new_inspection_report_path %>
+<%= link_to 'New REPORT', new_inspection_report_path %>
 <br>
-<%= link_to 'PROJECT CONTROLLER', root_path%></P>
+ <strong><%= link_to 'Search INSPECTIONS', inspections_path %></strong>
+<br>
 </strong></p>
 
 
@@ -29,4 +30,6 @@
 </table>
 
 
-<h5><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></h5>
+<h5><strong><a href="/daily_reports">Daily REPORT </a></strong>
+	<br>
+<%= link_to 'PROJECT CONTROLLER', root_path%></h5>

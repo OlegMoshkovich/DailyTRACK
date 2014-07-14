@@ -1,274 +1,37 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-		<title>Blank Template</title>
-    	<meta charset="utf-8">
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="description" content="Your description goes here">
-    	<meta name="keywords" content="one, two, three">
+<h1>Export DASHBOARD</h1>
+
+<p><strong>
+At the moment DailyTRACK is capable of excepting CSV files, and populating Concrete SUMMARY DB.
+</strong> </p>
+
+<br>
+<p><strong>
+CSV IMPORTER:
+</strong> </p>
+<%= form_tag import_project_dashboards_path, multipart: true do %>
+	<%= file_field_tag :file %>
+	<%= submit_tag "Import" %>
+<% end %>
+
+<h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
+<table>
+  <tr>
+  	<th>Date</th>
+    <th>BSL.E.i</th>
+     <th>BSL.E.c</th>
+     <th>BSL.L.i</th>
+     <th>BSL.L.c</th>
+    <th helvetica="3"></th>
+  </tr>
+<% @concrete_summaries.each do |concrete_summary| %>
+  <tr>
+  	<td><%= concrete_summary.date %></td>
+    <td><%= concrete_summary.baseline_early_ind %></td>
+    <td><%= concrete_summary.baseline_early_cum %></td>
+    <td><%= concrete_summary.baseline_late_ind %></td>
+    <td><%= concrete_summary.baseline_late_cum %></td>
+  </tr>
+<% end %>
+</table>
 
-		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/style.css">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=none">
-
-	</head>
-
-
-
-
-
-
-	<body>
-		<div id="container">
-			<header>
-
-				<br>
-				<br>
-				<h1>Project Controller</h1>
-
-				<br>
-				<br>
-
-			</header>
-
-			<div class="sectionOne">
-				<table>
-					<th>
-						<td><h3>#Contract</h3></td><td><h3>CM005</h3></td><td><h3>May Monthly Report</h3></td><td><h3>From: 5/1/14</h3></td><td><h3>To:	6/1/14</h3></td>
-					</th>
-				</table>
-				<table>
-					<tr>
-						<td><h4>Title</h4></td><td><h4>Manhattan South Stuctures</h4></td><td>CM</td><td>Vincent Monaco Program Exec</td><td>Bill Goodrich</td>
-					</tr>
-					<tr>
-						<td><h4>Contractor</h4></td><td><h4>Michels</h4></td><td>PM</td><td>Chris Hall Project Director</td><td>Jeff Maffei</td>	
-					</tr>
-
-				</table>
-
-			</div>
-
-			<div class="sectiontwo">
-				<table>
-					<th>
-						<td id="yellow"><h2>General Information Summary</h2></td>
-					</th>
-				</table>
-
-				<table>
-
-					<th>
-						<td><h3>Forecasted Substantial Completion is:</h3></td><td><h3>ON TIME</h3></td><td><h3>Estimate At Completion (EAC) is:</h3></td><td colspan="3"><h3>&nbsp;&nbsp;UNDER BUDGET</h3></td>
-					</th>
-				</table>
-
-				<table>
-
-					<tr>
-						<td><h4>Project Criticality to Program</h4></td><td colspan="2"><h4>Time Elapsed (against current SC)</h4></td><td colspan="2"><h4>Earned Value as of</h4></td><td>CPI</td><td>SPI ($)</td><td>SPI (MH)</td>
-					</tr>
-
-					<tr>
-						<td><h4>PROGRAM CRITICAL PATH</h4></td><td>265 CD</td><td>30.11%</td><td>$60,099,083</td><td>29.73%</td><td>1.00</td><td>0.86</td><td>&nbsp;</td>
-					</tr>
-
-					<tr>
-						<td><h4>Shifts Per Day</h4></td><td><h4>Crews Per Day</h4></td><td><h4>Total Craft Per Day</h4></td><td><h4>Work Locations</h4></td><td colspan="2"><h4>Hours of Work</h4></td><td><h4>Cont. Staff</h4></td><td><h4>ESA Staff</h4></td>
-					</tr>
-					<tr>
-						<td>2</td><td>15D/8S</td><td>170D/80S</td><td>10+</td><td>7:00 AM</td><td>11:00 PM</td><td>30+</td><td>7</td>
-					</tr>
-				</table>
-
-			</div>
-			<div class="sectionthree">
-				<table>	
-					<th>
-					<td id="purple"><h2>General Budget Summary</h2></td>
-					</th>
-				</table>
-
-				<table>
-					<tr>
-						<td><h3>Total Budget</h3></td><td colspan="2"><h3>Orig. Contract</h3></td><td><h3>Exec. Mods</h3></td><td><h3>Current Value</h3></td><td><h3>Pending & Potential Mods</h3></td><td><h3>Estimate at Comp</h3></td><td><h3>Remain. Contingency</h3></td>
-					</tr>
-					<tr>
-						<td>$221,041,568</td><td colspan="2">$200,602,743</td><td>$1,548,534</td><td>$202,151,277</td><td>$6,336,984</td><td>$208,488,261</td><td>$12,553,307</td>
-					</tr>
-					<tr>
-						<td>Exposures</td><td>6/1/14</td><td>No</td><td>0</td><td>$0</td><td>Owner Projected Payment of Exposures</td><td>6/1/14</td><td>$0</td>
-					</tr>
-
-				</table>
-				<table>
-					<tr>
-						<td>Contractor Invoices Through</td><td>6/1/14</td><td>No.</td><td>9</td><td>$60,099,083</td><td>Current Month's Invoice
-						Pay App. 9</td><td>6/1/14</td><td>$12,155,114</td>
-					</tr>
-					<tr>
-						<td>Owner Payments Through</td><td>6/1/14</td><td>No.</td><td>8</td><td>$47,943,969</td><td>Retainage held Through</td><td>6/1/14</td><td>$3,004,954</td>
-					</tr>
-				</table>
-
-
-
-			</div>
-
-
-
-			<div class="sectionfour">
-				<table>
-					<th>
-					<td id="green"><h2>Contract Schedule Summary</h2>[Delta & Buffer = variance from Contract Date.  Better (+) / Worse (-)]</td>
-					</th>
-				</table>
-
-				<table>
-					<tr>
-						<td><h3>Schedule Update Number</h3></td><td><h3>Data Date</h3></td><td><h3>SC Date</h3></td><td><h3>Status</h3></td><td><h3>Comment</h3></td>
-					</tr>
-					<tr>
-						<td>6</td><td>6/1/14</td><td>2/6/16</td><td>Submitted</td><td>Update 6  under review by CM.</td>
-					</tr>
-
-
-				</table>
-				<table>
-					<tr>
-						<td><h3>Access Res.</h3></td><td><h3>Contract Date</h3></td><td><h3>Last Month</h3></td><td><h3>Current Month</h3></td><td><h3>Delta (CD)</h3></td><td><h3>Description</h3></td>
-					</tr>
-					<tr>
-						<td>NOA</td><td>7/29/13</td><td>7/29/13</td><td>7/29/13</td><td>0</td><td>Notice of Award</td>
-					</tr>
-					<tr>
-						<td>NTP</td><td>9/9/13</td><td>9/9/13</td><td>9/9/13</td><td>0</td><td>Notice to Proceed</td>
-
-					</tr>
-					<tr>
-						<td>AR # 1</td><td>1/7/14</td><td>1/7/14</td><td>1/7/14</td><td>0</td><td>Access at 44th St.</td>
-
-					</tr>
-
-				</table>
-				
-				<table>
-					<tr>
-						<td><h3>Milestones</h3></td><td><h3>Contract Date</h3></td><td><h3>Last Month</h3></td><td><h3>Current Month</h3></td><td><h3>Delta (CD)</h3></td><td><h3>Description</h3></td>
-					</tr>
-
-					<tr>
-						<td>MS#1</td><td>9/9/14</td><td>9/9/14</td><td>8/12/14</td><td>28</td><td>Escalator/Cavern Connections - Complete Wellways 1 thru 4</td>
-
-					</tr>
-
-					<tr>
-						<td>MS#2</td><td>7/6/14</td><td>7/3/14</td><td>6/17/14</td><td>19</td><td>Complete North Half of EB Cavern Slab</td>
-
-					</tr>
-					<tr>
-						<td>MS#3</td><td>1/12/15</td><td>1/12/15</td><td>11/25/14</td><td>48</td><td>Complete South Half of EB Cavern & Entire WB Cavern</td>
-					</tr>
-
-					<tr>
-						<td>MS#4</td><td>2/6/16</td><td>2/6/16</td><td>1/22/16</td><td>15</td><td>Substantial Completion</td>
-
-					</tr>
-
-					<tr>
-						<td>MS#5</td><td>5/6/16</td><td>5/6/16</td><td>4/26/16</td><td>10</td><td>Final Completion</td>
-
-					</tr>
-				</table>
-
-
-				<table>
-					<tr>
-						<td><h3>Key Interfaces</h3></td><td><h3>Contract Date</h3></td><td><h3>Current Month</h3></td><td><h3>Successor AR</h3></td><td><h3>Buffer (CD)</h3></td><td><h3>Description</h3></td>
-					</tr>
-
-					<tr>
-						<td>1</td><td>7/31/14</td><td>7/31/14</td><td>11/2/14</td><td>94</td><td>MS #1 Complete Wellways 1-4 - Turnover to CM014B</td>
-
-					</tr>
-
-					<tr>
-						<td>2</td><td>2/6/16</td><td>2/6/16</td><td>4/7/16</td><td>61</td><td>MS #4 SC - Turnover to CM007 Unlimited NTP</td>
-
-					</tr>
-					<tr>
-						<td>3</td><td>2/6/16</td><td>2/6/16</td><td>11/25/14</td><td>48</td><td>MS #4 SC - Turnover to CS179 AR 5 (Tails, 38th, GCT 1&2)</td>
-					</tr>
-
-					<tr>
-						<td>4</td><td>2/6/16</td><td>2/6/16</td><td>4/26/16</td><td>80</td><td>MS #4 SC - Turnover to CS179 AR 11 (Access Tunnel 1)</td>
-
-					</tr>
-
-					<tr>
-						<td>5</td><td>5/6/16</td><td>5/6/16</td><td>4/26/16</td><td>10</td><td>	
-							MS #4 SC - Turnover to CM014B AR #3 (44th St. Vent Plant)</td>
-
-
-				</table>
-
-
-			</div>
-			<div class="sectionfive">
-				<table>
-				<th>
-				<td id="red"><h2>Contract Submittal Summary</h2></td>
-				</th>
-				</table>
-
-
-				<table>
-					<tr>
-						<td>&nbsp;</td><td><h3>Total Submittals per Specification</h3></td><td colspan="4"><h3>Open Submittals by age</h3></td><td colspan="3"><h3>Totals to date</h3></td>
-					</tr>
-					<tr>
-						<td>&nbsp;</td><td></td><td><h3>0-10 days</h3></td><td><h3>11-20 days</h3></td><td><h3>21-30 days</h3></td><td><h3>+30 days</h3></td><td><h3>Submitted</h3></td><td><h3>Open</h3></td>
-					</tr>
-					<tr>
-						<td><h3>Submittals</h3></td><td>3,508</td><td>41</td><td>19</td><td>13</td><td>33</td><td>1023</td><td>106</td>
-					</tr>
-					<tr>
-						<td><h3>RFI</h3></td><td>N/A</td><td>1</td><td>0</td><td>1</td><td>0</td><td>56</td><td>2</td>
-					</tr>
-					<tr>
-						<td><h3>FCR</h3></td><td>N/A</td><td>1</td><td>2</td><td>0</td><td>0</td><td>74</td><td>3</td>
-					</tr>
-					<tr>
-						<td><h3>NOC</h3></td><td>N/A</td><td>0</td><td>0</td><td>0</td><td>0</td><td>8</td><td>0</td>
-					</tr>
-					<tr>
-						<td><h3>NOD</h3></td><td>N/A</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
-					</tr>
-
-				</table>
-			</div>
-
-
-
-
-
-
-			<section id="content">
-
-			</section>
-			<footer>
-				
-			</footer>
-		</div><!-- #container -->
-
-
-		<script src="//code.jquery.com/jquery-latest.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-	</body>
-</html>

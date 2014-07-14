@@ -3,11 +3,17 @@ class ProjectDashboardsController < ApplicationController
 		@concrete_summaries = ConcreteSummary.all
 		length = @concrete_summaries.length
 		@baseline_early_ind_arr = []
-		binding.pry
-		for i in 0..20
-			@baseline_early_ind_arr.push(@concrete_summaries[i].baseline_early_ind)
-		end
+		@baseline_late_ind_arr = []
+		@date_arr = []
 		#binding.pry
+		
+		for i in 0..29
+			@baseline_early_ind_arr.push(@concrete_summaries[i].baseline_early_ind)
+			@baseline_late_ind_arr.push(@concrete_summaries[i].baseline_late_ind)
+			@date_arr.push(@concrete_summaries[i].date.to_s)
+		end
+	    @baseline_late_ind_arr.compact!
+	#binding.pry
 	end
 
 	def new 
