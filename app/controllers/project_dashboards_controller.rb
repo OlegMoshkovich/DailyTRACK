@@ -13,6 +13,7 @@ class ProjectDashboardsController < ApplicationController
 			@date_arr.push(@concrete_summaries[i].date.to_s)
 		end
 	    @baseline_late_ind_arr.compact!
+	    @baseline_early_ind_arr.compact!
 	#binding.pry
 	end
 
