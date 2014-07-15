@@ -8,10 +8,12 @@ before_action :authenticate_user!
 
     # handle no inspections / daily report for the selected date
 
-    @date = Date.today
+    
+    @daily_report= DailyReport.ensure_today
 
-   # binding.pry
-    @daily_report= DailyReport.find_by_date(@date)
+
+
+
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
   	# @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
@@ -19,12 +21,13 @@ before_action :authenticate_user!
 	end
 
 	def new
-		@daily_report = DailyReport.new
+		@daily_report = DailyReport.ensure_today
 	end
 	
 	def create
     	@daily_report = DailyReport.new(daily_reports_params)#automatically associates the inspeciton to the report
-  		if @daily_report.save
+  		
+      if @daily_report.save
   			redirect_to daily_reports_path 
   		else
   			render 'new'
@@ -34,6 +37,7 @@ before_action :authenticate_user!
   	def show
     	@daily_report = DailyReport.find(params[:id])
   	end
+
   def destroy
       @observation = @daily_report.observations.find(params[:id])
       @observation.destroy

@@ -13,16 +13,7 @@ class Inspection < ActiveRecord::Base
 
 
   def ensure_daily_report
-    daily_reports = DailyReport.where(date: Date.today)
-    
-    # ternary operator
-    daily_report = daily_reports.present? ? daily_reports.first : DailyReport.create
-    # daily_report = if daily_reports.present? 
-    #     daily_reports.first 
-    #   else 
-    #     DailyReport.create
-    # end
-    self.daily_report = daily_report
+    self.daily_report = DailyReport.ensure_today 
   end
 
 	 validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
