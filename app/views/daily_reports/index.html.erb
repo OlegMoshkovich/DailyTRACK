@@ -2,14 +2,17 @@
 
 <strong>
 <p>Daily REPORT includes the summary of all activities the took place on any given day.
-It is controlled by the lead. Include a mechnism that allows the LEAD to approve inspections.</p>
+It is controlled by the lead. Include a mechanism that allows the LEAD to approve inspections.</p>
 </strong>
 <% # TODO add a date selector %>
-<%= form_for([@daily_report]) do |f| %>
+
+
+
+<%= form_for daily_reports_path do |f| %>
 <table>
   <tr> 
     <th><%= f.label :Look_UP %><br>
-    <%= f.text_field :date %></th>
+    <%= f.date_select :date %></th>
     <th helvetica="3"></th>
   </tr>
 
@@ -17,7 +20,7 @@ It is controlled by the lead. Include a mechnism that allows the LEAD to approve
     <p><%= f.submit 'Submit', class: 'button', value: 'Find REPORT' %></p>
 <% end %> 
 
-<p><strong><%= link_to 'look up daily report # 22', daily_report_path(@report_id) %><strong></p>
+
 
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>

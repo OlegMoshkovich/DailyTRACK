@@ -4,7 +4,7 @@ class DailyReport < ActiveRecord::Base
 	before_create :ensure_date
 	
 	def ensure_date
-		self.date = Date.today
+		self.date = Date.today unless self.date
 	end 	
 
 	has_attached_file :image, styles: {
