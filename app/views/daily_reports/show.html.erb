@@ -1,8 +1,90 @@
+<h1>Daily REPORT</h1>
 
-<p>
-  <strong>NARRATIVE:</strong>
-  <%= @daily_report.narrative %>
-<br>
-  <strong>DATE:</strong>
-  <%= @daily_report.date %>
+<strong>
+<p>Daily REPORT includes the summary of all activities the took place on any given day.
+It is controlled by the lead. Include a mechnism that allows the LEAD to approve inspections.</p>
+</strong>
+<% # TODO add a date selector %>
+
+<strong><%= link_to 'go back to todays report',daily_reports_path %><strong>
+
+<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+
+
+
+<%= form_for @daily_report do |f| %>
+  <p>
+    <%= f.text_area :narrative,  :cols => "50", :rows => "5"%>
+  </p>
+ 
+
+  <p>
+    <%= f.submit 'Submit NARRATIVE', class: 'button' %> 
+    <!-- Where do I control the submit button is rendered? -->
+  </p>
+<% end %>
+
+<h3>NARRATIVE</h3>
+
+
+<h3>SUMMARY</h3>
+<table>
+  <tr>
+    <th>HEADING</th>
+    <th>ELEMENT</th>
+    <th>START</th>
+    <th>FINISH</th>
+    <th>OPERATION</th>
+    <th helvetica="3"></th>
+  </tr>
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= wall.heading %></td>
+    <td><%= wall.element %></td>
+    <td><%= wall.start %></td>
+    <td><%= wall.finish %></td>
+    <td><%= wall.operation %></td>
+    <td><%= image_tag wall.image.url(:thumb) %></td>
+  </tr>
+   <% end -%>
+   <% @slabs.each do |slab| %>
+  <tr>
+    <td><%= slab.heading %></td>
+    <td><%= slab.element %></td>
+    <td><%= slab.start %></td>
+    <td><%= slab.finish %></td>
+    <td><%= slab.operation %></td>
+     <td><%= image_tag slab.image.url(:thumb) %></td>
+  </tr>
+  <% end -%>
+  </table>
+<% @walls.each do |wall| %>
+  <tr>
+    <td><%= image_tag wall.image.url(:medium) %></td>
+  </tr>
+   <% end -%>
+
+   <% @slabs.each do |slab| %>
+  <tr>
+    <td><%= image_tag slab.image.url(:medium) %></td>
+  </tr>
+   <% end -%>
+
+
+<h3>PHOTOS</h3>
+<strong>
+<p>Include the photo loading gem. PAPERCLIP.
 </p>
+</strong>
+
+
+
+
+<h5>
+<%= link_to 'Daily REPORTS', daily_reports_path%>
+<br>	
+<%= link_to 'Inspection REPORTS', inspection_reports_path%>
+<br>
+<%= link_to 'PROJECT CONTROLLER', root_path%>
+</h5>

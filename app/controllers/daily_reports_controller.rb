@@ -7,13 +7,9 @@ before_action :authenticate_user!
     # lookup inspections associated
 
     # handle no inspections / daily report for the selected date
-
     
     @daily_report= DailyReport.ensure_today
-
-
-
-
+    @report_id = 23
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
   	# @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
@@ -22,6 +18,7 @@ before_action :authenticate_user!
 
 	def new
 		@daily_report = DailyReport.ensure_today
+
 	end
 	
 	def create
@@ -36,6 +33,8 @@ before_action :authenticate_user!
 
   	def show
     	@daily_report = DailyReport.find(params[:id])
+      @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
+      @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
   	end
 
   def destroy
