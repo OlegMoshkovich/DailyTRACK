@@ -6,6 +6,14 @@
 <% end %>
 <BR>
 <table>
+  <tr>
+    <th>HEADING</th>
+    <th>ELEMENT</th>
+    <th>START</th>
+    <th>FINISH</th>
+    <th>OPERATION</th>
+    <th helvetica="3"></th>
+  </tr>
 <% @inspections.each do |inspection| %>
   <tr>
     <td><%= inspection.heading %></td>
@@ -13,6 +21,7 @@
     <td><%= inspection.start %></td>
     <td><%= inspection.finish %></td>
     <td><%= inspection.operation %></td>
+    <td><%= image_tag inspection.image.url(:thumb) %></td>
   </tr>
    <% end -%>
 </table>

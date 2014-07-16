@@ -26,7 +26,7 @@ DailyTrack::Application.routes.draw do
       resources :notes,only: [:show, :create, :destroy] 
   end
 
-
+ resources :graph, only: [:index] 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
