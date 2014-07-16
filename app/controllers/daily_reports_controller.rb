@@ -11,7 +11,7 @@ before_action :authenticate_user!
     # handle no inspections / daily report for the selected date
     
     @daily_report= DailyReport.ensure_today
-    @date = params[:datetime]
+    
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
   	# @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")

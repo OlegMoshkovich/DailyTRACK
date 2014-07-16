@@ -13,7 +13,7 @@ class Inspection < ActiveRecord::Base
 
 
   def ensure_daily_report
-    self.daily_report = DailyReport.ensure_today 
+    self.daily_report = DailyReport.ensure_today unless self.daily_report
   end
 
 	 validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
