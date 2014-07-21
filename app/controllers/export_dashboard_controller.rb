@@ -1,4 +1,5 @@
 class ExportDashboardController < ApplicationController
+	before_action :authenticate_user!
 	def index
 		@concrete_summaries = ConcreteSummary.all
 		length = @concrete_summaries.length
