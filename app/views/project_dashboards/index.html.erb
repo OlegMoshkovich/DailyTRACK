@@ -46,12 +46,14 @@ $(function () {
             series: [{
                 name: 'Baseline_early',
                 pointInterval: <%= 1.month*1000 %>,
+                pointStart: Date.UTC(2013, 11, 01),
                 //pointStart: <%= 3.weeks.ago.to_i*1000 %> ----- NOT WORKING, starts the graph with the the
                 data: array 
             }, 
 
                 {
                 pointInterval: <%= 1.month*1000 %>,
+                pointStart: Date.UTC(2013, 11, 01),
                 name: 'Baseline_late',
                 data: array1,
                 color: '#848484'
@@ -99,9 +101,20 @@ $(function () {
             },
             series: [{
                 pointInterval: <%= 1.month*1000 %>,
+                pointStart: Date.UTC(2013, 11, 01),
                 name: 'Baseline_late',
-                data: array1
+                data: array1,
+             color: '#848484'
             },
+
+            {
+                pointInterval: <%= 1.month*1000 %>,
+                pointStart: Date.UTC(2013, 11, 01),
+                name: 'Baseline_early',
+                data: array,
+               
+            },
+
             ]
         });
     });
@@ -121,6 +134,7 @@ Current Concrete CURVES
 </strong>
 </p>
 <%= image_tag("esa_cm005_concrete_curves.jpg", :size => "1050x700" )%>
+<br>
 
 <iframe src="//player.vimeo.com/video/100739439" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
 <iframe src="//player.vimeo.com/video/100747259" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p>
