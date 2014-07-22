@@ -11,6 +11,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'jquery-ui-rails'
 gem 'unicorn'
 gem 'travis'
+gem 'rolify'
 
 group :production do
   gem 'pg'
