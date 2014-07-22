@@ -26,19 +26,7 @@ It is controlled by the lead. Include a mechanism that allows the LEAD to approv
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 
 
-<%= form_for @daily_report do |f| %>
-  <p>
-    <%= f.text_area :narrative,  :cols => "50", :rows => "5"%>
-  </p>
- 
 
-  <p>
-    <%= f.submit 'Submit NARRATIVE', class: 'button' %> 
-    <!-- Where do I control the submit button is rendered? -->
-  </p>
-<% end %>
-
-<h3>NARRATIVE</h3>
 
 
 <h3>SUMMARY</h3>
