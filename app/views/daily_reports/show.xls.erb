@@ -15,7 +15,6 @@
     <td><%= wall.start %></td>
     <td><%= wall.finish %></td>
     <td><%= wall.operation %></td>
-    <td><%= image_tag wall.image.url(:thumb) %></td>
   </tr>
    <% end -%>
    <% @slabs.each do |slab| %>
@@ -25,7 +24,6 @@
     <td><%= slab.start %></td>
     <td><%= slab.finish %></td>
     <td><%= slab.operation %></td>
-     <td><%= image_tag slab.image.url(:thumb) %></td>
   </tr>
   <% end -%>
   </table>

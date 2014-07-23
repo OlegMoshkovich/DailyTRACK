@@ -5,7 +5,7 @@
   <strong>DATE:</strong>
   <%= @inspection_report.date %>
 </p>
-<%= image_tag("user_prrofile.jpg", :size => "250x220" )%>
+<%= image_tag("user_prrofile_1.jpg", :size => "250x220" )%>
 <br>
 .
 <table>
@@ -77,70 +77,8 @@
     <th helvetica="3"></th>
   </tr>
   </table>
-
     <p><%= f.submit 'Submit', class: 'button', value: 'Create INSPECTION' %></p>
-
-
 <% end %> 
-
-<!-- 
-<form action="/inspection_reports/:id/inspections" class="new-inspection" method="post">
-  <ul>
-    <li>
-      <label for="heading">Heading</label>
-      <select name="heading">
-        <option value="choose"></option>
-        <option value="tt">TT</option>
-        <option value="L402">L402</option>
-        <option value="GCT1+2_east">GCT1+2 East</option>
-        <option value="GCT1+2_west">GCT1+2 West</option>
-      </select>
-
-    </li>
-    <li>
-       <label for="element">Element</label>
-      <select name="element">
-        <option value="choose"></option>
-        <option value="wall">wall</option>
-        <option value="slab">slab</option>
-        <option value="arch">arch</option>
-        <option value="invert">invert</option>
-      </select>
-    </li>
-
-    <li>
-      <label for="start">Start</label>
-      <input type="text" name="start" placeholder="Station number">
-
-    </li>
-    <li>
-    <label for="finish">Finish</label>
-      <input type="text" name="finish" placeholder="Station number">
-    </li>
-
-    <li>
-       <label for="operation">Operation</label>
-      <select name="operation">
-         <option value="choose"></option>
-        <option value="concrete">CON</option>
-        <option value="waterproofing">WP</option>
-        <option value="rbr">RBR</option>
-      </select>
-    </li>
-
-
-  </ul>
-
-
-
-    <p>
-  </p>
-
-
-</form>
-
- -->
-
 
 
 <h3>CREATE NOTE:</h3>
@@ -157,14 +95,12 @@
   </p>
 <% end %>
 
-
-<BR>
-<P>
+<h5>
+<br>
 <strong><a href="/daily_reports">Daily REPORT </a></strong>
 <br>
-  <strong><%= link_to 'SEARCH', inspections_path %>
-<BR>
-<%= link_to 'REPORTS', inspection_reports_path %>
+<%= link_to 'Inspection REPORTS', inspection_reports_path %>
 <BR>
 <%= link_to 'PROJECT CONTROLLER', root_path%>
-</P></strong>
+</strong>
+</h5>

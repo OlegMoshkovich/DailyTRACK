@@ -1,8 +1,6 @@
 <h1>Inspection REPORTS</h1>
 
 
-<h1></h1>
-<p><strong>CHOOSE FROM THE LIST</strong></p>
 
 <p><strong>
 <%= link_to 'New REPORT', new_inspection_report_path %>
@@ -30,6 +28,10 @@
 </table>
 
 
-<h5><strong><a href="/daily_reports">Daily REPORT </a></strong>
-	<br>
-<%= link_to 'PROJECT CONTROLLER', root_path%></h5>
+<h5>
+<strong><%= link_to 'Search', inspections_path %>
+<br>
+<strong><a href="/daily_reports">Daily REPORT </a></strong>
+<br>
+<%= link_to 'PROJECT CONTROLLER', root_path%>
+</h5>
