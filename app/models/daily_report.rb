@@ -28,4 +28,16 @@ class DailyReport < ActiveRecord::Base
 
 		daily_report
 	end
+	
+	def self.to_csv
+		CSV.generate do |csv|
+		csv << column_names
+			all.each do |wall|
+			csv << wall.attributes.values_at(*column_names)
+			end	
+		end
+	end
+
 end
+
+

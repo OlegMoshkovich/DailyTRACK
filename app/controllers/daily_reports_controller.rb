@@ -16,7 +16,9 @@ before_action :authenticate_user!
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
   	# @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "WALL")
   	# @slabs = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc).where("element = ?", "SLAB")
-	end
+	 
+
+  end
 
 	def new
 		@daily_report = DailyReport.ensure_today
@@ -47,6 +49,11 @@ before_action :authenticate_user!
     	@daily_report = DailyReport.find(params[:id])
       @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
       @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
+      respond_to do |format|
+        format.html
+        format.csv{send_data text: @walls.to_csv }
+        format.xls
+      end
   	end
 
   def destroy
