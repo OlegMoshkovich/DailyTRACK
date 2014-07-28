@@ -2,12 +2,8 @@
 
 <strong>
 <p>Daily REPORT includes summary of all daily activities.
-  <br>
-<!-- Daily REPORT function contains a mechnism that allows the LEAD to approve inspections.</p> -->
+<br>
 </strong>
-<% # TODO add a date selector %>
-
-
 
 <%= form_for daily_reports_path do |f| %>
 <table>
@@ -16,19 +12,29 @@
     <%= f.date_select :date %></th>
     <th helvetica="3"></th>
   </tr>
-
-  </table>
-    <p><%= f.submit 'Submit', class: 'button', value: 'Find REPORT' %></p>
+</table>
+<p><%= f.submit 'Submit', class: 'button', value: 'Find REPORT' %></p>
 <% end %> 
 
-
-
-<%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
-<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+<h3>NARRATIVE</h3>
+<table>
+  <tr> 
+    <th helvetica="3"></th>
+  </tr>
+<% @daily_report.narratives.each do |narrative| %>
+  <tr>
+    <th><%= narrative.narrative %></th>
+     <td><%= link_to '+', [narrative.daily_report, narrative],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
 
 
 <h3>SUMMARY</h3>
+
 <table>
   <tr>
     <th>HEADING</th>
@@ -38,6 +44,7 @@
     <th>OPERATION</th>
     <th helvetica="3"></th>
   </tr>
+
 <% @walls.each do |wall| %>
   <tr>
     <td><%= wall.heading %></td>
@@ -47,7 +54,8 @@
     <td><%= wall.operation %></td>
     <td><%= image_tag wall.image.url(:thumb) %></td>
   </tr>
-   <% end -%>
+<% end -%>
+   
    <% @slabs.each do |slab| %>
   <tr>
     <td><%= slab.heading %></td>
@@ -57,23 +65,32 @@
     <td><%= slab.operation %></td>
      <td><%= image_tag slab.image.url(:thumb) %></td>
   </tr>
-  <% end -%>
-  </table>
+<% end -%>
+</table>
+
 <% @walls.each do |wall| %>
   <tr>
     <td><%= image_tag wall.image.url(:medium) %></td>
   </tr>
-   <% end -%>
+<% end -%>
 
-   <% @slabs.each do |slab| %>
+<% @slabs.each do |slab| %>
   <tr>
     <td><%= image_tag slab.image.url(:medium) %></td>
   </tr>
-   <% end -%>
+<% end -%>
 
 
-
-
+<h3>CREATE NARRATIVE:</h3>
+<%= form_for([@daily_report, @daily_report.narratives.build]) do |f| %>
+<table>
+  <tr>
+    <%= f.text_area :narrative,  :cols => "50", :rows => "5" %></th>
+    <th helvetica="3"></th>
+  </tr>
+</table>  
+    <p><%= f.submit class: 'button' , value: 'Create Narrative '%></p>
+<% end %>
 
 
 

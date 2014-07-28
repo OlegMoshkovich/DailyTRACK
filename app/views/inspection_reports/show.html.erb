@@ -11,7 +11,7 @@
 <table>
   <tr>
     <th>OBSERVATION</th>
-        <th helvetica="3"></th>
+    <th helvetica="3"></th>
   </tr>
 
 
@@ -21,13 +21,10 @@
      <td><strong><%= link_to '+', [note.inspection_report, note],
                method: :delete,
                data: { confirm: 'Are you sure?' } %></strong></td>
-
   </tr>
 <% end %>
 </table>
-
 <br>
-
 <table>
   <tr>
     <th>HEADING</th>
@@ -38,7 +35,6 @@
     <th>ERASE</th>
     <th helvetica="3"></th>
   </tr>
- 
 <% @inspection_report.inspections.each do |inspection| %>
   <tr>
     <td><%= inspection.heading %></td>
@@ -47,12 +43,9 @@
     <td><%= inspection.finish %></td>
     <td><%= inspection.operation %></td>
     <td><%= image_tag inspection.image.url(:thumb)  %></td>
-
     <td><strong><%= link_to '+', [inspection.inspection_report, inspection],
                method: :delete,
                data: { confirm: 'Are you sure?' } %><strong></td>
-
-
   </tr>
 <% end %></table>
 
@@ -62,8 +55,7 @@
 <table>
   <tr>
     <th><%= f.label :heading %><br>
-    <%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ]) %>
-    
+    <%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%>
     <th>    <%= f.label :element %><br>
     <%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT' ]) %>
     <th>    <%= f.label :start %><br>
@@ -89,18 +81,19 @@
     <%= f.text_area :observation,  :cols => "50", :rows => "5" %></th>
     <th helvetica="3"></th>
   </tr>
-  </table>
-    <p>
-    <%= f.submit class: 'button' , value: 'Create NOTE '%>
-  </p>
+</table>  
+    <p><%= f.submit class: 'button' , value: 'Create NOTE '%></p>
 <% end %>
 
 <h5>
-<br>
 <strong><a href="/daily_reports">Daily REPORT </a></strong>
 <br>
 <%= link_to 'Inspection REPORTS', inspection_reports_path %>
-<BR>
+<br>
 <%= link_to 'PROJECT CONTROLLER', root_path%>
 </strong>
 </h5>
+
+
+
+

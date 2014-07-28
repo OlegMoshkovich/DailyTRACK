@@ -8,6 +8,21 @@
 
 <p><strong><%= link_to 'BACK',daily_reports_path %><strong></p>
 
+<h3>NARRATIVE</h3>
+<table>
+  <tr> 
+    <th helvetica="3"></th>
+  </tr>
+<% @daily_report.narratives.each do |narrative| %>
+  <tr>
+    <th><%= narrative.narrative %></th>
+     <td><%= link_to '+', [narrative.daily_report, narrative],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 

@@ -3,7 +3,6 @@ class InspectionReportsController < ApplicationController
 
 	def index
 		@inspection_reports = InspectionReport.all
-		#binding.pry
 	end
 
 	def new
@@ -15,17 +14,12 @@ class InspectionReportsController < ApplicationController
 	end
 
 	def create
-
-#binding.pry
-
   		@inspection_report = InspectionReport.new(inspection_report_params)
-
   		if @inspection_report.save
   			redirect_to @inspection_report 
   		else
   			render 'new'
   		end
-	
 	end
 
 	def destroy
@@ -33,9 +27,9 @@ class InspectionReportsController < ApplicationController
 		@inspection_report.destroy
 		redirect_to inspection_reports_path	
 	end
- 
-	private
 
+
+	private
   	def inspection_report_params
     	params.require(:inspection_report).permit(:inspector, :date)
   	end

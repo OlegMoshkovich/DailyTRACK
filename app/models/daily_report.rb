@@ -1,6 +1,7 @@
 class DailyReport < ActiveRecord::Base
 	attr_accessible :narrative, :date
 	has_many :inspections
+	has_many :narratives
 	before_create :ensure_date
 	
 	def ensure_date

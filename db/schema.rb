@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713181304) do
+ActiveRecord::Schema.define(version: 20140728183910) do
 
   create_table "concrete_summaries", force: true do |t|
     t.string   "date"
@@ -59,6 +59,15 @@ ActiveRecord::Schema.define(version: 20140713181304) do
 
   add_index "inspections", ["daily_report_id"], name: "index_inspections_on_daily_report_id"
   add_index "inspections", ["inspection_report_id"], name: "index_inspections_on_inspection_report_id"
+
+  create_table "narratives", force: true do |t|
+    t.string   "narrative"
+    t.integer  "daily_report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "narratives", ["daily_report_id"], name: "index_narratives_on_daily_report_id"
 
   create_table "notes", force: true do |t|
     t.string   "observation"

@@ -6,12 +6,12 @@ class NotesController < ApplicationController
     	redirect_to inspection_report_path(@inspection_report)
   	end
 
-  	 	def show
+  	def show
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@note = @inspection_report.notes.find(params[:id])
   	end
 
-  	 	def destroy
+  	def destroy
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@note = @inspection_report.notes.find(params[:id])
     	@note.destroy
