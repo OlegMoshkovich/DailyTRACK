@@ -3,7 +3,7 @@ DailyTrack::Application.routes.draw do
   devise_for :users 
   #--------------how can i limit the users from signing up
 
-
+ resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
