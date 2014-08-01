@@ -7,14 +7,20 @@ class InspectionReportsController < ApplicationController
 
 	def new
 		@inspection_report = InspectionReport.new	
+		@user_a = current_user
 	end
 
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
+		@user_a = current_user
 	end
 
 	def create
+		
   		@inspection_report = InspectionReport.new(inspection_report_params)
+  		@inspection_report.inspector = current_user.username
+  		@inspection_report.user = current_user
+  		@user_a = current_user
   		if @inspection_report.save
   			redirect_to @inspection_report 
   		else
@@ -31,6 +37,6 @@ class InspectionReportsController < ApplicationController
 
 	private
   	def inspection_report_params
-    	params.require(:inspection_report).permit(:inspector, :date)
+    	params.require(:inspection_report).permit( :date)
   	end
 end

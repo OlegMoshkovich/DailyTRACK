@@ -1,4 +1,18 @@
 <%if user_signed_in?%>
-	<%= current_user.email %>
-	<%= @user %>
+	<%= current_user.username %>
+	<br>
+	<p> Avatar</p>
+	<%= image_tag @user_a.image.url, :size => "200x209" %>
+
+
 	<% end%>
+
+	<%= form_for @user_a, :url => users_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :image %>
+   <%= form.submit 'New Report', class: 'button' %> 
+
+<% end %>
+
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728183910) do
+ActiveRecord::Schema.define(version: 20140801144040) do
 
   create_table "concrete_summaries", force: true do |t|
     t.string   "date"
@@ -39,7 +39,10 @@ ActiveRecord::Schema.define(version: 20140728183910) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "inspection_reports", ["user_id"], name: "index_inspection_reports_on_user_id"
 
   create_table "inspections", force: true do |t|
     t.string   "heading"
@@ -103,6 +106,11 @@ ActiveRecord::Schema.define(version: 20140728183910) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

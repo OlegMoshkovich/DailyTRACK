@@ -1,11 +1,11 @@
 <h2>New Inspection Report</h2>
 
 <%= form_for @inspection_report do |f| %>
-  <p>
-    <%= f.label :NAME %><br>
-    <%= f.text_field :inspector %>
-  </p>
- 
+  
+
+  <%= image_tag @user_a.image.url, :size => "250x200" %>
+  <br>
+   <%= current_user.username %>
   <p>
     <%= f.label :DATE %><br>
     <%= f.date_select :date %>
