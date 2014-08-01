@@ -5,7 +5,7 @@
   <strong>DATE:</strong>
   <%= @inspection_report.date %>
 </p>
-<%= image_tag @user_a.image.url, :size => "250x200" %>
+<%= image_tag(@inspection_report.user.image.url(:thumb)) %>
 
 <br>
 

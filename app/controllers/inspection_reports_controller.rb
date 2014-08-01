@@ -7,12 +7,12 @@ class InspectionReportsController < ApplicationController
 
 	def new
 		@inspection_report = InspectionReport.new	
-		@user_a = current_user
+		@user = current_user
 	end
 
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
-		@user_a = current_user
+		@user = current_user
 	end
 
 	def create

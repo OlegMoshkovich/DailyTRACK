@@ -2,10 +2,9 @@
 
 <%= form_for @inspection_report do |f| %>
   
-
-  <%= image_tag @user_a.image.url, :size => "250x200" %>
-  <br>
-   <%= current_user.username %>
+  <strong><p>Inspector Name: </p></strong>
+   <p><%= @user.username %></p>
+    <%= image_tag(@user.image.url(:thumb)) %>
   <p>
     <%= f.label :DATE %><br>
     <%= f.date_select :date %>

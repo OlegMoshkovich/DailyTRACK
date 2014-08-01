@@ -5,13 +5,14 @@ gem 'rails', '4.0.4'
 
 # Use sqlite3 as the database for Active Record
 group :development do
-  gem 'sqlite3'
+gem 'sqlite3'
 end
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'jquery-ui-rails'
 gem 'unicorn'
 gem 'travis'
 gem 'rolify'
+gem 'cancancan', '~> 1.9'
 
 group :production do
   gem 'pg'
@@ -44,7 +45,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
-
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

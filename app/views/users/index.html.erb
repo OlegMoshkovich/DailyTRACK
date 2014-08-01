@@ -1,17 +1,13 @@
 <%if user_signed_in?%>
-	<%= current_user.username %>
-	<br>
-	<p> Avatar</p>
-	<%= image_tag @user_a.image.url, :size => "200x209" %>
+	<strong><p> Inspector Name:</p></strong>
+	<p><%= current_user.username %></p>
+	<strong><p> Inspector Picture:</p></strong>
+	<%= image_tag(@user.image.url(:thumb)) %>
+
+	<h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
+<% end%>
 
 
-	<% end%>
-
-	<%= form_for @user_a, :url => users_path, :html => { :multipart => true } do |form| %>
-  <%= form.file_field :image %>
-   <%= form.submit 'New Report', class: 'button' %> 
-
-<% end %>
 
 
 
