@@ -1,6 +1,6 @@
 <%if user_signed_in?%>
 	<strong><p> Inspector Name:</p></strong>
-	<p><%= current_user.username %></p>
+	<!-- <p><%= current_user.username %></p> -->
 	<strong><p> Inspector Picture:</p></strong>
 	<%= image_tag(@user.image.url(:thumb)) %>
 <strong><p> Role:</p></strong>
