@@ -8,8 +8,8 @@
 <%= form_for daily_reports_path do |f| %>
 <table>
   <tr> 
-    <!-- <th><%= f.label :Look_UP %><br> -->
-    <%= f.date_select :date %></th>
+    <%= f.date_field :date %></th>
+
     <th helvetica="3"></th>
   </tr>
 </table>
@@ -91,6 +91,13 @@
     <td><%= image_tag slab.image.url(:medium) %></td>
   </tr>
 <% end -%>
+
+<% @arches.each do |arch| %>
+  <tr>
+    <td><%= image_tag arch.image.url(:medium) %></td>
+  </tr>
+<% end -%>
+
 
 
 <h3>CREATE NARRATIVE:</h3>

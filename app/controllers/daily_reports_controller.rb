@@ -14,11 +14,12 @@ before_action :authenticate_user!
 	
 	def create
       date_params = params['/daily_reports']
-      year = date_params["date(1i)"]
-      month = date_params["date(2i)"]
-      day = date_params["date(3i)"]
-      @date = Date.new(year.to_i, month.to_i, day.to_i)
-      @daily_report = DailyReport.find_or_initialize_by_date(@date)
+      #year = date_params["date(1i)"]
+      #month = date_params["date(2i)"]
+      #day = date_params["date(3i)"]
+      #binding.pry
+      #@date = Date.new(year.to_i, month.to_i, day.to_i)
+      @daily_report = DailyReport.find_or_initialize_by_date(date_params)
       if @daily_report.save
   			redirect_to @daily_report 
   		else

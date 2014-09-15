@@ -7,22 +7,21 @@ gem 'rails', '4.0.4'
 group :development do
 gem 'sqlite3'
 end
-gem 'dotenv-rails', :groups => [:development, :test]
-gem 'jquery-ui-rails'
-gem 'unicorn'
-gem 'travis'
-gem 'rolify'
-gem 'cancancan', '~> 1.9'
-
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'unicorn'
+gem 'travis'
+gem 'rolify'
+gem 'cancancan', '~> 1.9'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 gem 'protected_attributes'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
@@ -41,6 +40,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 4.2.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
