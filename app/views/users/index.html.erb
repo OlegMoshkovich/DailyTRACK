@@ -3,8 +3,12 @@
 	<p><%= current_user.username %></p>
 	<strong><p> Inspector Picture:</p></strong>
 	<%= image_tag(@user.image.url(:thumb)) %>
+	<br>
+	<p>.</p>
 <strong><p> Role:</p></strong>
-	<h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
+
+<br>
+	<!-- <h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5> -->
 <% end%>
 
 

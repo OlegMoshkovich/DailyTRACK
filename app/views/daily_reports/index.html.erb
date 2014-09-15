@@ -1,14 +1,14 @@
 <h1>Daily REPORT</h1>
 
 <strong>
-<p>Daily REPORT includes summary of all daily activities.
+<!-- <p>Daily REPORT includes summary of all daily activities. -->
 <br>
 </strong>
 
 <%= form_for daily_reports_path do |f| %>
 <table>
   <tr> 
-    <th><%= f.label :Look_UP %><br>
+    <!-- <th><%= f.label :Look_UP %><br> -->
     <%= f.date_select :date %></th>
     <th helvetica="3"></th>
   </tr>
@@ -66,6 +66,18 @@
      <td><%= image_tag slab.image.url(:thumb) %></td>
   </tr>
 <% end -%>
+
+ <% @arches.each do |arch| %>
+  <tr>
+    <td><%= arch.heading %></td>
+    <td><%= arch.element %></td>
+    <td><%= arch.start %></td>
+    <td><%= arch.finish %></td>
+    <td><%= arch.operation %></td>
+    <td><%= image_tag arch.image.url(:thumb) %></td>
+  </tr>
+<% end -%>
+
 </table>
 
 <% @walls.each do |wall| %>
@@ -96,10 +108,10 @@
 
 <h5>
 <%= link_to "Export EXCEL",daily_reports_path(format: "xls") %>
-<br>
+<!-- <br>
 <%= link_to 'Inspection REPORTS', inspection_reports_path%>
 <br>
-<%= link_to 'PROJECT CONTROLLER', root_path%>
+<%= link_to 'PROJECT CONTROLLER', root_path%> -->
 </h5>
 
 

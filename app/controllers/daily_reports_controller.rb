@@ -5,6 +5,7 @@ before_action :authenticate_user!
     @daily_report= DailyReport.ensure_today    
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
+    @arches = @daily_report.inspections.where("element = ?", "ARCH").order(created_at: :asc)  
   end  
 
 	def new
@@ -29,6 +30,8 @@ before_action :authenticate_user!
     	@daily_report = DailyReport.find(params[:id])
       @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
       @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
+      @arches = @daily_report.inspections.where("element = ?", "ARCH").order(created_at: :asc)
+      
       respond_to do |format|
         format.html
         format.csv{send_data text: @walls.to_csv }

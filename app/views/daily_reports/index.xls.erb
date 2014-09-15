@@ -28,4 +28,15 @@
     <td><%= slab.operation %></td>
   </tr>
   <% end -%>
+
+   <% @arches.each do |slab| %>
+  <tr>
+    <td><%= arch.heading %></td>
+    <td><%= arch.element %></td>
+    <td><%= arch.start %></td>
+    <td><%= arch.finish %></td>
+    <td><%= arch.operation %></td>
+  </tr>
+  <% end -%>
+  
   </table>
