@@ -1,50 +1,20 @@
-<h1>Daily REPORT</h1>
+<div class = "container">
 
-<strong>
-<!-- <p>Daily REPORT includes summary of all daily activities. -->
-<br>
-</strong>
+<h1 class="text-center ">Daily Report</h1>
+<div class='row'>
+<div class ='span9'>
 
-<%= form_for daily_reports_path do |f| %>
-<table>
-  <tr> 
-    <%= f.date_field :date %></th>
-
-    <th helvetica="3"></th>
-  </tr>
-</table>
-<p><%= f.submit 'Submit', class: 'button', value: 'Find REPORT' %></p>
-<% end %> 
-
-<h3>NARRATIVE</h3>
-<table>
-  <tr> 
-    <th helvetica="3"></th>
-  </tr>
-<% @daily_report.narratives.each do |narrative| %>
-  <tr>
-    <th><%= narrative.narrative %></th>
-     <td><%= link_to '+', [narrative.daily_report, narrative],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-
-
-<h3>SUMMARY</h3>
-
-<table>
+<h3>Summary</h3>
+<table class="text-center" >
   <tr>
     <th>HEADING</th>
     <th>ELEMENT</th>
     <th>START</th>
     <th>FINISH</th>
     <th>OPERATION</th>
+    <th>IMAGES</th>
     <th helvetica="3"></th>
   </tr>
-
 <% @walls.each do |wall| %>
   <tr>
     <td><%= wall.heading %></td>
@@ -55,7 +25,6 @@
     <td><%= image_tag wall.image.url(:thumb) %></td>
   </tr>
 <% end -%>
-   
    <% @slabs.each do |slab| %>
   <tr>
     <td><%= slab.heading %></td>
@@ -66,7 +35,6 @@
      <td><%= image_tag slab.image.url(:thumb) %></td>
   </tr>
 <% end -%>
-
  <% @arches.each do |arch| %>
   <tr>
     <td><%= arch.heading %></td>
@@ -77,9 +45,44 @@
     <td><%= image_tag arch.image.url(:thumb) %></td>
   </tr>
 <% end -%>
-
 </table>
 
+<h3>Narrative</h3>
+<table>
+
+<% @daily_report.narratives.each do |narrative| %>
+<p><%= narrative.narrative %>
+<%= link_to '+', [narrative.daily_report, narrative],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+<% end %>
+</p>
+</table>
+
+<h3>Create Narrative:</h3>
+<%= form_for([@daily_report, @daily_report.narratives.build]) do |f| %>
+<table>
+  <tr>
+    <%= f.text_area :narrative,  :cols => "50", :rows => "2" %></th>
+    <th helvetica="3"></th>
+  </tr>
+</table>  
+    <p><%= f.submit class: 'button' , value: 'Create Narrative '%></p>
+<% end %>
+
+
+
+</div>
+<div class ='span3'>
+  <h3>Search</h3>
+<%= form_for daily_reports_path do |f| %>
+<h2><%= f.date_field :date %></h2>
+<%= f.submit 'Submit', class: 'button', value: 'Find' %>
+<% end %> 
+<h5><%= link_to "Export EXCEL",daily_reports_path(format: "xls") %></h5>
+
+</div>
+</div>
 <% @walls.each do |wall| %>
   <tr>
     <td><%= image_tag wall.image.url(:medium) %></td>
@@ -98,27 +101,5 @@
   </tr>
 <% end -%>
 
-
-
-<h3>CREATE NARRATIVE:</h3>
-<%= form_for([@daily_report, @daily_report.narratives.build]) do |f| %>
-<table>
-  <tr>
-    <%= f.text_area :narrative,  :cols => "50", :rows => "5" %></th>
-    <th helvetica="3"></th>
-  </tr>
-</table>  
-    <p><%= f.submit class: 'button' , value: 'Create Narrative '%></p>
-<% end %>
-
-
-
-<h5>
-<%= link_to "Export EXCEL",daily_reports_path(format: "xls") %>
-<!-- <br>
-<%= link_to 'Inspection REPORTS', inspection_reports_path%>
-<br>
-<%= link_to 'PROJECT CONTROLLER', root_path%> -->
-</h5>
-
+</div>
 

@@ -1,31 +1,21 @@
-<h1>Inspection REPORTS</h1>
+ <h1 class="text-center" >Inspection Reports</h1>
 
-<p>
+<p class="text-center">
 <strong><%= link_to 'New REPORT', new_inspection_report_path %></strong>
-<!-- <br>
-<strong><%= link_to 'Search INSPECTIONS', inspections_path %></strong> -->
 </p>
 
-<table>
-  <tr>
-	<td>INSPECTOR</td>    
-    <td>DATE</td>
-    <td>ERASE</td>
+<table >
+  <tr class= "text-center">
+	<td class= "text-center">Inspector</td>    
+    <td class= "text-center">Date</td>
+    <td class= "text-center">Erase</td>
   </tr>
+
 <% @inspection_reports.each do |inspection_report| %>
   <tr>
-    <td><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
-    <td><%= inspection_report.date %></td>
-    <td><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+    <td class= "text-center"><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
+    <td class= "text-center"><%= inspection_report.date %></td>
+    <td class= "text-center"><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
   </tr>
 <% end %>
 </table>
-
-
-<!-- <h5>
-<strong><%= link_to 'Search', inspections_path %>
-<br>
-<a href="/daily_reports">Daily REPORT </a>
-<br>
-<%= link_to 'PROJECT CONTROLLER', root_path%></strong>
-</h5> -->

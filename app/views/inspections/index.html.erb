@@ -1,12 +1,13 @@
 
-
-<h1>Search RESULTS</h1>
-
-  <%= form_tag "/inspections", method: "GET" do %>
-    <%= text_field_tag :q, params[:q] %>
-  <%= submit_tag "Search" %>
+<h1 class="text-center">Search Results</h1>
+<%= form_tag "/inspections", method: "GET" do %>
+<%= text_field_tag :q, params[:q] %>
+<%= submit_tag "Search" %>
 <% end %>
-<BR>
+
+<div class='row'>
+<div class ='span6'>
+
 <table>
   <tr>
     <th>HEADING</th>
@@ -16,6 +17,7 @@
     <th>OPERATION</th>
     <th helvetica="3"></th>
   </tr>
+
 <% @inspections.each do |inspection| %>
   <tr>
     <td><%= inspection.heading %></td>
@@ -25,16 +27,12 @@
     <td><%= inspection.operation %></td>
     <td><%= image_tag inspection.image.url(:thumb) %></td>
   </tr>
-   <% end -%>
+<% end -%>
+
 </table>
 
-
-<!-- <h5>
-  <%= link_to 'Inspection REPORTS', inspection_reports_path%>
-	<br>
-  <%= link_to 'Daily REPORT', daily_reports_path%>
-  <br>
-<%= link_to 'PROJECT CONTROLLER', root_path%></h5> -->
+</div>
+</div>
 
 
 
