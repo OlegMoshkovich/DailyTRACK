@@ -1,62 +1,71 @@
-<h1>Daily REPORT</h1>
-
-<strong>
-
-
-<p><strong><%= link_to 'BACK',daily_reports_path %><strong></p>
-
-<h3>NARRATIVE</h3>
-<table>
-  <tr> 
-    <th helvetica="3"></th>
-  </tr>
-<% @daily_report.narratives.each do |narrative| %>
-  <tr>
-    <th><%= narrative.narrative %></th>
-     <td><%= link_to '+', [narrative.daily_report, narrative],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
 <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
 <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
 
+<p class = "text-left"><strong><%= link_to 'Back',daily_reports_path %><strong></p>
+<h1 class="text-center ">Daily Report</h1>
+
+    <div class='row'>
+      <div class ='span8'>
+        <h3>Summary:</h3>
+        <table class="table" >
+          <tr>
+            <th>Heading</th>
+            <th>Element</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>Operation</th>
+            <th>Images</th>
+          </tr>
+          <% @walls.each do |wall| %>
+            <tr>
+              <td><%= wall.heading %></td>
+              <td><%= wall.element %></td>
+              <td><%= wall.start %></td>
+              <td><%= wall.finish %></td>
+              <td><%= wall.operation %></td>
+              <td><%= image_tag wall.image.url(:thumb) %></td>
+            </tr>
+          <% end -%>
+           <% @slabs.each do |slab| %>
+              <tr>
+                <td><%= slab.heading %></td>
+                <td><%= slab.element %></td>
+                <td><%= slab.start %></td>
+                <td><%= slab.finish %></td>
+                <td><%= slab.operation %></td>
+                <td><%= image_tag slab.image.url(:thumb) %></td>
+              </tr>
+          <% end -%>
+           <% @arches.each do |arch| %>
+            <tr>
+              <td><%= arch.heading %></td>
+              <td><%= arch.element %></td>
+              <td><%= arch.start %></td>
+              <td><%= arch.finish %></td>
+              <td><%= arch.operation %></td>
+              <td><%= image_tag arch.image.url(:thumb) %></td>
+            </tr>
+            <% end -%>      
+        </table>
+      </div>
+     
+      <!-- <div class ='span4'>
+        <h3>Notes:</h3>
+          <table>
+            <% @daily_report.narratives.each do |narrative| %>
+              <p><%= narrative.narrative %></th>
+                <%= link_to '+', [narrative.daily_report, narrative],
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } %></p>
+            <% end %>
+          </table>
+          <%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => 'btn btn-primary' , :method => :get %>
+      </div> -->
+
+    </div>  
 
 
-<h3>SUMMARY</h3>
-
-<table class='table'>
-  <tr>
-    <th>HEADING</th>
-    <th>ELEMENT</th>
-    <th>START</th>
-    <th>FINISH</th>
-    <th>OPERATION</th>
-    <th helvetica="3"></th>
-  </tr>
-<% @walls.each do |wall| %>
-  <tr>
-    <td><%= wall.heading %></td>
-    <td><%= wall.element %></td>
-    <td><%= wall.start %></td>
-    <td><%= wall.finish %></td>
-    <td><%= wall.operation %></td>
-    <td><%= image_tag wall.image.url(:thumb) %></td>
-  </tr>
-   <% end -%>
-   <% @slabs.each do |slab| %>
-  <tr>
-    <td><%= slab.heading %></td>
-    <td><%= slab.element %></td>
-    <td><%= slab.start %></td>
-    <td><%= slab.finish %></td>
-    <td><%= slab.operation %></td>
-     <td><%= image_tag slab.image.url(:thumb) %></td>
-  </tr>
-  <% end -%>
-  </table>
+<h3 class="text-left ">Images:</h3>
 <% @walls.each do |wall| %>
   <tr>
     <td><%= image_tag wall.image.url(:medium) %></td>
@@ -70,12 +79,4 @@
    <% end -%>
 
 
-<h5>
-<%= link_to "Export EXCEL",daily_report_path(format: "xls") %>
-<!-- <br>
-<%= link_to 'Daily REPORTS', daily_reports_path%>
-<br>	
-<%= link_to 'Inspection REPORTS', inspection_reports_path%>
-<br>
-<%= link_to 'PROJECT CONTROLLER', root_path%> -->
-</h5>
+

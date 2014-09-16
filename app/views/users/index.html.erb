@@ -1,14 +1,14 @@
 <%if user_signed_in?%>
-	<strong><p> Inspector Name:</p></strong>
-	<p><%= current_user.username %></p>
-	<strong><p> Inspector Picture:</p></strong>
-	<%= image_tag(@user.image.url(:thumb)) %>
+	<strong><p class= "text-center"> Inspector Name:</p></strong>
+	<p class= "text-center"><%= current_user.username %></p>
+	<!-- <strong><p> Inspector Picture:</p></strong> -->
+	<p class= "text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
 	<br>
-	<p>.</p>
-<strong><p> Role:</p></strong>
 
-<br>
-	<!-- <h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5> -->
+
+<strong><p class = 'text-center'> Role: Inspector</p></strong>
+<!-- <div class ='text-center'>Inspector</div>  -->
+
 <% end%>
 
 

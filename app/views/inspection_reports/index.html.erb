@@ -1,25 +1,36 @@
  <h1 class="text-center" >Inspection Reports</h1>
 
-
 <div class="text-center">
-<%= button_to 'New REPORT', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+    <%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+</div>
+
+<br>
+
+<div class='row'>
+        <div class ='span4'>
+        </div>
+
+    <div class ='span4'>
+        
+      <table class = "table" >
+          <tr>
+            <td >Inspector</td>
+            <td >Date</td>
+            <td >Erase</td>
+          </tr>
+
+        <% @inspection_reports.each do |inspection_report| %>
+          <tr>
+            <td ><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
+            <td><%= inspection_report.date %></td>
+            <td><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+          </tr>
+        <% end %>
+      </table>
+
+    </div>
 </div>
 
 
 
-<table class = "table table-condensed" >
-  <tr class= "text-center">
-	<td class= "text-center">Inspector</td>    
-    <td class= "text-center">Date</td>
-    <td class= "text-center">Erase</td>
-  </tr>
-
-<% @inspection_reports.each do |inspection_report| %>
-  <tr>
-    <td class= "text-center"><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
-    <td class= "text-center"><%= inspection_report.date %></td>
-    <td class= "text-center"><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
-  </tr>
-<% end %>
-</table>
-</div>
+<br>

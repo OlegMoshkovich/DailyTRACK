@@ -8,28 +8,31 @@
           <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
           <%= csrf_meta_tags %>
           <%= favicon_link_tag 'favicon_6.ico' %>
- 
-</head>
+  
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script src="http://code.highcharts.com/highcharts.js"></script>
-</head>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
 
-<body>
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li ><a href="/inspection_reports">Inspection Report</a></li>
-          <li><a href="/daily_reports">Daily Report</a></li>
-          <li><%= link_to 'Search', inspections_path %></li>
-          <li><a href="/users">Profile</a></li>
-          <li> <%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
-        </ul>
-        <h2 ><%= link_to 'Daily Track', root_path%><h2>
+  </head>
+
+  <body>
+    
+      <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li ><a href="/inspection_reports">Inspection Report</a></li>
+                <li><a href="/daily_reports">Daily Report</a></li>
+                <li><%= link_to 'Search', inspections_path %></li>
+                <li><a href="/users">Profile</a></li>
+                <li> <%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
+            </ul>
+
+          <h2 ><%= link_to 'Daily Track', root_path%><h2>
+        </div>
+      </div> 
+
+      <div class = 'container'>
+          <%= yield %>
       </div>
 
-<div class = 'container'>
-<%= yield %>
-</div>
-
-</body>
+  </body>
 </html>
