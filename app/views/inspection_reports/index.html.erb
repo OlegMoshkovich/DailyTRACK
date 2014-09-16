@@ -1,10 +1,13 @@
  <h1 class="text-center" >Inspection Reports</h1>
 
-<p class="text-center">
-<strong><%= link_to 'New REPORT', new_inspection_report_path %></strong>
-</p>
 
-<table >
+<div class="text-center">
+<%= button_to 'New REPORT', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+</div>
+
+
+
+<table class = "table table-condensed" >
   <tr class= "text-center">
 	<td class= "text-center">Inspector</td>    
     <td class= "text-center">Date</td>
@@ -19,3 +22,4 @@
   </tr>
 <% end %>
 </table>
+</div>

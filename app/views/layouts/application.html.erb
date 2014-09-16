@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DailyTrack</title>
 
-<title>DailyTrack</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon_6.ico' %>
+          <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+          <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+          <%= csrf_meta_tags %>
+          <%= favicon_link_tag 'favicon_6.ico' %>
  
 </head>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -22,7 +22,7 @@
           <li><a href="/daily_reports">Daily Report</a></li>
           <li><%= link_to 'Search', inspections_path %></li>
           <li><a href="/users">Profile</a></li>
-          <li id = "para1"><%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
+          <li> <%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
         </ul>
         <h2 ><%= link_to 'Daily Track', root_path%><h2>
       </div>

@@ -10,11 +10,10 @@
 <br>
 
 
-
+<h3>Observations</h3>
 <table>
   <tr>
-    <th>OBSERVATION</th>
-    <th helvetica="3"></th>
+    
   </tr>
 
 
@@ -28,7 +27,7 @@
 <% end %>
 </table>
 <br>
-<table>
+<table class= 'table '>
   <tr>
     <th>HEADING</th>
     <th>ELEMENT</th>
@@ -55,8 +54,9 @@
 
 
 <h3>CREATE INSPECTION:</h3>
+<form class="form-inline" role="form">
 <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>
-<table>
+<table class = 'table'>
   <tr>
     <th><%= f.label :heading %><br>
     <%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%>
@@ -75,13 +75,13 @@
   </table>
     <p><%= f.submit 'Submit', class: 'button', value: 'Create INSPECTION' %></p>
 <% end %> 
-
+</form>
 
 <h3>CREATE NOTE:</h3>
 <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
 <table>
   <tr>
-    <th><%= f.label :observation %><br>
+
     <%= f.text_area :observation,  :cols => "50", :rows => "5" %></th>
     <th helvetica="3"></th>
   </tr>
