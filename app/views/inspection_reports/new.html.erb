@@ -2,19 +2,15 @@
 
 <%= form_for @inspection_report do |f| %>
   
-  <strong><p class="text-center">Inspector Name: </p></strong>
-   <p class="text-center"><%= @user.username %></p>
-    <p class="text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
-  <p class="text-center">
-    <%= f.label :DATE %><br>
-    <%= f.date_select :date %>
-    
+<strong><p class="text-center">Inspector Name: </p></strong>
+      <p class="text-center"><%= @user.username %></p>
+      <p class="text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
+      <p class="text-center">
+      <%= f.label :DATE %><br>
+      <%= f.date_select :date %>
+</p> 
 
-  </p>
- 
-  <p class="text-center">
-   <%= f.submit 'New Report', class: "btn btn-primary" %> 
-  <!-- Where do I control the submit button is rendered? -->
-  </p>
+<p class="text-center"><%= f.submit 'New Report', class: "btn btn-primary" %></p>
+
+
 <% end %>
-<!-- <P><strong><%= link_to 'REPORTS', inspection_reports_path %></P></strong> -->
