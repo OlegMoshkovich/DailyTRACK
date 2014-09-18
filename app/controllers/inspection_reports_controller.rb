@@ -2,7 +2,7 @@ class InspectionReportsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@inspection_reports = InspectionReport.all
+		@inspection_reports = InspectionReport.where(:inspector => current_user.username)
 	end
 
 	def new
