@@ -55,7 +55,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
+gem 'pry', group: :development
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -64,7 +64,7 @@ end
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'pry', group: :development
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
