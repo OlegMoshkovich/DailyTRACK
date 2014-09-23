@@ -57,6 +57,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     commonjs (0.2.7)
+    declarative_authorization (0.5.7)
     devise (3.2.4)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -225,6 +226,7 @@ DEPENDENCIES
   aws-sdk
   cancancan (~> 1.9)
   coffee-rails (~> 4.0.0)
+  declarative_authorization
   devise
   dotenv-rails
   jbuilder (~> 1.2)
