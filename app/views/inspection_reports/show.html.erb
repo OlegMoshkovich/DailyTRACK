@@ -37,14 +37,16 @@
             <% end %>
       </div>
 
-      <div class ='span3'>
+      <div class ='span5'>
             <h3>Notes:</h3>
             <table>
+<tr>
               <% @inspection_report.notes.each do |note| %>
-                <p><%= note.observation %>
-                <%= link_to '+', [note.inspection_report, note],
-                  method: :delete, :class => "btn btn-link" ,
-                  data: { confirm: 'Are you sure?' } %></p>
+                <%= note.observation %>
+                <%= button_to 'o', [note.inspection_report, note],
+                  method: :delete ,:class => "btn btn-link",
+                  data: { confirm: 'Are you sure?' } %>
+                  </tr>
               <% end %>
             </table>
       </div>
