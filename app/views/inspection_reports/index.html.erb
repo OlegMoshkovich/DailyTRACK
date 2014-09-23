@@ -23,7 +23,7 @@
           <tr>
             <td ><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
             <td><%= inspection_report.date %></td>
-            <td><strong><%= link_to '+', inspection_report_path(inspection_report), method: :delete, data: { confirm: 'Are you sure?' } %></strong></td>
+            <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete, data: { confirm: 'Are you sure?'} %></strong></td>
           </tr>
         <% end %>
       </table>

@@ -25,6 +25,7 @@ gem "twitter-bootstrap-rails"
 gem 'protected_attributes'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk'
+gem 'declarative_authorization'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
