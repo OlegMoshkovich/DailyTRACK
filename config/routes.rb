@@ -1,5 +1,6 @@
 DailyTrack::Application.routes.draw do
 
+  devise_for :admins
   devise_for :users 
   #--------------how can i limit the users from signing up
 
