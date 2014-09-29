@@ -13,30 +13,24 @@
   <script src="http://code.highcharts.com/highcharts.js"></script>
 
   </head>
-
   <body>
-    
       <div class="container">
         <div class="header">
             <ul class="nav nav-pills pull-right">
-                <li ><a href="/inspection_reports">Inspection Report</a></li>
-               
+                <li><%= link_to 'Story', project_visuals_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
-
+                <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
-                <li><a href="/users">Profile</a></li>
-                <!-- <li> <%= link_to "Exit", destroy_user_session_path, method: :delete %></li> -->
-                <li> <%= button_to "Sign out", destroy_user_session_path, :class => "btn btn-link" , method: :delete %></li>
-
+                <li><%= link_to 'Profile', users_path  if current_user  %></li>
+                <li><%= link_to 'Enter', users_path  if !current_user  %></li>
+                <li> <%= button_to "Sign out", destroy_user_session_path , :class => "btn btn-link" , method: :delete  if current_user%></li>
             </ul>
-
           <h2 ><%= link_to 'Daily Track', root_path%><h2>
         </div>
       </div> 
-
       <div class = 'container'>
           <%= yield %>
       </div>
-
   </body>
 </html>
