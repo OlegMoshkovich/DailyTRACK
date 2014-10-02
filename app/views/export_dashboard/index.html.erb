@@ -1,26 +1,28 @@
 <h1>Export DASHBOARD</h1>
+<br>
+
 
 <p><strong>
-At the moment DailyTRACK is capable of accepting CSV files, and populating Concrete SUMMARY DB.
+Upload CSV file containing 12 schedule data points.
 </strong> </p>
 
 <br>
-<p><strong>
-CSV IMPORTER:
-</strong> </p>
+
 <%= form_tag import_project_dashboards_path, multipart: true do %>
 	<%= file_field_tag :file %>
-	<%= submit_tag "Import" %>
+	<%= submit_tag "Import" , :class => "btn btn-primary" %>
 <% end %>
 
-<h5><%= link_to 'PROJECT CONTROLLER', root_path%></h5>
-<table>
+
+
+
+<table class = "table">
   <tr>
   	<th>Date</th>
-    <th>BSL.E.i</th>
-     <th>BSL.E.c</th>
-     <th>BSL.L.i</th>
-     <th>BSL.L.c</th>
+    <th>Early Date - monthly</th>
+    <th>Early Date - cummulative</th>
+    <th>Late Date - monthly</th>
+    <th>Late Date - cummulative</th>
     <th helvetica="3"></th>
   </tr>
 <% @concrete_summaries.each do |concrete_summary| %>
