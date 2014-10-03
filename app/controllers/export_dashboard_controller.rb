@@ -8,11 +8,11 @@ class ExportDashboardController < ApplicationController
 		@date_arr = []
 		#binding.pry
 		
-		for i in 0..29
-			@baseline_early_ind_arr.push(@concrete_summaries[i].baseline_early_ind)
-			@baseline_late_ind_arr.push(@concrete_summaries[i].baseline_late_ind)
-			@date_arr.push(@concrete_summaries[i].date.to_s)
-		end
+		# for i in 0..29
+		# 	@baseline_early_ind_arr.push(@concrete_summaries[i].baseline_early_ind)
+		# 	@baseline_late_ind_arr.push(@concrete_summaries[i].baseline_late_ind)
+		# 	@date_arr.push(@concrete_summaries[i].date.to_s)
+		# end
 	
 	#binding.pry
 	end
