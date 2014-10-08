@@ -1,15 +1,15 @@
 <%if user_signed_in?%>
 	<strong><h3 class= "text-center"> Name:</h3></strong>
-	<strong><h4 class= "text-center"><%= current_user.username %></h4></strong>
+	<strong><h3 class= "text-center"><%= current_user.username %></h3></strong>
 	<!-- <strong><p> Inspector Picture:</p></strong> -->
-	<p class= "text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
+	<p class= "text-center"><%= image_tag(@user.image.url(:medium)) %></p>
 
 
 <strong><h3 class = 'text-center'> Role:</h3></strong>
 
 
-<h4 class = 'text-center'><%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %></h4>
-<h4 class = 'text-center'><%= link_to 'Inspector', daily_reports_path  if !current_user.admin? %></h4>
+<h3 class = 'text-center'><%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %></h3>
+<h3 class = 'text-center'><%= link_to 'Inspector', daily_reports_path  if !current_user.admin? %></h3>
 
 
 <!-- <div class ='text-center'>Inspector</div>  -->
