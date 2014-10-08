@@ -1,12 +1,16 @@
 <%if user_signed_in?%>
-	<strong><p class= "text-center"> Inspector Name:</p></strong>
-	<p class= "text-center"><%= current_user.username %></p>
+	<strong><h3 class= "text-center"> Name:</h3></strong>
+	<strong><h4 class= "text-center"><%= current_user.username %></h4></strong>
 	<!-- <strong><p> Inspector Picture:</p></strong> -->
 	<p class= "text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
-	<br>
 
 
-<strong><p class = 'text-center'> Role: Inspector</p></strong>
+<strong><h3 class = 'text-center'> Role:</h3></strong>
+
+
+<h4 class = 'text-center'><%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %></h4>
+<h4 class = 'text-center'><%= link_to 'Inspector', daily_reports_path  if !current_user.admin? %></h4>
+
 
 <!-- <div class ='text-center'>Inspector</div>  -->
 
