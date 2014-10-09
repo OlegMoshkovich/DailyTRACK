@@ -1,11 +1,11 @@
 <%if user_signed_in?%>
-	<strong><h3 class= "text-center"> Name:</h3></strong>
+	
 	<strong><h3 class= "text-center"><%= current_user.username %></h3></strong>
 	<!-- <strong><p> Inspector Picture:</p></strong> -->
 	<p class= "text-center"><%= image_tag(@user.image.url(:medium)) %></p>
 
 
-<strong><h3 class = 'text-center'> Role:</h3></strong>
+
 
 
 <h3 class = 'text-center'><%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %></h3>
