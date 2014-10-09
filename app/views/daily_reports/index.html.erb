@@ -1,6 +1,22 @@
 <div class = "container">
 
   <h1 class="text-center ">Daily Report</h1>
+
+  <div>       
+
+        <p> 
+            <strong>Name:</strong>
+            <%= @user.username%>
+        </p>
+        <p> 
+            <strong>Role:</strong>
+            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
+            
+        </p>
+
+        <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+</div>
+
     <div class='row'>
       <div class ='span8'>
         <h3>Summary</h3>

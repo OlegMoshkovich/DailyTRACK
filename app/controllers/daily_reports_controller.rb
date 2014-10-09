@@ -6,6 +6,7 @@ before_action :authenticate_user!
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
     @arches = @daily_report.inspections.where("element = ?", "ARCH").order(created_at: :asc)  
+    @user = current_user
   end  
 
 	def new

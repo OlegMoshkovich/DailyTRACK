@@ -1,4 +1,18 @@
  <h1 class="text-center" >Inspection Reports</h1>
+<div class="text-center">       
+        <p> 
+             <strong>Name:</strong>
+            <%= @user.username%>
+        </p>
+        <p> 
+            <strong>Role:</strong>
+            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
+            <%= link_to 'Inspector', users_path  if !current_user.admin? %>
+        </p>
+
+        
+       <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+</div>
 
 <div class="text-center">
     <%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>

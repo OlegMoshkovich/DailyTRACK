@@ -3,6 +3,7 @@ class InspectionReportsController < ApplicationController
 
 	def index
 		@inspection_reports = InspectionReport.where(:inspector => current_user.username)
+		@user = current_user
 	end
 
 	def new

@@ -1,13 +1,13 @@
 <div>       
   <h1 class="text-center ">Inspection Report</h1> 
         <p> 
-            <strong>Inspector:</strong>
-            <%= @inspection_report.inspector %>
+             <strong>Name:</strong>
+            <%= @user.username%>
         </p>
         <p> 
             <strong>Role:</strong>
-            <%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %>
-            <%= link_to 'Inspector', daily_reports_path  if !current_user.admin? %>
+            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
+            <%= link_to 'Inspector', users_path  if !current_user.admin? %>
         </p>
 
         <p>
