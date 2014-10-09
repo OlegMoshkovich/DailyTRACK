@@ -4,25 +4,17 @@
 <p class = "text-left"><strong><%= link_to 'Back',daily_reports_path %><strong></p>
 <h1 class="text-center ">Daily Report</h1>
 
-<div>       
-  <h1 class="text-center ">Inspection Report</h1> 
+  <div class="text-center" >       
         <p> 
-            <strong>Inspector:</strong>
-            <%= @inspection_report.inspector %>
+           
+            <%= @user.username%>
         </p>
         <p> 
-            <strong>Role:</strong>
-            <%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %>
-            <%= link_to 'Inspector', daily_reports_path  if !current_user.admin? %>
+          
+            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>        
         </p>
-
-        <p>
-          <strong>Date:</strong>
-          <%= @inspection_report.date %>
-        </p>
-        <%= image_tag(@inspection_report.user.image.url(:thumb)) %>
+        <p ><%= image_tag(@user.image.url(:thumb)) %></p>
 </div>
-
     <div class='row'>
       <div class ='span8'>
         <h3>Summary:</h3>

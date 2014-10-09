@@ -2,18 +2,15 @@
 
   <h1 class="text-center ">Daily Report</h1>
 
-  <div>       
-
-        <p> 
-            <strong>Name:</strong>
-            <%= @user.username%>
-        </p>
-        <p> 
-            <strong>Role:</strong>
-            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
+  <div class="text-center ">       
+        <strong><p> 
             
-        </p>
-
+            <%= @user.username%>
+        </p></strong>
+         <strong><p> 
+           
+            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>        
+        </p></strong>
         <p ><%= image_tag(@user.image.url(:thumb)) %></p>
 </div>
 
