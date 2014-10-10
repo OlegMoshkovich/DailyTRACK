@@ -14,7 +14,7 @@ group :production do
 end
 
 gem 'dotenv-rails', :groups => [:development, :test]
-
+gem 'paperclip-compression'
 gem 'unicorn'
 gem 'travis'
 gem 'rolify'

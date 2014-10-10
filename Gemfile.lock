@@ -120,6 +120,11 @@ GEM
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     orm_adapter (0.5.0)
+    os (0.9.6)
+    paperclip-compression (0.3.6)
+      os (~> 0.9.6)
+      paperclip (>= 3.3)
+      ruby-imagespec (~> 0.3.1)
     pg (0.17.1)
     polyglot (0.3.5)
     protected_attributes (1.0.8)
@@ -158,6 +163,7 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     rolify (3.4.0)
+    ruby-imagespec (0.3.1)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -234,6 +240,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 4.2.1)
   less-rails
   paperclip!
+  paperclip-compression
   pg
   protected_attributes
   pry

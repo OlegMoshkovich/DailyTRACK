@@ -9,7 +9,9 @@ class Inspection < ActiveRecord::Base
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  }, :default_url => "missing.png"
+  },
+  processors: [:thumbnail, :compression],
+   :default_url => "missing.png"
 
 
   def ensure_daily_report
