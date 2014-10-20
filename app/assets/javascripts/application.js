@@ -18,3 +18,10 @@
 //= require jquery.ui.datepicker
 
 
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#test").hide();
+  });
+});

@@ -17,6 +17,17 @@
         <%= image_tag(@inspection_report.user.image.url(:thumb)) %>
 </div>
 
+<script>
+$(document).ready(function(){
+  $('select#inspection_operation').on( 'change', function(){
+    var v = $(this).find('option:selected').val()
+    if (v = "CON"){
+      $("#element").show();
+    }
+  });
+});
+</script>
+
 <div class='row'>
         <div class ='span3'>
         <h3 >Create Inspection:</h3>
@@ -25,12 +36,24 @@
             <div><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
             <div><%= f.text_field :start , :value =>'Start' %></div>
             <div><%= f.text_field :finish, :value => 'End',:cols => "10", :rows => "1" %></div>
+            <div id="element" style="display:none;" ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
+
+            <div><%= f.text_field :start , :placeholder =>'Start' %></div>
+            <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
             <%= f.select :operation, options_for_select(['WP', 'RBR','CON']) %>
             <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>
             <br>
-          <p><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
+          <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
+
+
         <% end %>
+
+  <div id = 'green'></div>
+
       </div>
+
+
+
 
       <div class ='span3'>
             <h3>Create Note:</h3>
