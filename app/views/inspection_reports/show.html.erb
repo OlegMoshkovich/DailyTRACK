@@ -23,8 +23,8 @@
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
             <div><%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%></div>
             <div><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
-            <div><%= f.text_field :start , :placeholder =>'Start' %></div>
-            <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
+            <div><%= f.text_field :start , :value =>'Start' %></div>
+            <div><%= f.text_field :finish, :value => 'End',:cols => "10", :rows => "1" %></div>
             <%= f.select :operation, options_for_select(['WP', 'RBR','CON']) %>
             <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>
             <br>
