@@ -27,3 +27,121 @@
 
 
 </h3>
+<!-- 
+<script>
+$(document).ready(
+	function(){
+  			$('#listing_listing_category_id').on('change', 
+  				function(){
+    				var option = $(this).find(':selected');
+    				$('[data-show-for]').hide(); //And maybe reset?
+					$('[data-show-for='+ option.text() +']').show();
+});
+
+});
+</script>
+
+
+
+<form accept-charset="UTF-8" action="/listings" class="simple_form new_listing" id="new_listing" method="post" novalidate="novalidate">
+
+<div style="margin:0;padding:0;display:inline">
+	<input name="utf8" type="hidden" value="&#x2713;" />
+	<input name="authenticity_token" type="hidden" value="1oDfg41Wx/SiPCsvf4qTAcxhFUGSNlhlLfkMy8nHW1E=" />
+</div>
+
+<fieldset>
+    <div class="control-group select optional controls">
+    	<label class="select optional control-label control-label" for="listing_listing_category_id">Category:</label>
+    	<div class="controls">
+    		
+    		<select class="select optional" id="listing_listing_category_id" name="listing[listing_category_id]">
+    			<option value=""></option>
+				<option value="1">Exclusive</option>
+				<option value="2">Open</option>
+			</select>
+		
+
+		</div>	
+	</div>
+
+       		<div style="display: none;" data-show-for="Exclusive">
+            	<div class="control-group select optional form-horizontal">
+            		<label class="select optional control-label" for="listing_listing_type_id">Listing type</label>
+            			<div class="controls">
+            				<select class="select optional" id="listing_listing_type_id" name="listing[listing_type_id]">
+            				<option value=""></option>
+							</select>
+						</div>
+				</div>
+            
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_user_id">User</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_user_id" name="listing[user_id]">
+            			<option value=""></option>
+						<option value="1">First User</option>
+						<option value="2">Second User</option>
+						<option value="3">Third User</option>
+						<option value="4">Fourth User</option>
+						<option value="5">Fifth User</option>
+					</select>
+				</div>
+			</div>
+            
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_boro_id">Boro</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_boro_id" name="listing[boro_id]">
+            			<option value=""></option>
+						<option value="1">Brooklyn</option>
+					</select>
+				</div>
+			</div>
+          </div>
+
+          <div style="display: none;" data-show-for="Open">
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_neighborhood_id">Neighborhood</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_neighborhood_id" name="listing[neighborhood_id]">
+            			<option value=""></option>
+						<option value="1">Prospect Heights</option>
+					</select>
+				</div>
+			</div>    
+            
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_building_id">Building</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_building_id" name="listing[building_id]">
+            			<option value=""></option>
+						<option value="1">Trump Towers</option>
+					</select>
+				</div>
+			</div>
+            
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_term_id">Term</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_term_id" name="listing[term_id]">
+            			<option value=""></option>
+					</select>
+				</div>
+			</div>
+            
+            <div class="control-group select optional form-horizontal">
+            	<label class="select optional control-label" for="listing_property_type_id">Property type</label>
+            	<div class="controls">
+            		<select class="select optional" id="listing_property_type_id" name="listing[property_type_id]">
+            			<option value=""></option>
+						<option value="1">Coop</option>
+					</select>
+				</div>
+			</div>
+          </div>
+
+
+    
+
+</form> -->
