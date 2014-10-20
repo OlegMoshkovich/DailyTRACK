@@ -21,12 +21,8 @@
 $(document).ready(function(){
   $('select#inspection_operation').on( 'change', function(){
     var v = $(this).find('option:selected').val()
-    //alert("Value:" + v);
     if (v = "CON"){
-      //$("#green").fadeOut();
-      //$('select#inspection_element').fadeIn();
       $("#element").show();
-
     }
   });
 });
@@ -47,13 +43,6 @@ $(document).ready(function(){
             <br>
           <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
 
-<script>
-$(document).ready(function(){
-  $("#green").click(function(){
-    $("#green").fadeOut();
-  });
-});
-</script>
 
         <% end %>
 
