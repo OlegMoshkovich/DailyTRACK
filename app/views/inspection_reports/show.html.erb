@@ -17,39 +17,122 @@
         <%= image_tag(@inspection_report.user.image.url(:thumb)) %>
 </div>
 
-<script>
-$(document).ready(function(){
-  $('select#inspection_operation').on( 'change', function(){
-    var v = $(this).find('option:selected').val()
-    if (v = "CON"){
-      $("#element").show();
+ <script>
+ $(document).ready(function(){
+   $('select#inspection_operation').on( 'change', function(){
+    var v = this.value;
+    // var v = $(this).find('option:selected').val()
+    
+   if ($(this).val() == 'CONCRETE') {
+        $('.CONCRETE').show();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').hide();
+        $('.CONDUIT').hide();
     }
-  });
-});
-</script>
+
+    else if ($(this).val() == 'REINFORCEMENT') {
+        $('.CONCRETE').hide();
+        $('.REINFORCEMENT').show();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').hide();
+        $('.CONDUIT').hide();
+    }
+        else if ($(this).val() == 'SHOTCRETE') {
+        $('.CONCRETE').hide();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').show();
+        $('.DRAINAGE').hide();
+        $('.CONDUIT').hide();
+    }
+
+    else if ($(this).val() == 'DRAINAGE') {
+        $('.CONCRETE').hide();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').show();
+        $('.CONDUIT').hide();
+    }
+
+        else if ($(this).val() == 'CONDUIT') {
+        $('.CONCRETE').hide();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').hide();
+        $('.CONDUIT').show();
+    }
+
+
+
+
+    else{
+        $('.CONCRETE').hide();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').hide();
+        $('.CONDUIT').hide();
+    }
+
+
+   });
+ });
+ </script>
+
+
+
+
 
 <div class='row'>
         <div class ='span3'>
         <h3 >Create Inspection:</h3>
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
             <div><%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%></div>
-            <div><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
-            <div><%= f.text_field :start , :value =>'Start' %></div>
-            <div><%= f.text_field :finish, :value => 'End',:cols => "10", :rows => "1" %></div>
-            <div id="element" style="display:none;" ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
-
+            <div ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
             <div><%= f.text_field :start , :placeholder =>'Start' %></div>
             <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
-            <%= f.select :operation, options_for_select(['WP', 'RBR','CON']) %>
-            <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>
+            
+            
+
+            <div><%= f.select :operation, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'CONDUIT']) %></div>
+
+
+            <div class="CONCRETE" style=" display: none;">
+            <%= f.select :element, options_for_select(['Concrete new']) %>
+            </div>
+
+            <div class="REINFORCEMENT" style=" display: none;">
+            <%= f.select :element, options_for_select(['Reinforcement new']) %>
+            </div>
+
+            <div class="SHOTCRETE" style=" display: none;">
+            <%= f.select :element, options_for_select(['Shotcrete']) %>
+            </div>
+
+            <div class="DRAINAGE" style=" display: none;">
+            <%= f.select :element, options_for_select(['Drainage']) %>
+            </div>
+            
+            <div class="CONDUIT" style=" display: none;">
+            <%= f.select :element, options_for_select(['Drainage']) %>
+            </div>
+
+
+
+            <div class="RBR" style=" display: none;">
+              <%= f.select :element, options_for_select(['Rebar ']) %>
+            </div>
+
+
+
+
+            <div class="CON" style=" display: none;">
+            <%= f.select :element, options_for_select(['Concrete']) %>
+            </div>
+            
+            <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>     
             <br>
           <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
-
-
         <% end %>
-
-  <div id = 'green'></div>
-
       </div>
 
 
