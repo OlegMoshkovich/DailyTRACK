@@ -16,8 +16,7 @@ class InspectionReportsController < ApplicationController
 		@user = current_user
 	end
 
-	def create
-		
+	def create	
   		@inspection_report = InspectionReport.new(inspection_report_params)
   		@inspection_report.inspector = current_user.username
   		@inspection_report.user = current_user
@@ -34,7 +33,6 @@ class InspectionReportsController < ApplicationController
 		@inspection_report.destroy
 		redirect_to inspection_reports_path	
 	end
-
 
 	private
   	def inspection_report_params

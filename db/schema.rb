@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923222453) do
+ActiveRecord::Schema.define(version: 20141022234353) do
+
+  create_table "api_calls", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "concrete_summaries", force: true do |t|
     t.string   "date"
@@ -58,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140923222453) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "daily_report_id"
+    t.string   "scope"
   end
 
   add_index "inspections", ["daily_report_id"], name: "index_inspections_on_daily_report_id"

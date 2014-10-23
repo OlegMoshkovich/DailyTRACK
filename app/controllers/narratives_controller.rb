@@ -13,7 +13,6 @@ class NarrativesController < ApplicationController
     	redirect_to daily_report_path(@daily_report)
   	end
 
-
 private
     def narrative_params
       params.require(:narrative).permit(:narrative)

@@ -19,7 +19,7 @@
 
  <script>
  $(document).ready(function(){
-   $('select#inspection_operation').on( 'change', function(){
+   $('select#inspection_scope').on( 'change', function(){
     var v = this.value;
     // var v = $(this).find('option:selected').val()
     
@@ -222,89 +222,76 @@
  });
  </script>
 
-Concrete
-Shotcrete
-Reinforcement
-Drainage
-Electrical
-
-Finishes
-Fireproofing
-Masonry
-
-Metals
-Surveying (Instead of Layout)
-Site Maintenance (Instead of Site Construction)
-Waterproofing
-
-
-
 <div class='row'>
         <div class ='span3'>
         <h3 >Create Inspection:</h3>
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
+            
             <div><%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%></div>
+
             <div ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
+
             <div><%= f.text_field :start , :placeholder =>'Start' %></div>
+            
             <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
             
-            
-
-            <div><%= f.select :operation, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
-
-
-            <div class="CONCRETE" style=" display: none;">
-            <%= f.select :element, options_for_select(['Concrete new']) %>
-            </div>
+            <div><%= f.select :scope, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
+      
+           
 
             <div class="REINFORCEMENT" style=" display: none;">
-            <%= f.select :element, options_for_select(['Reinforcement new']) %>
+            <%= f.select :operation, options_for_select(['Reinforcement new']) %>
             </div>
 
             <div class="SHOTCRETE" style=" display: none;">
-            <%= f.select :element, options_for_select(['Shotcrete']) %>
+            <%= f.select :operation, options_for_select(['Shotcrete']) %>
             </div>
 
             <div class="DRAINAGE" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
             
             <div class="ELECTRICAL" style=" display: none;">
-            <%= f.select :element, options_for_select(['Electrical']) %>
+            <%= f.select :operation, options_for_select(['Electrical']) %>
             </div>
 
             <div class="FINISHES" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['1']) %>
             </div>
 
             <div class="FIREPROOFING" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
 
             <div class="MASONRY" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
 
             <div class="METALS" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
 
             <div class="SURVEYING" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
 
             <div class="SITE_MAINTANENCE" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']) %>
             </div>
 
             <div class="WATERPROOFING" style=" display: none;">
-            <%= f.select :element, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Hello']) %>
             </div>
 
-
+             <div class="CONCRETE" style=" display: none;">
+            <%= f.select :operation, options_for_select(['Concrete new1','Concrete new2','Concrete new3']) %>
+            </div>
+ 
             <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>     
             <br>
+
           <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
+        
         <% end %>
       </div>
 
@@ -326,12 +313,12 @@ Waterproofing
       <div class ='span5'>
             <h3>Notes:</h3>
             <table>
-<tr>
-              <% @inspection_report.notes.each do |note| %>
-                <%= note.observation %>
-                <%= button_to 'o', [note.inspection_report, note],
-                  method: :delete ,:class => "btn btn-link",
-                  data: { confirm: 'Are you sure?' } %>
+                  <tr>
+                    <% @inspection_report.notes.each do |note| %>
+                    <%= note.observation %>
+                    <%= button_to 'o', [note.inspection_report, note],
+                    method: :delete ,:class => "btn btn-link",
+                    data: { confirm: 'Are you sure?' } %>
                   </tr>
               <% end %>
             </table>
@@ -349,6 +336,7 @@ Waterproofing
               <th>Element</th>
               <th>Start</th>
               <th>Finish</th>
+              <th>Scope</th>
               <th>Operation</th>
               <th>Image</th>
               <th>Erase</th>
@@ -359,6 +347,7 @@ Waterproofing
                 <td><%= inspection.element %></td>
                 <td><%= inspection.start %></td>
                 <td><%= inspection.finish %></td>
+                <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
                 <td><%= image_tag inspection.image.url(:thumb)  %></td>
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
