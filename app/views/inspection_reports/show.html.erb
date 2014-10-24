@@ -20,13 +20,13 @@
  <script>
  $(document).ready(function(){
    $('select#inspection_scope').on( 'change', function(){
+    
     var v = this.value;
-    // var v = $(this).find('option:selected').val()
     
    if ($(this).val() == 'CONCRETE') {
         $('.CONCRETE').show();
         $('.REINFORCEMENT').hide();
-        $('.SHOTCRETE').hide();
+        $('.SHOTCRETE').disable();
         $('.DRAINAGE').hide();
         $('.ELECTRICAL').hide();
         $('.FINISHES').hide();
@@ -36,6 +36,22 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+      
+        $('.reinforcement').prop('disabled', 'disabled');
+        $('.shotcrete').prop('disabled', 'disabled');
+        $('.drainage').prop('disabled', 'disabled');
+        $('.electrical').prop('disabled', 'disabled');
+        $('.finishes').prop('disabled', 'disabled');
+        $('.fireproofing').prop('disabled', 'disabled');
+        $('.masonry').prop('disabled', 'disabled');
+        $('.metals').prop('disabled', 'disabled');
+        $('.surveying').prop('disabled', 'disabled');
+        $('.site_maintanence').prop('disabled', 'disabled');
+        $('.waterproofing').prop('disabled', 'disabled');
+
+
+
     }
 
     else if ($(this).val() == 'REINFORCEMENT') {
@@ -51,7 +67,21 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+        $('.concrete').prop('disabled', 'disabled');
+        $('.shotcrete').prop('disabled', 'disabled');
+        $('.drainage').prop('disabled', 'disabled');
+        $('.electrical').prop('disabled', 'disabled');
+        $('.finishes').prop('disabled', 'disabled');
+        $('.fireproofing').prop('disabled', 'disabled');
+        $('.masonry').prop('disabled', 'disabled');
+        $('.metals').prop('disabled', 'disabled');
+        $('.surveying').prop('disabled', 'disabled');
+        $('.site_maintanence').prop('disabled', 'disabled');
+        $('.waterproofing').prop('disabled', 'disabled');
+
     }
+
         else if ($(this).val() == 'SHOTCRETE') {
         $('.CONCRETE').hide();
         $('.REINFORCEMENT').hide();
@@ -65,6 +95,21 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+        $('.concrete').prop('disabled', 'disabled');
+        $('.reinforcement').prop('disabled', 'disabled');
+
+        $('.drainage').prop('disabled', 'disabled');
+        $('.electrical').prop('disabled', 'disabled');
+        $('.finishes').prop('disabled', 'disabled');
+        $('.fireproofing').prop('disabled', 'disabled');
+        $('.masonry').prop('disabled', 'disabled');
+        $('.metals').prop('disabled', 'disabled');
+        $('.surveying').prop('disabled', 'disabled');
+        $('.site_maintanence').prop('disabled', 'disabled');
+        $('.waterproofing').prop('disabled', 'disabled');
+
+
     }
 
         else if ($(this).val() == 'DRAINAGE') {
@@ -80,6 +125,8 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
     }
 
         else if ($(this).val() == 'ELECTRICAL') {
@@ -95,6 +142,9 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
+
     }
 
 
@@ -111,7 +161,9 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
     }
+
    else if ($(this).val() == 'FIREPROOFING') {
         $('.CONCRETE').hide();
         $('.REINFORCEMENT').hide();
@@ -125,6 +177,9 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
+
     }
 
    else if ($(this).val() == 'MASONRY') {
@@ -140,6 +195,9 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
+
     }
 
        else if ($(this).val() == 'METALS') {
@@ -155,6 +213,8 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
     }
 
        else if ($(this).val() == 'SURVEYING') {
@@ -170,6 +230,9 @@
         $('.SURVEYING').show();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').hide();
+
+
+
     }
 
        else if ($(this).val() == 'SITE_MAINTANENCE') {
@@ -185,8 +248,11 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').show();
         $('.WATERPROOFING').hide();
+
+
+
     }
-           else if ($(this).val() == 'WATERPROOFING') {
+        else if ($(this).val() == 'WATERPROOFING') {
         $('.CONCRETE').hide();
         $('.REINFORCEMENT').hide();
         $('.SHOTCRETE').hide();
@@ -199,8 +265,8 @@
         $('.SURVEYING').hide();
         $('.SITE_MAINTANENCE').hide();
         $('.WATERPROOFING').show();
-    }
 
+    }
 
     else{
         $('.CONCRETE').hide();
@@ -217,14 +283,16 @@
         $('.WATERPROOFING').hide();
     }
 
-
    });
  });
  </script>
 
+
+
 <div class='row'>
         <div class ='span3'>
         <h3 >Create Inspection:</h3>
+
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
             
             <div><%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%></div>
@@ -240,52 +308,54 @@
            
 
             <div class="REINFORCEMENT" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Reinforcement new']) %>
+            <%= f.select :operation, options_for_select(['Reinforcement new']), {}, { :class => 'reinforcement' } %>
             </div>
 
             <div class="SHOTCRETE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Shotcrete']) %>
+            <%= f.select :operation, options_for_select(['Shotcrete new']), {}, { :class => 'reinforcement' } %>
             </div>
 
             <div class="DRAINAGE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'drainage' } %> 
             </div>
             
             <div class="ELECTRICAL" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Electrical']) %>
+            <%= f.select :operation, options_for_select(['Electrical']), {}, { :class => 'electrical' } %> 
             </div>
 
             <div class="FINISHES" style=" display: none;">
-            <%= f.select :operation, options_for_select(['1']) %>
+            <%= f.select :operation, options_for_select(['1']), {}, { :class => 'finishes' } %> 
             </div>
 
             <div class="FIREPROOFING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'fireproofing' } %> 
             </div>
 
             <div class="MASONRY" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'masonry' } %> 
             </div>
 
             <div class="METALS" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'metals' } %> 
             </div>
 
             <div class="SURVEYING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['surveying']), {}, { :class => 'surveying' } %> 
             </div>
 
             <div class="SITE_MAINTANENCE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']) %>
+            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'site_maintanence' } %>
             </div>
+
 
             <div class="WATERPROOFING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Hello']) %>
+            <%= f.select :operation, options_for_select(['Hello']), {}, { :class => 'waterproofing' } %>
             </div>
 
-             <div class="CONCRETE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Concrete new1','Concrete new2','Concrete new3']) %>
-            </div>
+            <div class="CONCRETE" style=" display: none;">
+            <%= f.select :operation, options_for_select(['Concrete new1','Concrete new2','Concrete new3']), {}, { :class => 'concrete' }%>
+        </div>
+            
  
             <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>     
             <br>
