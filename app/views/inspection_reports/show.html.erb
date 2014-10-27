@@ -23,38 +23,8 @@
     
     var v = this.value;
     
-   if ($(this).val() == 'CONCRETE') {
-        $('.CONCRETE').show();
-        $('.REINFORCEMENT').hide();
-        $('.SHOTCRETE').disable();
-        $('.DRAINAGE').hide();
-        $('.ELECTRICAL').hide();
-        $('.FINISHES').hide();
-        $('.FIREPROOFING').hide();
-        $('.MASONRY').hide();
-        $('.METALS').hide();
-        $('.SURVEYING').hide();
-        $('.SITE_MAINTANENCE').hide();
-        $('.WATERPROOFING').hide();
 
-      
-        $('.reinforcement').prop('disabled', 'disabled');
-        $('.shotcrete').prop('disabled', 'disabled');
-        $('.drainage').prop('disabled', 'disabled');
-        $('.electrical').prop('disabled', 'disabled');
-        $('.finishes').prop('disabled', 'disabled');
-        $('.fireproofing').prop('disabled', 'disabled');
-        $('.masonry').prop('disabled', 'disabled');
-        $('.metals').prop('disabled', 'disabled');
-        $('.surveying').prop('disabled', 'disabled');
-        $('.site_maintanence').prop('disabled', 'disabled');
-        $('.waterproofing').prop('disabled', 'disabled');
-
-
-
-    }
-
-    else if ($(this).val() == 'REINFORCEMENT') {
+  if ($(this).val() == 'REINFORCEMENT') {
         $('.CONCRETE').hide();
         $('.REINFORCEMENT').show();
         $('.SHOTCRETE').hide();
@@ -364,6 +334,36 @@
         $('.metals').prop('disabled', 'disabled');
         $('.surveying').prop('disabled', 'disabled');
         $('.site_maintanence').prop('disabled', 'disabled');
+
+    }
+    else if($(this).val() == 'CONCRETE') {
+        $('.CONCRETE').show();
+        $('.REINFORCEMENT').hide();
+        $('.SHOTCRETE').hide();
+        $('.DRAINAGE').hide();
+        $('.ELECTRICAL').hide();
+        $('.FINISHES').hide();
+        $('.FIREPROOFING').hide();
+        $('.MASONRY').hide();
+        $('.METALS').hide();
+        $('.SURVEYING').hide();
+        $('.SITE_MAINTANENCE').hide();
+        $('.WATERPROOFING').hide();
+
+      
+        $('.reinforcement').prop('disabled', 'disabled');
+        $('.shotcrete').prop('disabled', 'disabled');
+        $('.drainage').prop('disabled', 'disabled');
+        $('.electrical').prop('disabled', 'disabled');
+        $('.finishes').prop('disabled', 'disabled');
+        $('.fireproofing').prop('disabled', 'disabled');
+        $('.masonry').prop('disabled', 'disabled');
+        $('.metals').prop('disabled', 'disabled');
+        $('.surveying').prop('disabled', 'disabled');
+        $('.site_maintanence').prop('disabled', 'disabled');
+        $('.waterproofing').prop('disabled', 'disabled');
+
+
 
     }
 
