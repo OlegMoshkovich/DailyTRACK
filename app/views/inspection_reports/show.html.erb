@@ -463,7 +463,28 @@
         
         <% end %>
       </div>
+    
+<style>
+    
+    #spinner {
+    position: fixed;
+    /* center the div */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
 
+} 
+
+  </style>
+    
+      <%= image_tag 'loader.gif', :id => 'spinner', :style => "display:none " %>
+
+            <script>
+              $("#button").click(function(){
+                $("#spinner").show();
+              });
+            </script>
 
 
 
@@ -519,12 +540,13 @@
                 <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
                 <td><%= image_tag inspection.image.url(:thumb)  %></td>
-                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
+                <td><p id ='button1'><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" ,
-                           data: { confirm: 'Are you sure?' } %><strong></td>
+                           data: { confirm: 'Are you sure?' } %><strong></p></td>
               </tr>
             <% end %>
           </table>
+
 </div>
           
 
