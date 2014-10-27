@@ -60,15 +60,7 @@
     cursor: inherit;
     display: block;
 }
-    #spinner {
-    position: fixed;
-    /* center the div */
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
 
-} 
 
 
 

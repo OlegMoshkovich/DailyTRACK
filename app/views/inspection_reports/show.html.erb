@@ -404,42 +404,45 @@
             
             <div><%= f.select :scope, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
       
-           
 
+            <div class="CONCRETE" style=" display: none;">
+            <%= f.select :operation, options_for_select(['Cast-In-Place Lining','Formwork','Grouting','Grouting System Installation']), {}, { :class => 'concrete' }%>
+            </div>
+           
             <div class="REINFORCEMENT" style=" display: none;">
             <%= f.select :operation, options_for_select(['Reinforcement new']), {}, { :class => 'reinforcement' } %>
             </div>
 
             <div class="SHOTCRETE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Shotcrete new']), {}, { :class => 'shotcrete' } %>
+            <%= f.select :operation, options_for_select(['Initial Support Shotcrete', 'Shotcrete Final Lining']), {}, { :class => 'shotcrete' } %>
             </div>
 
             <div class="DRAINAGE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Drainage']), {}, { :class => 'drainage' } %> 
+            <%= f.select :operation, options_for_select(['General','Weepholes']), {}, { :class => 'drainage' } %> 
             </div>
             
             <div class="ELECTRICAL" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Electrical1','Electrical2','Electrical3' ]), {}, { :class => 'electrical' } %> 
+            <%= f.select :operation, options_for_select(['Conduits and Raceways','Telecommunications' ]), {}, { :class => 'electrical' } %> 
             </div>
 
             <div class="FINISHES" style=" display: none;">
-            <%= f.select :operation, options_for_select(['finishes']), {}, { :class => 'finishes' } %> 
+            <%= f.select :operation, options_for_select(['Painting/Accoustic Insulation']), {}, { :class => 'finishes' } %> 
             </div>
 
             <div class="FIREPROOFING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['fireproofing']), {}, { :class => 'fireproofing' } %> 
+            <%= f.select :operation, options_for_select(['Intumescent(Spray-on)']), {}, { :class => 'fireproofing' } %> 
             </div>
 
             <div class="MASONRY" style=" display: none;">
-            <%= f.select :operation, options_for_select(['masonry']), {}, { :class => 'masonry' } %> 
+            <%= f.select :operation, options_for_select(['Unit Masonry Assemblies(CMU)']), {}, { :class => 'masonry' } %> 
             </div>
 
             <div class="METALS" style=" display: none;">
-            <%= f.select :operation, options_for_select(['metals']), {}, { :class => 'metals' } %> 
+            <%= f.select :operation, options_for_select(['Steel Structures']), {}, { :class => 'metals' } %> 
             </div>
 
             <div class="SURVEYING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['surveying']), {}, { :class => 'surveying' } %> 
+            <%= f.select :operation, options_for_select(['Layout']), {}, { :class => 'surveying' } %> 
             </div>
 
             <div class="SITE_MAINTANENCE" style=" display: none;">
@@ -448,12 +451,10 @@
 
 
             <div class="WATERPROOFING" style=" display: none;">
-            <%= f.select :operation, options_for_select(['waterproofing']), {}, { :class => 'waterproofing' } %>
+            <%= f.select :operation, options_for_select(['Mined Structures']), {}, { :class => 'waterproofing' } %>
             </div>
 
-            <div class="CONCRETE" style=" display: none;">
-            <%= f.select :operation, options_for_select(['Concrete new1','Concrete new2','Concrete new3']), {}, { :class => 'concrete' }%>
-        </div>
+
             
  
             <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>     
@@ -540,9 +541,9 @@
                 <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
                 <td><%= image_tag inspection.image.url(:thumb)  %></td>
-                <td><p id ='button1'><strong><%= button_to 'o', [inspection.inspection_report, inspection],
+                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" ,
-                           data: { confirm: 'Are you sure?' } %><strong></p></td>
+                           data: { confirm: 'Are you sure?' } %><strong></td>
               </tr>
             <% end %>
           </table>
