@@ -6,7 +6,7 @@ class Inspection < ActiveRecord::Base
    before_save :ensure_daily_report
 
 	 has_attached_file :image, 
-   :styles => { :original => ['250x250>'],:thumb =>['100x100>'] , :medium => ['300x300>'] },
+   :styles => { :original => ['250x250>'],:thumb =>['100x100>'] },
 
    
 

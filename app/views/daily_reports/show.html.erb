@@ -79,13 +79,13 @@
 <h3 class="text-left ">Images:</h3>
 <% @walls.each do |wall| %>
   <tr>
-    <td><%= image_tag wall.image.url(:medium) %></td>
+    <td><%= image_tag wall.image.url(:original) %></td>
   </tr>
    <% end -%>
 
    <% @slabs.each do |slab| %>
   <tr>
-    <td><%= image_tag slab.image.url(:medium) %></td>
+    <td><%= image_tag slab.image.url(:original) %></td>
   </tr>
    <% end -%>
 
