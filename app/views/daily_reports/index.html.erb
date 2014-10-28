@@ -98,19 +98,19 @@
 <div>
     <% @walls.each do |wall| %>
       <tr>
-    <td><%= image_tag wall.image.url(:medium) %></td>
+    <td><%= image_tag wall.image.url(:original) %></td>
   </tr>
 <% end -%>
 
 <% @slabs.each do |slab| %>
   <tr>
-    <td><%= image_tag slab.image.url(:medium) %></td>
+    <td><%= image_tag slab.image.url(:original) %></td>
   </tr>
 <% end -%>
 
 <% @arches.each do |arch| %>
   <tr>
-    <td><%= image_tag arch.image.url(:medium) %></td>
+    <td><%= image_tag arch.image.url(:original) %></td>
   </tr>
 <% end -%>
 </div>
