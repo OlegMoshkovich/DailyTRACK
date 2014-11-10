@@ -22,12 +22,14 @@
 
 
 <div class='row'>
-        <div class ='span3'>
+        <div class ='span4'>
         <h3 >Create Inspection:</h3>
 
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
             
-            <div><%= f.select :heading, options_for_select(['TT', 'L402','GCT1+2_east','GCT1+2 West' ])%></div>
+            <div><%= f.select :heading, options_for_select(['50th Adit',
+'50th Air Plenum','53rd Sump Pump Chamber','55th Ventilation Facility','Assembly Chamber East','Assembly Chamber West',
+'Cross Flue','Cross Passage 2','Cross Passage 4','Cross Passage 5','Cross Passage 6','Cross Passage 7','T301','T302','T303','T304','T401','T402','T403','T404','EB2','EB4','WB1','WB3','GCT3 East Wye','GCT3 West Wye','GCT3 Crossover','GCT4 East Wye','GCT4 West Wye','GCT4 Facility Room','GCT4 Crossover','GCT4 CIR','GCT5 East Wye','GCT5 West Wye','GCT5 Facility Room','GCT5 CIR','GCT5 Transformer Niches' ])%></div>
 
             <div ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
 
