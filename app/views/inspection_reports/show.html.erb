@@ -32,6 +32,7 @@
 'Cross Flue','Cross Passage 2','Cross Passage 4','Cross Passage 5','Cross Passage 6','Cross Passage 7','T301','T302','T303','T304','T401','T402','T403','T404','EB2','EB4','WB1','WB3','GCT3 East Wye','GCT3 West Wye','GCT3 Crossover','GCT4 East Wye','GCT4 West Wye','GCT4 Facility Room','GCT4 Crossover','GCT4 CIR','GCT5 East Wye','GCT5 West Wye','GCT5 Facility Room','GCT5 CIR','GCT5 Transformer Niches' ])%></div>
 
             <div ><%= f.select :element, options_for_select(['WALL', 'SLAB','ARCH','INVERT','system' ]) %></div>
+            <div><%= f.text_field :note , :placeholder =>"Notes go here..." %></div>
 
             <div><%= f.text_field :start , :placeholder =>'Start' %></div>
             
@@ -501,6 +502,7 @@
               <th>Finish</th>
               <th>Scope</th>
               <th>Operation</th>
+              <th>Notes</th>
               <th>Image</th>
               <th>Erase</th>
             </tr>
@@ -512,7 +514,9 @@
                 <td><%= inspection.finish %></td>
                 <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
+                <td><%= inspection.note %></td>
                 <td><%= image_tag inspection.image.url(:thumb)  %></td>
+
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" ,
                            data: { confirm: 'Are you sure?' } %><strong></td>

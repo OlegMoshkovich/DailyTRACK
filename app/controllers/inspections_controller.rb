@@ -35,6 +35,6 @@ class InspectionsController < ApplicationController
 
 private
     def inspection_params
-      params.require(:inspection).permit(:heading, :element, :start, :finish, :operation, :scope, :image )
+      params.require(:inspection).permit(:heading, :element, :start, :finish, :operation, :scope, :note, :image )
     end
 end

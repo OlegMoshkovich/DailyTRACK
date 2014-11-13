@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022234353) do
+ActiveRecord::Schema.define(version: 20141113222358) do
 
   create_table "api_calls", force: true do |t|
     t.datetime "created_at"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20141022234353) do
     t.datetime "image_updated_at"
     t.integer  "daily_report_id"
     t.string   "scope"
+    t.string   "note"
   end
 
   add_index "inspections", ["daily_report_id"], name: "index_inspections_on_daily_report_id"
