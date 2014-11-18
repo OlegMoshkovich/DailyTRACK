@@ -5,19 +5,25 @@
 <h1 class="text-center ">Daily Report</h1>
 
   <div class="text-center" >       
-        <p> 
-           
+        <!-- <p>    
             <%= @user.username%>
-        </p>
-        <p> 
-          
+        </p> -->
+
+        <p>           
             <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>        
         </p>
         <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+  </div>
+
+<div class="text-center" > 
+<%= button_to  "Export Excel", daily_report_path(format: "xls"), :class => "btn btn-primary ", :method => :get %>
 </div>
-    <div class='row'>
-      <div class ='span8'>
-        <h3>Summary:</h3>
+
+
+    <div class="text-center">
+   
+  
+        <br>
         <table class="table" >
           <tr>
             <th>Heading</th>
@@ -58,21 +64,7 @@
             </tr>
             <% end -%>      
         </table>
-      </div>
-     
-      <!-- <div class ='span4'>
-        <h3>Notes:</h3>
-          <table>
-            <% @daily_report.narratives.each do |narrative| %>
-              <p><%= narrative.narrative %></th>
-                <%= link_to '+', [narrative.daily_report, narrative],
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %></p>
-            <% end %>
-          </table>
-          <%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => 'btn btn-primary' , :method => :get %>
-      </div> -->
-
+    
     </div>  
 
 
