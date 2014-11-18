@@ -487,8 +487,8 @@
                 <td><%= image_tag inspection.image.url(:thumb)  %></td>
 
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
-                           method: :delete,:class => "btn btn-link" ,
-                           data: { confirm: 'Are you sure?' } %><strong></td>
+                           method: :delete,:class => "btn btn-link" 
+                           %><strong></td>
               </tr>
             <% end %>
           </table>
