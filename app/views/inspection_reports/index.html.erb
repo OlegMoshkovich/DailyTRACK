@@ -25,15 +25,16 @@
         
       <table class = "table" >
           <tr>
-            <td >Inspector</td>
             <td >Date</td>
             <td >Erase</td>
           </tr>
 
-        <% @inspection_reports.each do |inspection_report| %>
-          <tr>
-            <td ><strong><%= link_to inspection_report.inspector,inspection_report_path(inspection_report) %><strong></td>
-            <td><%= inspection_report.date %></td>
+
+
+        <% @inspection_reports.reverse_each do |inspection_report| %>
+          <tr>    
+            <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+
             <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
           </tr>
         <% end %>

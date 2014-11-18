@@ -19,7 +19,7 @@
     <th helvetica="3"></th>
   </tr>
 
-<% @inspections.each do |inspection| %>
+<% @inspections.reverse_each do |inspection| %>
   <tr>
     <td><%= inspection.heading %></td>
     <td><%= inspection.element %></td>

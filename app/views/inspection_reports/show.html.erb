@@ -475,7 +475,7 @@
               <th>Image</th>
               <th>Erase</th>
             </tr>
-            <% @inspection_report.inspections.each do |inspection| %>
+            <% @inspection_report.inspections.reverse_each do |inspection| %>
               <tr>
                 <td><%= inspection.heading %></td>
                 <td><%= inspection.element %></td>
@@ -501,6 +501,7 @@
             <h3>Observation:</h3>
             <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
                 <table>
+                    
                 <tr>
                 <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "10" %></th>
                 </tr>
