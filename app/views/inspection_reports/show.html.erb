@@ -461,11 +461,8 @@
       
 </div>
 
-
-  
-<div class = 'text-center'>
-          <!-- <h3 > Inspections</h3> -->
-          
+<div class = "text-center">
+   <h3 > Inspections </h3>    
           <table class = "table">
             <tr>
               <th>Heading</th>
@@ -496,12 +493,12 @@
             <% end %>
           </table>
 
-</div>
-         
 
+         
+</div>
 
       <div class="text-center" >
-            <h3>Obesrvation:</h3>
+            <h3>Observation:</h3>
             <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
                 <table>
                 <tr>
@@ -513,7 +510,8 @@
       </div>
 
         <div >
-                  <h3>Observations:</h3>
+             <div class="text-center" >
+                  <h3>Observations</h3>
             <table>
                   <tr>
                     <% @inspection_report.notes.each do |note| %>
@@ -525,6 +523,7 @@
               <% end %>
             </table>
             </div>
+        </div>
 
 
 
