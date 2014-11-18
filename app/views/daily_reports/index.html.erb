@@ -3,15 +3,17 @@
   <h1 class="text-center ">Daily Report</h1>
 
   <div class="text-center ">       
-        <strong><p> 
+        <!-- <strong><p> 
             
             <%= @user.username%>
-        </p></strong>
+        </p></strong> -->
+         
          <strong><p> 
            
             <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>        
         </p></strong>
         <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+        <p><%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => "btn ", :method => :get %></p>
 </div>
 
     <div class='row'>
@@ -90,7 +92,7 @@
               <h2><%= f.date_field :date %></h2>
             <%= f.submit 'Submit', class: 'btn btn-primary', value: 'Find' %>
           <% end %> 
-          <%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => "btn ", :method => :get %>
+          
       </div>
 
 </div>
