@@ -1,12 +1,13 @@
 
-<h1 class="text-center">Search Results</h1>
+
+
+<!-- <div class='row'> -->
+<div class ='text-center'>
+  <h1 class="text-center">Search Results</h1>
 <%= form_tag "/inspections", method: "GET" do %>
 <%= text_field_tag :q, params[:q] %>
-<%= submit_tag "Search" %>
+<p 'text-center'><%= submit_tag "Search",  :class => "btn btn-primary " %></p>
 <% end %>
-
-<div class='row'>
-<div class ='span6'>
 
 <table class ='table'>
   <tr>
@@ -32,7 +33,7 @@
 </table>
 
 </div>
-</div>
+<!-- </div> -->
 
 
 
