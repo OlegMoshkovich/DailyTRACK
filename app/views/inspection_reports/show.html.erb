@@ -1,28 +1,30 @@
-<div>       
-  <h1 class="text-center ">Inspection Report</h1> 
-        <p> 
+
+<h1 class="text-center ">Inspection Report</h1> 
+<p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
+<p class="text-center "><%= @inspection_report.date %></p>
+<div>        
+  
+        <!-- <p> 
              <strong>Name:</strong>
             <%= @user.username%>
-        </p>
-        <p> 
-            <strong>Role:</strong>
+        </p> -->
+         
+<!--    </p>         <strong>Role:</strong>
             <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
             <%= link_to 'Inspector', users_path  if !current_user.admin? %>
-        </p>
-
-        <p>
+        </p> -->
+        
+        <!-- <p>
           <strong>Date:</strong>
           <%= @inspection_report.date %>
-        </p>
-        <%= image_tag(@inspection_report.user.image.url(:thumb)) %>
+        </p> -->
+     <!--    <p><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p> -->
 </div>
 
 
 
 
-
-<div class='row'>
-        <div class ='span4'>
+<div class="text-center ">
         <h3 >Create Inspection:</h3>
 
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
@@ -33,22 +35,9 @@
             
  
 
-    <div ><%= f.select :element, options_for_select([
-                'Invert',
-                'Arch',
-                'Wall / Sidewall',
-                'End wall',
-                'Ductbench / Walkway',
-                'Slab (Structure)',
-                'Backfill',
-                'Wall and Arch',
-                'Wall and Invert',
-                'Interior Wall',
-                'Other'
-            ]) 
-    %></div>
+<div ><%= f.select :element, options_for_select(['Invert','Arch','Wall / Sidewall','End wall','Ductbench / Walkway','Slab (Structure)','Backfill','Wall and Arch','Wall and Invert','Interior Wall','Other']) %></div>
            
-           <div><%= f.select :scope, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
+<div><%= f.select :scope, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
 
     <div>
             <div class="CONCRETE" style=" display: none;">
@@ -101,11 +90,6 @@
             </div>
     </div>
 
-
-
-         
-
-
         <div><%= f.text_field :note , :placeholder =>"Notes go here..." %></div>
         <div><%= f.text_field :start , :placeholder =>'Start' %></div>    
         <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
@@ -113,8 +97,7 @@
           <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>              
           <br>
           <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
-        
-        <% end %>
+          <% end %>
       </div>
     
 <style>
@@ -125,11 +108,9 @@
     right: 0;
     left: 0;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: auto;} 
+</style>
 
-} 
-  </style>
-    
       <%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %>
 
             <script>
@@ -476,31 +457,8 @@
  
  </script>
 
-      <div class ='span3'>
-            <h3>Create Note:</h3>
-            <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
-                <table>
-                <tr>
-                <%= f.text_area :observation,  :cols => "80", :rows => "6" %></th>
-                </tr>
-                </table>  
-              <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
-            <% end %>
-      </div>
 
-      <div class ='span5'>
-            <h3>Notes:</h3>
-            <table>
-                  <tr>
-                    <% @inspection_report.notes.each do |note| %>
-                    <%= note.observation %>
-                    <%= button_to 'o', [note.inspection_report, note],
-                    method: :delete ,:class => "btn btn-link",
-                    data: { confirm: 'Are you sure?' } %>
-                  </tr>
-              <% end %>
-            </table>
-      </div>
+      
 </div>
 
 
@@ -539,7 +497,35 @@
           </table>
 
 </div>
-          
+         
+
+
+      <div class="text-center " >
+            <h3>Inspection Report Note:</h3>
+            <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
+                <table>
+                <tr>
+                <%= f.text_area :observation,  :cols => "50", :rows => "10" %></th>
+                </tr>
+                </table>  
+              <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
+            <% end %>
+      </div>
+
+        <div >
+                  <h3>Notes:</h3>
+            <table>
+                  <tr>
+                    <% @inspection_report.notes.each do |note| %>
+                    <%= note.observation %>
+                    <%= button_to 'o', [note.inspection_report, note],
+                    method: :delete ,:class => "btn btn-link",
+                    data: { confirm: 'Are you sure?' } %>
+                  </tr>
+              <% end %>
+            </table>
+            </div>
+
 
 
 
