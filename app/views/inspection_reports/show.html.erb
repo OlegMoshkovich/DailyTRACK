@@ -91,8 +91,8 @@
     </div>
 
         <div><%= f.text_field :note , :placeholder =>"Notes go here..." %></div>
-        <div><%= f.text_field :start , :placeholder =>'Start' %></div>    
-        <div><%= f.text_field :finish, :placeholder => 'End',:cols => "10", :rows => "1" %></div>
+        <div><%= f.text_field :start , :placeholder =>'Start Station' %></div>    
+        <div><%= f.text_field :finish, :placeholder => 'End Station',:cols => "10", :rows => "1" %></div>
             
           <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>              
           <br>
@@ -501,11 +501,11 @@
 
 
       <div class="text-center " >
-            <h3>Inspection Report Note:</h3>
+            <h3>Obesrvation:</h3>
             <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
                 <table>
                 <tr>
-                <%= f.text_area :observation,  :cols => "50", :rows => "10" %></th>
+                <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "10" %></th>
                 </tr>
                 </table>  
               <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
@@ -513,7 +513,7 @@
       </div>
 
         <div >
-                  <h3>Notes:</h3>
+                  <h3>Observations:</h3>
             <table>
                   <tr>
                     <% @inspection_report.notes.each do |note| %>
