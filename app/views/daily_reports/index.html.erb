@@ -28,6 +28,20 @@
             <th>Operation</th>
             <th>Images</th>
           </tr>
+
+
+          <% @inspections.each do |inspection| %>
+            <tr>
+              <td><%= inspection.heading %></td>
+              <td><%= inspection.element %></td>
+              <td><%= inspection.start %></td>
+              <td><%= inspection.finish %></td>
+              <td><%= inspection.operation %></td>
+              <td><%= image_tag inspection.image.url(:thumb) %></td>
+            </tr>
+          <% end -%>
+
+
           <% @walls.each do |wall| %>
             <tr>
               <td><%= wall.heading %></td>
@@ -38,6 +52,8 @@
               <td><%= image_tag wall.image.url(:thumb) %></td>
             </tr>
           <% end -%>
+
+
            <% @slabs.each do |slab| %>
               <tr>
                 <td><%= slab.heading %></td>
@@ -48,6 +64,8 @@
                 <td><%= image_tag slab.image.url(:thumb) %></td>
               </tr>
           <% end -%>
+
+
            <% @arches.each do |arch| %>
             <tr>
               <td><%= arch.heading %></td>
@@ -98,6 +116,13 @@
 </div>
 
 <div>
+    <% @inspections.each do |inspection| %>
+      <tr>
+    <td><%= image_tag inspection.image.url(:original) %></td>
+  </tr>
+<% end -%>
+
+
     <% @walls.each do |wall| %>
       <tr>
     <td><%= image_tag wall.image.url(:original) %></td>

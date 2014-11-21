@@ -203,343 +203,343 @@
               });
             </script>
             
- <script>
-    $( document ).ready(function() {
-    $('select#inspection_scope').on( 'change', function()
-    {
-     var v = this.value;
-      if ($(this).val() == 'REINFORCEMENT') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').show();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', false);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'SHOTCRETE') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').show();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', false);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'DRAINAGE') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').show();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', false);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'ELECTRICAL') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').show();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', false);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'FINISHES') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').show();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', false);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'FIREPROOFING') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').show();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', false);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'MASONRY') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').show();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', false);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'METALS') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').show();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', false);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'SURVEYING') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').show();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', false);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'SITE_MAINTANENCE') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').show();
-            $('.WATERPROOFING').hide();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', false);
-            $('.waterproofing').prop('disabled', true);
-        }
-            else if ($(this).val() == 'WATERPROOFING') {
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').show();
-            $('.concrete').prop('disabled', true);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', false);
-     
-        }
-            else if($(this).val() == 'CONCRETE') {
-            $('.CONCRETE').show();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();  
-            $('.concrete').prop('disabled', false);
-            $('.reinforcement').prop('disabled', true);
-            $('.drainage').prop('disabled', true);
-            $('.shotcrete').prop('disabled', true);
-            $('.electrical').prop('disabled', true);
-            $('.finishes').prop('disabled', true);
-            $('.fireproofing').prop('disabled', true);
-            $('.masonry').prop('disabled', true);
-            $('.metals').prop('disabled', true);
-            $('.surveying').prop('disabled', true);
-            $('.site_maintanence').prop('disabled', true);
-            $('.waterproofing').prop('disabled', true);
-         
-        }
-            else{
-            $('.CONCRETE').hide();
-            $('.REINFORCEMENT').hide();
-            $('.SHOTCRETE').hide();
-            $('.DRAINAGE').hide();
-            $('.ELECTRICAL').hide();
-            $('.FINISHES').hide();
-            $('.FIREPROOFING').hide();
-            $('.MASONRY').hide();
-            $('.METALS').hide();
-            $('.SURVEYING').hide();
-            $('.SITE_MAINTANENCE').hide();
-            $('.WATERPROOFING').hide();
-        }
-       });
-    });
- 
- </script>
+             <script>
+                $( document ).ready(function() {
+                $('select#inspection_scope').on( 'change', function()
+                {
+                 var v = this.value;
+                  if ($(this).val() == 'REINFORCEMENT') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').show();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', false);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'SHOTCRETE') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').show();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', false);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'DRAINAGE') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').show();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', false);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'ELECTRICAL') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').show();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', false);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'FINISHES') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').show();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', false);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'FIREPROOFING') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').show();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', false);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'MASONRY') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').show();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', false);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'METALS') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').show();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', false);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'SURVEYING') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').show();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', false);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'SITE_MAINTANENCE') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').show();
+                        $('.WATERPROOFING').hide();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', false);
+                        $('.waterproofing').prop('disabled', true);
+                    }
+                        else if ($(this).val() == 'WATERPROOFING') {
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').show();
+                        $('.concrete').prop('disabled', true);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', false);
+                 
+                    }
+                        else if($(this).val() == 'CONCRETE') {
+                        $('.CONCRETE').show();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();  
+                        $('.concrete').prop('disabled', false);
+                        $('.reinforcement').prop('disabled', true);
+                        $('.drainage').prop('disabled', true);
+                        $('.shotcrete').prop('disabled', true);
+                        $('.electrical').prop('disabled', true);
+                        $('.finishes').prop('disabled', true);
+                        $('.fireproofing').prop('disabled', true);
+                        $('.masonry').prop('disabled', true);
+                        $('.metals').prop('disabled', true);
+                        $('.surveying').prop('disabled', true);
+                        $('.site_maintanence').prop('disabled', true);
+                        $('.waterproofing').prop('disabled', true);
+                     
+                    }
+                        else{
+                        $('.CONCRETE').hide();
+                        $('.REINFORCEMENT').hide();
+                        $('.SHOTCRETE').hide();
+                        $('.DRAINAGE').hide();
+                        $('.ELECTRICAL').hide();
+                        $('.FINISHES').hide();
+                        $('.FIREPROOFING').hide();
+                        $('.MASONRY').hide();
+                        $('.METALS').hide();
+                        $('.SURVEYING').hide();
+                        $('.SITE_MAINTANENCE').hide();
+                        $('.WATERPROOFING').hide();
+                    }
+                   });
+                });
+             
+             </script>
 
 
          

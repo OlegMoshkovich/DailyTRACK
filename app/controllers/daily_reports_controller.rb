@@ -2,7 +2,8 @@ class DailyReportsController < ApplicationController
   before_action :authenticate_user!
 	
 	def index
-    @daily_report= DailyReport.ensure_today    
+    @daily_report= DailyReport.ensure_today  
+    @inspections = @daily_report.inspections.order(created_at: :asc)  
     @walls = @daily_report.inspections.where("element = ?", "WALL").order(created_at: :asc) 
     @slabs = @daily_report.inspections.where("element = ?", "SLAB").order(created_at: :asc) 
     @arches = @daily_report.inspections.where("element = ?", "ARCH").order(created_at: :asc)  
