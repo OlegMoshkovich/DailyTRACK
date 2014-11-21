@@ -18,6 +18,7 @@
 //= require spin
 //= require twitter/bootstrap
 //= require turbolinks
+//= require fancybox
 
 
 

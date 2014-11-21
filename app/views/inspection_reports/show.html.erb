@@ -119,6 +119,90 @@
               });
             </script>
 
+
+
+
+
+
+      
+</div>
+
+<div class = "text-center">
+   <h3 > Inspections </h3>    
+          <table class = "table">
+            <tr>
+              <th>Heading</th>
+              <th>Element</th>
+              <th>Start</th>
+              <th>Finish</th>
+              <th >Scope</th>
+              <th>Operation</th>
+              <th>Notes</th>
+              <th>Image</th>
+              <th>Erase</th>
+            </tr>
+            <% @inspection_report.inspections.reverse_each do |inspection| %>
+              <tr>
+                <td><%= inspection.heading %></td>
+                <td><%= inspection.element %></td>
+                <td><%= inspection.start %></td>
+                <td><%= inspection.finish %></td>
+                <td><%= inspection.scope %></td>
+                <td><%= inspection.operation %></td>
+                <td><%= inspection.note %></td>
+                <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
+
+                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
+                           method: :delete,:class => "btn btn-link" 
+                           %><strong></td>
+              </tr>
+            <% end %>
+          </table>
+
+
+
+      <div class="text-center" >
+            <h3 >Observation</h3>
+            <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
+                <table>
+                    
+                <tr>
+                <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "10" %></th>
+                </tr>
+                </table>  
+              <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
+            <% end %>
+      </div>
+
+        <div >
+             <div  >
+                  <h3>Observations</h3>
+            <table>
+                  <tr>
+                    <% @inspection_report.notes.each do |note| %>
+                    <%= note.observation %>
+                    <%= button_to 'o', [note.inspection_report, note],
+                    method: :delete ,:class => "btn btn-link",
+                    data: { confirm: 'Are you sure?' } %>
+                  </tr>
+              <% end %>
+            </table>
+            </div>
+        </div>
+
+            <script>
+              $("#button").click(function(){
+                $("#spinner").show();
+              });
+            </script>
+
+
+            <script>
+              $(".image").click(function(){
+                $(".image").hide();
+              });
+            </script>
+            
  <script>
     $( document ).ready(function() {
     $('select#inspection_scope').on( 'change', function()
@@ -458,75 +542,8 @@
  </script>
 
 
-      
-</div>
-
-<div class = "text-center">
-   <h3 > Inspections </h3>    
-          <table class = "table">
-            <tr>
-              <th>Heading</th>
-              <th>Element</th>
-              <th>Start</th>
-              <th>Finish</th>
-              <th >Scope</th>
-              <th>Operation</th>
-              <th>Notes</th>
-              <th>Image</th>
-              <th>Erase</th>
-            </tr>
-            <% @inspection_report.inspections.reverse_each do |inspection| %>
-              <tr>
-                <td><%= inspection.heading %></td>
-                <td><%= inspection.element %></td>
-                <td><%= inspection.start %></td>
-                <td><%= inspection.finish %></td>
-                <td><%= inspection.scope %></td>
-                <td><%= inspection.operation %></td>
-                <td><%= inspection.note %></td>
-                <td><%= image_tag inspection.image.url(:thumb)  %></td>
-
-                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
-                           method: :delete,:class => "btn btn-link" 
-                           %><strong></td>
-              </tr>
-            <% end %>
-          </table>
-
-
          
 </div>
-
-      <div class="text-center" >
-            <h3>Observation:</h3>
-            <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
-                <table>
-                    
-                <tr>
-                <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "10" %></th>
-                </tr>
-                </table>  
-              <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
-            <% end %>
-      </div>
-
-        <div >
-             <div class="text-center" >
-                  <h3>Observations</h3>
-            <table>
-                  <tr>
-                    <% @inspection_report.notes.each do |note| %>
-                    <%= note.observation %>
-                    <%= button_to 'o', [note.inspection_report, note],
-                    method: :delete ,:class => "btn btn-link",
-                    data: { confirm: 'Are you sure?' } %>
-                  </tr>
-              <% end %>
-            </table>
-            </div>
-        </div>
-
-
 
 
         
