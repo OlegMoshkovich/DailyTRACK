@@ -4,8 +4,8 @@ class InspectionReportsController < ApplicationController
 	def index
 		@inspection_reports = InspectionReport.where(:inspector => current_user.username)
 		@user = current_user
-		@inspection_reports_current = InspectionReport.where(:inspector => current_user.username).order("created_at").last
-
+		@inspection_report_current =InspectionReport.where(:inspector => current_user.username).last
+		@user = current_user
 	end
 
 	def new

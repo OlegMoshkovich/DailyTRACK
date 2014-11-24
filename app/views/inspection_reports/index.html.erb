@@ -11,26 +11,36 @@
        <p ><%= image_tag(@user.image.url(:thumb)) %></p>
 </div>
 
+
+
+
 <div class="text-center">
-    <%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+<%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+
+
+
+
+<h5 class ="btn btn"><%=link_to "Current REPORT" ,inspection_report_path(@inspection_report_current)  %></h5>
+
+<!-- <h5 class ="btn btn"><%=link_to @inspection_report_current.date ,inspection_report_path(@inspection_report_current)  %></h5> --> 
+
 </div>
 
-<br>
+<div class = "text-center">  
+    <h3 id="flip" class ="btn btn-primary">Hide|Show REPORTS </h3> 
+</div>
+
 
 <div class='row'>
         <div class ='span4'>
         </div>
-
-    <div class ='span4'>
-        
-      <table class = "table" >
+<div class ='span4'>
+       
+  <table class = "table" id = "panel" style=" display: none;" >
           <tr>
             <td >Date</td>
             <td >Erase</td>
           </tr>
-
-
-
         <% @inspection_reports.reverse_each do |inspection_report| %>
           <tr>    
             <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
@@ -39,11 +49,33 @@
           </tr>
         <% end %>
       </table>
+<div class = "text-center">  
+    <h4> By the way, if it is unclear: </h4>
+    <h6>If you would like to be directed to the last report, please press CURRENT REPORT BUTTON</h6>
+    <h6>If you would like to be directed to the past reports, please press HIDE"SHOW</h6>
 
-    </div>
+</div>
+
+
+</div>
+
+
+
+
+
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script type="text/javascript" src="/resource/1358914798000/bootstrap/bootstrap/js/bootstrap.js"></script>
 
 
 <br>
+
+
+             <script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
+
