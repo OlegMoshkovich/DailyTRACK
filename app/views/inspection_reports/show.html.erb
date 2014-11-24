@@ -97,14 +97,22 @@
           <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>              
           <br>
           <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
+          
+
+
           <% end %>
+
+
       </div>
+
+     
+    
+
+
     
 <style>
-    
     #spinner {
     position: fixed;
-    /* center the div */
     right: 0;
     left: 0;
     margin-right: auto;
@@ -113,11 +121,7 @@
 
       <%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %>
 
-            <script>
-              $("#button").click(function(){
-                $("#spinner").show();
-              });
-            </script>
+
 
 
 
@@ -127,8 +131,20 @@
       
 </div>
 
+
 <div class = "text-center">
-   <h3 > Inspections </h3>    
+
+  
+    <h3 id="flip" class ="btn btn-primary">Dispaly INSPECTIONS </h3> 
+    <br>
+    .
+    <br>
+
+</div>
+
+
+<div class = "text-center" id = "panel" style=" display: none;">
+  
           <table class = "table">
             <tr>
               <th>Heading</th>
@@ -158,10 +174,8 @@
               </tr>
             <% end %>
           </table>
-
-
-
-      <div class="text-center" >
+        </div>
+<div class="text-center" >
             <h3 >Observation</h3>
             <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
                 <table>
@@ -174,7 +188,10 @@
             <% end %>
       </div>
 
-        <div >
+
+
+
+        <div class="text-center" >
              <div  >
                   <h3>Observations</h3>
             <table>
@@ -188,22 +205,19 @@
               <% end %>
             </table>
             </div>
-        </div>
+
+
+
 
             <script>
               $("#button").click(function(){
                 $("#spinner").show();
               });
-            </script>
 
-
-            <script>
               $(".image").click(function(){
                 $(".image").hide();
               });
-            </script>
-            
-             <script>
+
                 $( document ).ready(function() {
                 $('select#inspection_scope').on( 'change', function()
                 {
@@ -541,7 +555,19 @@
              
              </script>
 
+             <script> 
+$(document).ready(function(){
+  $("#flip").click(function(){
+    $("#panel").slideToggle("slow");
+  });
+});
+</script>
 
+            <script>
+              $("#button").click(function(){
+                $("#spinner").show();
+              });
+            </script>
          
 </div>
 
