@@ -2,31 +2,13 @@
 <h1 class="text-center ">Inspection Report</h1> 
 <p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
 <p class="text-center "><%= @inspection_report.date %></p>
-<div>        
-  
-        <!-- <p> 
-             <strong>Name:</strong>
-            <%= @user.username%>
-        </p> -->
-         
-<!--    </p>         <strong>Role:</strong>
-            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
-            <%= link_to 'Inspector', users_path  if !current_user.admin? %>
-        </p> -->
-        
-        <!-- <p>
-          <strong>Date:</strong>
-          <%= @inspection_report.date %>
-        </p> -->
-     <!--    <p><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p> -->
-</div>
 
 
-
-
+<p><%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %></p>
+ 
 <div class="text-center ">
         <h3 >Create Inspection:</h3>
-
+     
           <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>   
             
             <div><%= f.select :heading, options_for_select(['50th Adit',
@@ -119,7 +101,7 @@
     margin-left: auto;} 
 </style>
 
-      <%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %>
+
 
 
 
@@ -135,7 +117,7 @@
 <div class = "text-center">
 
   
-    <h3 id="flip" class ="btn btn-primary">Dispaly INSPECTIONS </h3> 
+    <h3 id="flip" class ="btn btn-primary">Hide|Show INSPECTIONS </h3> 
     <br>
     .
     <br>
