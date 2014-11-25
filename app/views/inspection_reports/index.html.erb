@@ -25,10 +25,13 @@
 <!-- <h5 class ="btn btn"><%=link_to @inspection_report_current.date ,inspection_report_path(@inspection_report_current)  %></h5> --> 
 
 </div>
+<br>
 
 <div class = "text-center">  
-    <h3 id="flip" class ="btn btn-primary">Hide|Show REPORTS </h3> 
+    <u id="flip" class="btn btn-link" ><h4> Show Past Reports</h4> </u>
+
 </div>
+
 
 
 <div class='row'>
@@ -49,12 +52,6 @@
           </tr>
         <% end %>
       </table>
-<div class = "text-center">  
-    <h4> By the way, if it is unclear: </h4>
-    <h6>If you would like to be directed to the last report, please press CURRENT REPORT BUTTON</h6>
-    <h6>If you would like to be directed to the past reports, please press HIDE|SHOW</h6>
-
-</div>
 
 
 </div>
@@ -75,6 +72,7 @@
 $(document).ready(function(){
   $("#flip").click(function(){
     $("#panel").slideToggle("slow");
+
   });
 });
 </script>
