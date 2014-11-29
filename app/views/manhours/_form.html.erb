@@ -1,0 +1,46 @@
+<%= form_for(@manhour) do |f| %>
+  <% if @manhour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manhour.errors.count, "error") %> prohibited this manhour from being saved:</h2>
+
+      <ul>
+      <% @manhour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading %>
+  </div>
+  <div class="field">
+    <%= f.label :union147 %><br>
+    <%= f.text_field :union147 %>
+  </div>
+  <div class="field">
+    <%= f.label :union15 %><br>
+    <%= f.text_field :union15 %>
+  </div>
+
+
+<div class="field">
+    <%= f.label :union14 %><br>
+    <%= f.text_field :union14 %>
+  </div>
+
+<div class="field">
+    <%= f.label :union731 %><br>
+    <%= f.text_field :union731 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :union3 %><br>
+    <%= f.text_field :union3 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<h1>Listing manhours</h1>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Heading</th>
+      <th>Union147</th>
+      <th>Union15</th>
+      <th>Union14</th>
+      <th>Union731</th>
+      <th>Union3</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manhours.each do |manhour| %>
+      <tr>
+        <td><%= manhour.heading %></td>
+        <td><%= manhour.union147 %></td>
+        <td><%= manhour.union15 %></td>
+        <td><%= manhour.union14 %></td>
+        <td><%= manhour.union731 %></td>
+        <td><%= manhour.union3 %></td>
+        <td><%= link_to 'Show', manhour %></td>
+        <td><%= link_to 'Edit', edit_manhour_path(manhour) %></td>
+        <td><%= link_to 'Destroy', manhour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manhour', new_manhour_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141113222358) do
+ActiveRecord::Schema.define(version: 20141129210007) do
 
   create_table "api_calls", force: true do |t|
     t.datetime "created_at"
@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(version: 20141113222358) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "forces", force: true do |t|
+    t.string   "heading"
+    t.string   "union147"
+    t.string   "union15"
+    t.string   "union14"
+    t.string   "union731"
+    t.string   "union3"
+    t.integer  "inspection_report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "forces", ["inspection_report_id"], name: "index_forces_on_inspection_report_id"
 
   create_table "inspection_reports", force: true do |t|
     t.string   "inspector"
@@ -69,6 +83,28 @@ ActiveRecord::Schema.define(version: 20141113222358) do
 
   add_index "inspections", ["daily_report_id"], name: "index_inspections_on_daily_report_id"
   add_index "inspections", ["inspection_report_id"], name: "index_inspections_on_inspection_report_id"
+
+  create_table "labors", force: true do |t|
+    t.string   "heading"
+    t.integer  "union147"
+    t.integer  "union15"
+    t.integer  "union14"
+    t.integer  "union731"
+    t.integer  "union3"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "manhours", force: true do |t|
+    t.string   "heading"
+    t.string   "union147"
+    t.string   "union15"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "union14"
+    t.string   "union731"
+    t.string   "union3"
+  end
 
   create_table "narratives", force: true do |t|
     t.string   "narrative"

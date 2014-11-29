@@ -1,105 +1,95 @@
 <div class = "container">
-
   <h1 class="text-center ">Daily Report</h1>
-
-  <div class="text-center ">       
-        <!-- <strong><p> 
-            
-            <%= @user.username%>
-        </p></strong> -->
-         
-         <strong><p> 
-           
-            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>        
-        </p></strong>
-        <p ><%= image_tag(@user.image.url(:thumb)) %></p>
-        <p><%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => "btn ", :method => :get %></p>
+  <div class="text-center ">  
+  <br>     
+  <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+  <p><%= button_to  "Export Excel",daily_reports_path(format: "xls"), :class => "btn ", :method => :get %></p>
 </div>
 
-    <div class='row'>
-      <div class ='span8'>
-        <h3>Summary</h3>
-        <table class="table" >
-          <tr>
-            <th>Heading</th>
-            <th>Element</th>
-            <th>Start</th>
-            <th>Finish</th>
-            <th>Operation</th>
-            <th>Images</th>
-          </tr>
-
-
-          <% @inspections.each do |inspection| %>
-            <tr>
-              <td><%= inspection.heading %></td>
-              <td><%= inspection.element %></td>
-              <td><%= inspection.start %></td>
-              <td><%= inspection.finish %></td>
-              <td><%= inspection.operation %></td>
-              <td><%= image_tag inspection.image.url(:thumb) %></td>
-            </tr>
-          <% end -%>
-
-
-          <% @walls.each do |wall| %>
-            <tr>
-              <td><%= wall.heading %></td>
-              <td><%= wall.element %></td>
-              <td><%= wall.start %></td>
-              <td><%= wall.finish %></td>
-              <td><%= wall.operation %></td>
-              <td><%= image_tag wall.image.url(:thumb) %></td>
-            </tr>
-          <% end -%>
-
-
-           <% @slabs.each do |slab| %>
+<div class='row'>
+  <div class ='span8'>
+    <h3>Summary</h3>
+     <table class="table" >
               <tr>
-                <td><%= slab.heading %></td>
-                <td><%= slab.element %></td>
-                <td><%= slab.start %></td>
-                <td><%= slab.finish %></td>
-                <td><%= slab.operation %></td>
-                <td><%= image_tag slab.image.url(:thumb) %></td>
+                <th>Heading</th>
+                <th>Element</th>
+                <th>Start</th>
+                <th>Finish</th>
+                <th>Operation</th>
+                <th>Images</th>
               </tr>
-          <% end -%>
 
 
-           <% @arches.each do |arch| %>
-            <tr>
-              <td><%= arch.heading %></td>
-              <td><%= arch.element %></td>
-              <td><%= arch.start %></td>
-              <td><%= arch.finish %></td>
-              <td><%= arch.operation %></td>
-              <td><%= image_tag arch.image.url(:thumb) %></td>
-            </tr>
-            <% end -%>      
-        </table>
-<!-- 
-        <h3>Notes:</h3>
-        <table>
-            <% @daily_report.narratives.each do |narrative| %>
-              <p><%= narrative.narrative %>
-              <%= link_to '+', [narrative.daily_report, narrative],
-                       method: :delete,
-                       data: { confirm: 'Are you sure?' } %>
-                <% end %>
-              </p>
-        </table>
+            <% @inspections.each do |inspection| %>
+              <tr>
+                <td><%= inspection.heading %></td>
+                <td><%= inspection.element %></td>
+                <td><%= inspection.start %></td>
+                <td><%= inspection.finish %></td>
+                <td><%= inspection.operation %></td>
+                <td><%= image_tag inspection.image.url(:thumb) %></td>
+              </tr>
+            <% end -%>
 
-        <h3>Create Note:</h3>
-            <%= form_for([@daily_report, @daily_report.narratives.build]) do |f| %>
-              <table>
+
+            <% @walls.each do |wall| %>
+              <tr>
+                <td><%= wall.heading %></td>
+                <td><%= wall.element %></td>
+                <td><%= wall.start %></td>
+                <td><%= wall.finish %></td>
+                <td><%= wall.operation %></td>
+                <td><%= image_tag wall.image.url(:thumb) %></td>
+              </tr>
+            <% end -%>
+
+
+             <% @slabs.each do |slab| %>
                 <tr>
-                  <%= f.text_area :narrative %></th> 
+                  <td><%= slab.heading %></td>
+                  <td><%= slab.element %></td>
+                  <td><%= slab.start %></td>
+                  <td><%= slab.finish %></td>
+                  <td><%= slab.operation %></td>
+                  <td><%= image_tag slab.image.url(:thumb) %></td>
                 </tr>
-              </table>  
-                  <p><%= f.submit class: 'btn btn-primary' , value: 'Create Note '%></p>
-        <% end %> -->
+            <% end -%>
 
-      </div>
+
+             <% @arches.each do |arch| %>
+              <tr>
+                <td><%= arch.heading %></td>
+                <td><%= arch.element %></td>
+                <td><%= arch.start %></td>
+                <td><%= arch.finish %></td>
+                <td><%= arch.operation %></td>
+                <td><%= image_tag arch.image.url(:thumb) %></td>
+              </tr>
+              <% end -%>      
+          </table>
+  <!-- 
+          <h3>Notes:</h3>
+          <table>
+              <% @daily_report.narratives.each do |narrative| %>
+                <p><%= narrative.narrative %>
+                <%= link_to '+', [narrative.daily_report, narrative],
+                         method: :delete,
+                         data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </p>
+          </table>
+
+          <h3>Create Note:</h3>
+              <%= form_for([@daily_report, @daily_report.narratives.build]) do |f| %>
+                <table>
+                  <tr>
+                    <%= f.text_area :narrative %></th> 
+                  </tr>
+                </table>  
+                    <p><%= f.submit class: 'btn btn-primary' , value: 'Create Note '%></p>
+          <% end %> -->
+
+        </div>
 
       <div class ='span1'>
       </div>

@@ -58,7 +58,7 @@
         <div class="header">
 
             <ul class="nav nav-pills pull-right">
-                <!-- <li><%= link_to 'Story', project_visuals_path  if current_user && current_user.admin? %></li> -->
+                <li><%= link_to 'Story', project_visuals_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
                 <!-- <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li> -->

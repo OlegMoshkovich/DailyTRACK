@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heading: MyString
+  union147: MyString
+  union15: MyString
+  union14: MyString
+  union731: MyString
+  union3: MyString
+
+two:
+  heading: MyString
+  union147: MyString
+  union15: MyString
+  union14: MyString
+  union731: MyString
+  union3: MyString

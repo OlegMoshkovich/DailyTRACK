@@ -1,5 +1,7 @@
 DailyTrack::Application.routes.draw do
 
+  resources :manhours
+
   devise_for :admins
   devise_for :users 
   #--------------how can i limit the users from signing up
@@ -31,6 +33,7 @@ DailyTrack::Application.routes.draw do
   resources :inspection_reports do
       resources :inspections,only: [:show, :create, :destroy] 
       resources :notes,only: [:show, :create, :destroy] 
+      resources :forces,only: [:show, :create, :destroy] 
   end
 
  resources :graph, only: [:index] 

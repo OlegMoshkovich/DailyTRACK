@@ -3,6 +3,8 @@ attr_accessible :inspector, :date
 
 	has_many :inspections
 	has_many :notes
+	has_many :forces
+
 	belongs_to :user
 
 end
