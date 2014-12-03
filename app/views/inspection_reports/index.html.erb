@@ -17,6 +17,36 @@
 <div class="text-center">
 <%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
 
+<div class ="btn btn"><%=link_to "Current Report" ,inspection_report_path(@inspection_report_current)  %></div>
+
+<div class = "text-center">  
+    <u id="flip" class="btn btn-link" ><h4> Show Past Reports</h4> </u>
+
+</div>
+
+
+
+<div class='row'>
+        <div class ='span4'>
+        </div>
+<div class ='span4'>
+       
+  <table class = "table" id = "panel" style=" display: none;" >
+          <tr>
+            <td >Date</td>
+            <td >Erase</td>
+          </tr>
+        <% @inspection_reports.reverse_each do |inspection_report| %>
+          <tr>    
+            <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+
+            <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
+          </tr>
+        <% end %>
+      </table>
+
+
+</div>
 
 
 </div>
