@@ -24,6 +24,7 @@ DailyTrack::Application.routes.draw do
       collection {post :import}
   end
 
+  resources :lead_reports, only: [:index]
   resources :project_visuals, only: [:index]
   resources :test, only: [:index] 
   resources :data_visuals, only: [:index] 
