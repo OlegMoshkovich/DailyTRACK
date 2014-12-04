@@ -3,66 +3,16 @@
   <div class="text-center ">  
   <br>     
   <p ><%= image_tag(@user.image.url(:thumb)) %></p>
-<p ><%= @oleg %></p>
 
 
-</div>
+<br>
 
-<div class='row'>
-        <div class ='span4'>
-        </div>
-<div class ='span4'>
+<p>Oleg</p>
+<div class ="btn btn"><%=link_to @oleg_reports.date ,inspection_report_path(@oleg_reports)%></div>
 
-<table class = "table" id = "panel" >
-          <tr>
-            <td >Inspector</td>
-            <td >Date</td>
-            <td >Erase</td>
-          </tr>
-      
+<p>Brian</p>
+<div class ="btn btn"><%=link_to @brian_reports.date ,inspection_report_path(@brian_reports)%></div>
 
-<% @oleg_reports.reverse_each do |inspection_report| %>
-          <tr>    
+<p>Howard</p>
+<div class ="btn btn"><%=link_to @howard_reports.date ,inspection_report_path(@howard_reports)%></div>
 
-
-            <td ><strong><%= link_to inspection_report.inspector, inspection_report_path(inspection_report) %><strong></td>
-
-<!-- <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td> -->
-            <td ><strong><%= inspection_report.date %><strong></td>
-
-            <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
-          </tr>
-        <% end %>
-
-
-<% @brian_reports.reverse_each do |inspection_report| %>
-          <tr>    
-
-
-            <td ><strong><%= link_to inspection_report.inspector, inspection_report_path(inspection_report) %><strong></td>
-
-<!-- <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td> -->
-            <td ><strong><%= inspection_report.date %><strong></td>
-
-            <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
-          </tr>
-        <% end %>
-
-<% @howard_reports.reverse_each do |inspection_report| %>
-          <tr>    
-
-
-            <td ><strong><%= link_to inspection_report.inspector, inspection_report_path(inspection_report) %><strong></td>
-
-<!-- <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td> -->
-            <td ><strong><%= inspection_report.date %><strong></td>
-
-            <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
-          </tr>
-        <% end %>
-
-
-
-</table>
-
-</div></div>
