@@ -2,12 +2,22 @@
 
 <%= form_for @inspection_report do |f| %>
   
-<strong><p class="text-center">Inspector Name: </p></strong>
-      <p class="text-center"><%= @user.username %></p>
+
+      <strong><p class="text-center"><%= @user.username %></p></strong>
       <p class="text-center"><%= image_tag(@user.image.url(:thumb)) %></p>
       <p class="text-center">
-      <%= f.label :DATE %><br>
+      	<br>
       <%= f.date_select :date %>
+
+       
+
+      <div class = "text-center"> 
+      	<%= f.select :contract, options_for_select(['CM006','CM005']) %> 
+      	<%= f.select :contractor, options_for_select(["Frontier Camper"]) %>
+      	<%= f.select :shift, options_for_select(['Day','Swing','Grave']) %>  
+      <div></div>
+      <div></div>
+
 </p> 
 
 <p class="text-center"><%= f.submit 'New Report', class: "btn btn-primary" %></p>

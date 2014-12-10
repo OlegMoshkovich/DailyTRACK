@@ -1,4 +1,10 @@
 <h1 class="text-center ">Inspection Report</h1> 
+
+<h5 class ="text-center">
+ <%= @inspection_report.contract %> -
+ <%= @inspection_report.contractor %> -
+ <%= @inspection_report.shift %></h5>
+<br>
 <p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
 
 <p class="text-center "><%= @inspection_report.date %></p>
@@ -8,6 +14,7 @@
 <div class="text-center">
 <%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %>
 </div>
+
 
 
 <div class="container">

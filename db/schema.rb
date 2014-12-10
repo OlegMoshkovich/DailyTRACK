@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129210007) do
+ActiveRecord::Schema.define(version: 20141210195100) do
 
   create_table "api_calls", force: true do |t|
     t.datetime "created_at"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20141129210007) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "contract",   limit: nil
+    t.string   "contractor", limit: nil
+    t.string   "shift",      limit: nil
+    t.string   "timeStart",  limit: nil
+    t.string   "timeEnd",    limit: nil
   end
 
   add_index "inspection_reports", ["user_id"], name: "index_inspection_reports_on_user_id"

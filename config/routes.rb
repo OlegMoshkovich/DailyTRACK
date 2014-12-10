@@ -1,6 +1,7 @@
 DailyTrack::Application.routes.draw do
 
   resources :manhours
+   resources :inspections
 
   devise_for :admins
   devise_for :users 

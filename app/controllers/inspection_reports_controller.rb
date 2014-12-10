@@ -43,6 +43,6 @@ class InspectionReportsController < ApplicationController
 
 	private
   	def inspection_report_params
-    	params.require(:inspection_report).permit( :date)
+    	params.require(:inspection_report).permit( :date, :contract, :contractor, :shift, :timeStart, :timeEnd)
   	end
 end

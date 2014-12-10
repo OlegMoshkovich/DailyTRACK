@@ -28,9 +28,8 @@ class InspectionsController < ApplicationController
   	end
  
  	  def edit
-
-    	@inspection_report = InspectionReport.find(params[:inspection_report_id])
-    	@inspection = @inspection_report.inspections.find(params[:id])
+      @inspections = Inspection.all 
+    	@inspection = @inspections.find(params[:id])
   	end
 
 private
