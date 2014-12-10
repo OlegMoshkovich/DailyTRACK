@@ -1,8 +1,14 @@
 <h1 class="text-center ">Inspection Report</h1> 
 <p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
+
 <p class="text-center "><%= @inspection_report.date %></p>
 
+
 <p><%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %></p>
+<div class="text-center">
+<%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %>
+</div>
+
 
 <div class="container">
 <div class="row">
@@ -214,9 +220,19 @@
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
                            %><strong></td>
+                           
+                
               </tr>
             <% end %>
           </table>
+
+<div>
+    <% @inspection_report.inspections.reverse_each do |inspection| %>
+      <tr>
+    <td><%= image_tag inspection.image.url(:original) %></td>
+  </tr>
+<% end -%>
+
 </div>
 
 <div class = "text-center" id = "panel_hours" style=" display: none;" >

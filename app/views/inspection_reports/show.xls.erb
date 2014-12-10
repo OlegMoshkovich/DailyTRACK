@@ -1,0 +1,30 @@
+<h5>Inspections</h5>
+<p><%= @inspection_report.date %></p>
+<p><%= @inspection_report.inspector %></p>
+
+      <table class = "table">
+            <tr>
+              <th>Heading</th>
+              <th>Element</th>
+              <th>Start</th>
+              <th>Finish</th>
+              <th >Scope</th>
+              <th>Operation</th>
+              <th>Notes</th>
+              <th>Image</th>
+            </tr>
+
+            <% @inspection_report.inspections.reverse_each do |inspection| %>
+              <tr>
+                <td><%= inspection.heading %></td>
+                <td><%= inspection.element %></td>
+                <td><%= inspection.start %></td>
+                <td><%= inspection.finish %></td>
+                <td><%= inspection.scope %></td>
+                <td><%= inspection.operation %></td>
+                <td><%= inspection.note %></td>
+                <td class = "image"><%= image_tag inspection.image.url(:original)  %></td>
+              </tr>
+
+            <% end %>
+        </table>

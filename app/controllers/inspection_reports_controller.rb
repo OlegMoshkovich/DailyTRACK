@@ -16,6 +16,11 @@ class InspectionReportsController < ApplicationController
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
 		@user = current_user
+
+		respond_to do |format|
+        format.html
+        format.xls
+      end  	
 	end
 
 	def create	

@@ -16,8 +16,8 @@ class InspectionsController < ApplicationController
   	end
 
   	def show
-    	@inspection_report = InspectionReport.find(params[:inspection_report_id])
-    	@inspection = @inspection_report.inspections.find(params[:id])
+      @inspections = Inspection.all	
+    	@inspection = @inspections.find(params[:id])
   	end
 
   	def destroy
@@ -28,11 +28,15 @@ class InspectionsController < ApplicationController
   	end
  
  	  def edit
+
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])
     	@inspection = @inspection_report.inspections.find(params[:id])
   	end
 
 private
+    def inspection_report_params
+      params.require(:inspection_report).permit( :date)
+    end
     def inspection_params
       params.require(:inspection).permit(:heading, :element, :start, :finish, :operation, :scope, :note, :image )
     end
