@@ -82,6 +82,13 @@
 
 
 <h3 class="text-center ">Images</h3>
+    <% @inspections.each do |inspection| %>
+      <tr>
+    <td><%= image_tag inspection.image.url(:original) %></td>
+  </tr>
+<% end -%>
+
+
 <% @walls.each do |wall| %>
   <tr>
     <td><%= image_tag wall.image.url(:original) %></td>
