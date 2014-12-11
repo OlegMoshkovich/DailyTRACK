@@ -203,6 +203,7 @@
 <br>
           <table class = "table">
             <tr>
+
               <th>Heading</th>
               <th>Element</th>
               <th>Start</th>
@@ -212,9 +213,11 @@
               <th>Notes</th>
               <th>Image</th>
               <th>Erase</th>
+              
             </tr>
             <% @inspection_report.inspections.reverse_each do |inspection| %>
               <tr>
+
                 <td><%= inspection.heading %></td>
                 <td><%= inspection.element %></td>
                 <td><%= inspection.start %></td>
@@ -222,6 +225,8 @@
                 <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
                 <td><%= inspection.note %></td>
+                 
+
                 <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
 
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],

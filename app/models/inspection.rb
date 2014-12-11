@@ -1,5 +1,5 @@
 class Inspection < ActiveRecord::Base
-	attr_accessible :heading, :element, :start, :finish, :operation, :scope, :note
+	attr_accessible :heading, :element, :start, :finish, :operation, :scope, :note, :inspector
 	 belongs_to :inspection_report
    belongs_to :daily_report
 

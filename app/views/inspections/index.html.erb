@@ -11,6 +11,7 @@
 
 <table class ='table'>
   <tr>
+    <th>INSPECTOR</th>
     <th>HEADING</th>
     <th>ELEMENT</th>
     <th>START</th>
@@ -21,6 +22,7 @@
 
 <% @inspections.reverse_each do |inspection| %>
   <tr>
+    <td><%= inspection.inspector %></td>
     <td><%= inspection.heading %></td>
     <td><%= inspection.element %></td>
     <td><%= inspection.start %></td>
