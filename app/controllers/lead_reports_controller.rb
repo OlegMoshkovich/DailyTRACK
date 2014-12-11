@@ -8,9 +8,12 @@ class LeadReportsController < ApplicationController
     @arches = @daily_report.inspections.where("element = ?", "ARCH").order(created_at: :asc)  
     @user = current_user
 
-		
-		@brian_reports = InspectionReport.where(:inspector => "Brian_S").last
-		@howard_reports = InspectionReport.where(:inspector => "Howard_Y").last
+		@brian_reports = InspectionReport.where(:inspector => "Brian_S")
+		@howard_reports = InspectionReport.where(:inspector => "Howard_Y")
+
+
+		@brian_report_latest = InspectionReport.where(:inspector => "Brian_S").last
+		@howard_report_latest = InspectionReport.where(:inspector => "Howard_Y").last
 
 
 		# where(:inspector => current_user.username)

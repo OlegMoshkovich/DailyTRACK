@@ -10,12 +10,19 @@
 
 
 <p>Brian</p>
-<div class ="btn btn"><%=link_to @brian_reports.date ,inspection_report_path(@brian_reports)%></div>
+<div class ="btn btn"><%=link_to @brian_report_latest.date ,inspection_report_path(@brian_reports)%></div>
 
 <br>
 
 <p>Howard</p>
-<div class ="btn btn"><%=link_to @howard_reports.date ,inspection_report_path(@howard_reports)%></div>
+<div class ="btn btn"><%=link_to @howard_report_latest.date ,inspection_report_path(@howard_reports)%></div>
 
 
 
+<p>Howard All</p>
+<% @howard_reports.reverse_each do |inspection_report| %>
+          <tr>    
+            <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+            
+          </tr>
+        <% end %>
