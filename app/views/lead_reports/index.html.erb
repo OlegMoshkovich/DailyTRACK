@@ -18,11 +18,21 @@
 <div class ="btn btn"><%=link_to @howard_report_latest.date ,inspection_report_path(@howard_reports)%></div>
 
 
-
+<div class='row'>
+        <div class ='span4'>
+        </div>
+<div class ='span4'>
 <p>Howard All</p>
+  <table class = "table" id = "panel" style=" display: none;" >
+          <tr>
+            <td >Date</td>
+
+          </tr>
 <% @howard_reports.reverse_each do |inspection_report| %>
           <tr>    
             <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
-            
+
           </tr>
         <% end %>
+              </table>
+</div></div>
