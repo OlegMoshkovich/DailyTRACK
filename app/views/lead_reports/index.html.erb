@@ -7,11 +7,6 @@
 
 <br>
 
-
-
-
-
-
 <p>Howard</p>
 <div class ="btn btn"><%=link_to @howard_report_latest.date ,inspection_report_path(@howard_report_latest)%></div>
 
@@ -29,20 +24,19 @@
 </div>
 
 
-  <table class = "table" id = "panel" style=" display: none;" >
-          <tr>
-            <td >Date</td>
-
-          </tr>
+  <div class = "table" id = "panel" style=" display: none;" >
 
 <% @howard_reports.reverse_each do |inspection_report| %>
-          <tr>    
-            <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+  
 
-          </tr>
+              <p><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></p>
+
+
+
         <% end %>
-              </table>
-</div></div>
+              </div>
+</div>
+</div>
 
 
 <script type="text/javascript">
