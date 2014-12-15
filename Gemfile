@@ -29,6 +29,9 @@ gem 'declarative_authorization'
 gem 'simple_form'
 gem 'spinjs-rails'
 gem 'fancybox-rails'
+gem 'pdfkit'
+
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'

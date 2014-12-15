@@ -20,6 +20,7 @@ class InspectionReportsController < ApplicationController
 		respond_to do |format|
         format.html
         format.xls
+        format.pdf
       end  	
 	end
 
