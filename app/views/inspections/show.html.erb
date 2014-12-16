@@ -1,10 +1,42 @@
-<p>
+
+<table class = "table">
+            <h3><tr>
+
+              <th>Heading</th>
+              <th>Element</th>
+              <th>Start</th>
+              <th>Finish</th>
+              <th >Scope</th>
+              <th>Operation</th>
+              <th>Notes</th>
 
 
-<td><%= @inspection.heading %></td>
-    <td><%= @inspection.element %></td>
-    <td><%= @inspection.start %></td>
-    <td><%= @inspection.finish %></td>
-    <td><%= @inspection.operation %></td>
+        
+              
+            </tr></h3>
+      
 
-</p>
+
+              <h3><tr>
+                <td><%= @inspection.heading %></td>
+                <td><%= @inspection.element %></td>
+                <td><%= @inspection.start %></td>
+                <td><%= @inspection.finish %></td>
+                <td><%= @inspection.scope %></td>
+                <td><%= @inspection.operation %></td>
+                <td><%= @inspection.note %></td>
+                
+              </tr></h3>
+      
+
+          </table>
+
+
+
+
+
+
+
+
+<h3><u><td> <%= link_to 'Edit Inspection Again', edit_inspection_path(@inspection) %></td></h3></u>
+<h1><u><%= link_to 'Back to the Report', inspection_report_path(@inspection_report_current) %> </h1></u>

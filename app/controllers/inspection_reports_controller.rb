@@ -15,8 +15,13 @@ class InspectionReportsController < ApplicationController
 
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
-		@user = current_user
 
+
+		@user = current_user
+		@inspections = @inspection_report.inspections
+		# @inspections = Inspection.all	
+		@inspection = @inspections.last
+		
 		respond_to do |format|
         format.html
         format.xls
@@ -46,4 +51,7 @@ class InspectionReportsController < ApplicationController
   	def inspection_report_params
     	params.require(:inspection_report).permit( :date, :contract, :contractor, :shift, :timeStart, :timeEnd)
   	end
+  	def inspection_params
+      params.require(:inspection).permit(:heading, :element, :start, :finish, :operation, :scope, :note, :image )
+    end
 end

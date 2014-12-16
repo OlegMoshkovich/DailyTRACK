@@ -1,37 +1,74 @@
-<h1 class="text-center ">Inspection Report</h1> 
-
-<h5 class ="text-center">
- <%= @inspection_report.contract %> -
- <%= @inspection_report.contractor %> -
- <%= @inspection_report.shift %></h5>
-<br>
-<p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
-
-<p class="text-center "><%= @inspection_report.date %></p>
-
-
-<p><%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %></p>
-<div class="text-center">
-<%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %>
-</div>
-
-
-
 <div class="container">
 <div class="row">
 
+ <!-- <div class="span4">
+      <h2><div class ="text center"> Original:</div></h2>
+       <h3><%= @inspection.heading %></h3>
+              <h3>  <%= @inspection.element %></h3>
+                <h3><%= @inspection.start %></h3>
+                <h3><%= @inspection.finish %></h3>
+                <h3><%= @inspection.scope %></h3>
+                <h3><%= @inspection.operation %></h3>
+                <h3><%= @inspection.note %></h3>
+              </div> -->
+
+
+
+
     <div class="span4">
-    <!-- INSPECTIONS INPUT-->
-    <div class="text-center ">
-            <h3 >Inspection:</h3>
-            <%= form_for([@inspection_report, @inspection_report.inspections.build]) do |f| %>    
-            <div><%= f.select :heading, options_for_select(['50th Adit',
+      <h2><div class ="text center"> Original:</div></h2>
+<%= form_for(@inspection) do |f| %>
+  <p>
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading %>
+  </p>
+
+  <p>
+    <%= f.label :element %><br>
+    <%= f.text_field :element %>
+  </p>
+   <p>
+    <%= f.label :scope %><br>
+    <%= f.text_field :scope %>
+  </p>
+
+  <p>
+    <%= f.label :operation %><br>
+    <%= f.text_field :operation %>
+  </p>
+
+ <p>
+    <%= f.label :note %><br>
+    <%= f.text_field :note %>
+  </p>
+  <p>
+    <%= f.label :start %><br>
+    <%= f.text_field :start %>
+  </p>
+  <p>
+    <%= f.label :finish %><br>
+    <%= f.text_field :finish %>
+  </p>
+
+
+<% end %>
+</div>
+
+<div class="span4">
+   <h2><div class ="text center"> Update:</div></h2>
+<%= form_for(@inspection) do |f| %>
+    <%= f.label :heading %><br>
+<div><%= f.select :heading, options_for_select(['50th Adit',
             '50th Air Plenum','53rd Sump Pump Chamber','55th Ventilation Facility','Assembly Chamber East','Assembly Chamber West','Cross Flue','Cross Passage 2','Cross Passage 4','Cross Passage 5','Cross Passage 6','Cross Passage 7','T301','T302','T303','T304','T401','T402','T403','T404','EB2','EB4','WB1','WB3','GCT3 East Wye','GCT3 West Wye','GCT3 Crossover','GCT4 East Wye','GCT4 West Wye','GCT4 Facility Room','GCT4 Crossover','GCT4 CIR','GCT5 East Wye','GCT5 West Wye','GCT5 Facility Room','GCT5 CIR','GCT5 Transformer Niches' ])%></div>     
+             <%= f.label :element %><br>
             <div ><%= f.select :element, options_for_select(['Invert','Arch','Wall / Sidewall','End wall','Ductbench / Walkway','Slab (Structure)','Backfill','Wall and Arch','Wall and Invert','Interior Wall','Other']) %></div>
-               
+               <%= f.label :scope %>
             <div><%= f.select :scope, options_for_select(['SCOPE','CONCRETE', 'REINFORCEMENT','DRAINAGE','SHOTCRETE', 'ELECTRICAL','FINISHES','FIREPROOFING','MASONRY','METALS','SURVEYING','SITE_MAINTANENCE','WATERPROOFING']) %></div>
 
+    <br> 
             <div>
+
+
                 <div class="CONCRETE" style=" display: none;">
                 <%= f.select :operation, options_for_select(['Final Lining','Backfill/Mudslab','Temporary']), {}, { :class => 'concrete' }%>
                 </div>          
@@ -69,248 +106,22 @@
                 <%= f.select :operation, options_for_select(['Geotextile','PVC','Water Barrier','Grouting System/BA Anchors']), {}, { :class => 'waterproofing' } %>
                 </div>
             </div>
-
+    <%= f.label :note %><br>
             <div><%= f.text_field :note , :placeholder =>"Notes go here..." %></div>
+                <%= f.label :start %><br>
             <div><%= f.text_field :start , :placeholder =>'Start Station' %></div>    
+                <%= f.label :finish %><br>
             <div><%= f.text_field :finish, :placeholder => 'End Station',:cols => "10", :rows => "1" %></div>
-                
-              <div><span class="btn btn-file"><%= f.file_field :image %> Image</span></div>              
-              <br>
-              <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Create INSPECTION' %></p>
-            <% end %>
-
-
-          </div>
-
-
-          
-          </div>
-
-
-    <div class="span4">
-    <!-- MANHOURS INPUT-->
-    <div class="text-center" >
-        <h3 >Manpower :</h3>
-        <%= form_for([@inspection_report, @inspection_report.forces.build]) do |f| %>
-        <table>
-        <div><%= f.select :heading, options_for_select(['50th Adit',
-        '50th Air Plenum','53rd Sump Pump Chamber','55th Ventilation Facility','Assembly Chamber East','Assembly Chamber West','Cross Flue','Cross Passage 2','Cross Passage 4','Cross Passage 5','Cross Passage 6','Cross Passage 7','T301','T302','T303','T304','T401','T402','T403','T404','EB2','EB4','WB1','WB3','GCT3 East Wye','GCT3 West Wye','GCT3 Crossover','GCT4 East Wye','GCT4 West Wye','GCT4 Facility Room','GCT4 Crossover','GCT4 CIR','GCT5 East Wye','GCT5 West Wye','GCT5 Facility Room','GCT5 CIR','GCT5 Transformer Niches' ])%></div>  
-        <div >
-        <%= f.select :union147,  options_for_select(["Union - 147",'0','1','2','3'])%>
-        </div>   
-        <div >
-        <%= f.select :union15,  options_for_select(["Union - 15",'0','1','2','3'])%>
-        </div> 
-        <div >
-        <%= f.select :union14,  options_for_select(["Union - 14",'0','1','2','3'])%>
-        </div> 
-        <div >
-        <%= f.select :union731,  options_for_select(["Union - 731",'0','1','2','3'])%>
-        </div> 
-        <div >
-        <%= f.select :union3,  options_for_select(["Union - 3",'0','1','2','3'])%>
-        </div> 
-        </table>  
-    <br>
-    <p><%= f.submit class: 'btn btn-primary' , value: 'Log MANHOURS '%></p>
-    <% end %>
-    </div>
-    </div>
-          
-
-    <div class="span4">
-    <!-- OBSERVATIONS INPUT-->
-    <div class="text-center" >
-                <h3 >Observation:</h3>
-                <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
-                    <table>
-                        
-                    <tr>
-                    <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "11" %></th>
-                    </tr>
-                    </table>
-                        <br>
-                  <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
-                <% end %>
-    </div>
-
-
-    </div>
-<!-- row -->
+            <p id ='button'><%= f.submit  class: 'btn btn-primary', value: 'Update INSPECTION' %></p>
+<% end %>
 </div>
-<!-- container -->
-</div>
+<br>
+
+<h3><u><%= link_to 'Back to the Report', inspection_report_path(@inspection_report_current) %> </h3></u>
 
 
 
-<style>
-    #spinner {
-    position: fixed;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;} 
-</style>
 
-
-<div class="container">
-    <div class="row">
-        
-        <div class='span3'>
-        </div>
-
-<div class="span2">
- <!-- INSPECTIONS DISPLAY-->
-<div class = "text-center">
-    <u id="flip" class ="btn btn-link"><h4>Show Inspections </h4> </u>
-    <br>
-</div>
-
-</div>
-
-
-
-<div class="span2">
-<!-- MANHOURS DISPLAY-->
- <div class = "text-center">
-            <u id="flip_hours" class ="btn btn-link"><h4>Show Manhours </h4> </u>
-            <br>
-</div>
-
-</div>
-
-
-<div class="span2">
-<!-- OBSERVATIONS DISPLAY-->
- <div class = "text-center">
-            <u id="flip_obs" class ="btn btn-link"><h4>Show Observations </h4> </u>
-            <br>
-</div>
-
-
-        <div class='span3'>
-        </div>
-
-<!-- container -->
-</div> 
-<!-- row -->
-</div>
-
-
-<div class = "text-center" id = "panel" >
-
-    <h4>Inspections</h4>
-    <!-- <h2><u><%= link_to 'Edit last inspection!', edit_inspection_path(@inspection)%></u></h2>
- -->    
-    <br>
- 
-
-
-          <table class = "table">
-            <tr>
-
-              <th>Heading</th>
-              <th>Element</th>
-              <th>Start</th>
-              <th>Finish</th>
-              <th >Scope</th>
-              <th>Operation</th>
-              <th>Notes</th>
-              <th>Image</th>
-              <th>Erase</th>
-        
-              
-            </tr>
-            <% @inspection_report.inspections.reverse_each do |inspection| %>
-              <tr>
-
-                <td><%= inspection.heading %></td>
-                <td><%= inspection.element %></td>
-                <td><%= inspection.start %></td>
-                <td><%= inspection.finish %></td>
-                <td><%= inspection.scope %></td>
-                <td><%= inspection.operation %></td>
-                <td><%= inspection.note %></td>
-                 
-
-                <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
-
-                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
-                           method: :delete,:class => "btn btn-link" 
-                           %><strong></td>
-
-                
-              </tr>
-            <% end %>
-
-          </table>
-
-
-<div>
-    <% @inspection_report.inspections.reverse_each do |inspection| %>
-      <tr>
-    <td><%= image_tag inspection.image.url(:original) %></td>
-  </tr>
-<% end -%>
-
-</div>
-
-<div class = "text-center" id = "panel_hours" style=" display: none;" >
-
-    <h5>Manhours</h5>
-    <br>
-    <table class = "table">
-            <tr>
-              <th>Heading</th>
-              <th>Union - 147</th>
-              <th>Union - 15</th>
-              <th>Union - 14</th>
-              <th>Union - 731</th>     
-              <th>Union - 3</th>
-              <th>Erase</th>
-            </tr>
-
-            <% @inspection_report.forces.each do |force| %>
-              <tr>
-                <td><%=force.heading %></td>
-                <td><%=force.union147 %></td>
-                <td><%=force.union15 %></td>
-                <td><%=force.union14 %></td>
-                <td><%=force.union731 %></td>
-                <td><%=force.union3 %></td>
-
-            <td><strong><%= button_to 'o', [force.inspection_report, force],
-                           method: :delete,:class => "btn btn-link" 
-                           %><strong></td>
-
-              </tr>
-            <% end %>
-
-
-          </table>
-</div>
-
-<div class="text-center" id = "panel_obs" style=" display: none;">
-
-    <h5>Observations</h5>
-    <br>
-    <table>
-          <tr>
-            <% @inspection_report.notes.each do |note| %>
-            <%= note.observation %>
-            <%= button_to 'o', [note.inspection_report, note],
-            method: :delete ,:class => "btn btn-link",
-            data: { confirm: 'Are you sure?' } %>
-          </tr>
-      <% end %>
-    </table>
- </div>
-</div>
-
-
-
-<!-- JAVASCRIPTS -->
-<!-- JAVASCRIPTS Inspection options -->
 
 <script>
   $("#button").click(function(){
@@ -681,7 +492,3 @@
     });
     });
 </script>
-         
-
-
-        

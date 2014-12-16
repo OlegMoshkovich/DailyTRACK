@@ -19,6 +19,7 @@ class InspectionsController < ApplicationController
   	def show
       @inspections = Inspection.all	
     	@inspection = @inspections.find(params[:id])
+      @inspection_report_current =InspectionReport.where(:inspector => current_user.username).last
   	end
 
   	def destroy
@@ -29,9 +30,23 @@ class InspectionsController < ApplicationController
   	end
  
  	  def edit
+      @inspection_report_current =InspectionReport.where(:inspector => current_user.username).last
       @inspections = Inspection.all 
     	@inspection = @inspections.find(params[:id])
   	end
+
+      def update
+        @inspection = Inspection.find params[:id]
+    respond_to do |format|
+      if @inspection.update(inspection_params)
+        format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @inspeciton.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 private
     def inspection_report_params
