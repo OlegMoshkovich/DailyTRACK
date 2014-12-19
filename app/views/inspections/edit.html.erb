@@ -1,21 +1,6 @@
 <div class="container">
 <div class="row">
-
- <!-- <div class="span4">
-      <h2><div class ="text center"> Original:</div></h2>
-       <h3><%= @inspection.heading %></h3>
-              <h3>  <%= @inspection.element %></h3>
-                <h3><%= @inspection.start %></h3>
-                <h3><%= @inspection.finish %></h3>
-                <h3><%= @inspection.scope %></h3>
-                <h3><%= @inspection.operation %></h3>
-                <h3><%= @inspection.note %></h3>
-              </div> -->
-
-
-
-
-    <div class="span4">
+<div class="span4">
       <h2><div class ="text center"> Original:</div></h2>
 <%= form_for(@inspection) do |f| %>
   <p>
@@ -39,7 +24,7 @@
 
  <p>
     <%= f.label :note %><br>
-    <%= f.text_field :note %>
+    <%= f.text_area :note, :cols => "10", :rows => "3"%>
   </p>
   <p>
     <%= f.label :start %><br>
@@ -107,7 +92,7 @@
                 </div>
             </div>
     <%= f.label :note %><br>
-            <div><%= f.text_field :note , :placeholder =>"Notes go here..." %></div>
+            <div><%= f.text_area :note , :placeholder =>"Notes go here...", :cols => "10", :rows => "3" %></div>
                 <%= f.label :start %><br>
             <div><%= f.text_field :start , :placeholder =>'Start Station' %></div>    
                 <%= f.label :finish %><br>
