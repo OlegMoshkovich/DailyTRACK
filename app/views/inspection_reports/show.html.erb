@@ -234,7 +234,7 @@
                  
 
                 <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
-                <td><%= link_to 'Edit', edit_inspection_path(@inspection) %></td>
+                
 
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
