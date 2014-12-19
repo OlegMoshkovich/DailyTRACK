@@ -11,6 +11,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem "therubyracer"
 end
 
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -20,6 +21,7 @@ gem 'travis'
 gem 'rolify'
 gem 'cancancan', '~> 1.9'
 gem "therubyracer"
+
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'protected_attributes'
