@@ -37,7 +37,7 @@ class InspectionsController < ApplicationController
 
       def update
         @inspection = Inspection.find params[:id]
-    respond_to do |format|
+        respond_to do |format|
       if @inspection.update(inspection_params)
         format.html { redirect_to @inspection, notice: 'Inspection was successfully updated.' }
         format.json { head :no_content }

@@ -216,6 +216,7 @@
               <th>Operation</th>
               <th>Notes</th>
               <th>Image</th>
+              <th>Edit</th>
               <th>Erase</th>
         
               
@@ -233,11 +234,12 @@
                  
 
                 <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
+                <td><%= link_to 'Edit', edit_inspection_path(@inspection) %></td>
 
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
                            %><strong></td>
-
+                
                 
               </tr>
             <% end %>

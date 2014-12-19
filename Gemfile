@@ -72,6 +72,7 @@ gem 'pry', group: :development
 
 # Use Capistrano for deployment
 
-
+source "https://rubygems.org"
+ruby '2.1.4'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
