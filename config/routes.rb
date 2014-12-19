@@ -30,7 +30,7 @@ DailyTrack::Application.routes.draw do
   resources :test, only: [:index] 
   resources :data_visuals, only: [:index] 
   resources :export_dashboard, only: [:index] 
-  resources :inspections,only: [:index,:show]
+  resources :inspections,only: [:index,:show,:edit]
   
   resources :inspection_reports do
       resources :inspections,only: [:show, :create, :destroy, :edit] 

@@ -231,10 +231,12 @@
                 <td><%= inspection.scope %></td>
                 <td><%= inspection.operation %></td>
                 <td><%= inspection.note %></td>
+   
                  
 
                 <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
                 
+                <td><%= link_to 'Edit', [inspection.inspection_report, inspection] %></td> 
 
                 <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
@@ -243,8 +245,9 @@
                 
               </tr>
             <% end %>
-
           </table>
+
+
 
 
 <div>

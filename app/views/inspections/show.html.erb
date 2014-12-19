@@ -14,9 +14,7 @@
         
               
             </tr></h3>
-      
-
-
+    
               <h3><tr>
                 <td><%= @inspection.heading %></td>
                 <td><%= @inspection.element %></td>
@@ -32,11 +30,7 @@
           </table>
 
 
-
-
-
-
-
-
-<h3><u><td> <%= link_to 'Edit Inspection Again', edit_inspection_path(@inspection) %></td></h3></u>
-<h1><u><%= link_to 'Back to the Report', inspection_report_path(@inspection_report_current) %> </h1></u>
+<div class = "text-center" >
+  <h3><u><td> <%= link_to 'Edit Inspection', edit_inspection_path(@inspection) %></td></h3></u>
+  <h1><u><%= link_to 'Back to the Report', inspection_report_path(@inspection_report_current) %> </h1></u>
+</div>

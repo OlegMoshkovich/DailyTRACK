@@ -17,10 +17,10 @@ class InspectionsController < ApplicationController
   	end
 
   	def show
-      @inspections = Inspection.all	
+      @inspections = Inspection.all	  
     	@inspection = @inspections.find(params[:id])
       @inspection_report_current =InspectionReport.where(:inspector => current_user.username).last
-  	end
+    end
 
   	def destroy
     	@inspection_report = InspectionReport.find(params[:inspection_report_id])

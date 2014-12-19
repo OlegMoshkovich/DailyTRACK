@@ -15,13 +15,12 @@ class InspectionReportsController < ApplicationController
 
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
-
-
 		@user = current_user
 		@inspections = @inspection_report.inspections
+		@length = @inspections.length
 		# @inspections = Inspection.all	
-		@inspection = @inspections.last
-		
+		# @inspection = @inspections[2]
+
 		respond_to do |format|
         format.html
         format.xls
@@ -46,6 +45,8 @@ class InspectionReportsController < ApplicationController
 		@inspection_report.destroy
 		redirect_to inspection_reports_path	
 	end
+
+
 
 	private
   	def inspection_report_params
