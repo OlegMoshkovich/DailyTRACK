@@ -1,1 +1,2 @@
 DailyTrack is an app designed to augment current process of construction data collection.
+http://www.dailytrack.io/project_visuals
