@@ -31,6 +31,7 @@ gem 'declarative_authorization'
 gem 'simple_form'
 gem 'spinjs-rails'
 gem 'fancybox-rails'
+
 gem 'pdfkit'
 
 
