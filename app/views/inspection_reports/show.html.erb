@@ -1,3 +1,25 @@
+     
+<div class = "print_nav" >
+
+      <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
+                <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
+                <!-- <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li> -->
+                <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Profile', users_path  if current_user  %></li>
+                <li><%= link_to 'Enter', users_path  if !current_user  %></li>
+                <li> <%= button_to "Sign out", destroy_user_session_path , :class => "btn btn-link" , method: :delete  if current_user%></li>
+            </ul>
+          <h2 ><%= link_to 'Daily Track', root_path%><h2>
+        </div>
+      </div> 
+</div>
+
+
 <h1 class="text-center ">Inspection Report</h1> 
 
 <h5 class ="text-center">
@@ -20,6 +42,8 @@
 
 <div class = "text-center">PRINT VERSION</div>
 </div>
+
+
 
 <div class = "menu">
 <div class="container">
@@ -231,9 +255,9 @@
               <th >Scope</th>
               <th>Operation</th>
               <th>Notes</th>
-              <th>Image</th>
-              <th id = "hide">Edit</th>
-              <th>Erase</th>
+              <th class = "image">Image</th>
+              <th class = "edit">Edit</th>
+              <th class = "erase">Erase</th>
         
               
             </tr>
@@ -249,20 +273,21 @@
                 <td><%= inspection.note %></td>
    
                  
-
+<div class = 'edit'>
                 <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
                 
                
-                <td><%= link_to 'Edit', [inspection.inspection_report, inspection] %></td> 
-              
+                <td class = 'edit'><%= link_to 'Edit', [inspection.inspection_report, inspection] %></td> 
                 
-                <td><strong><%= button_to 'o', [inspection.inspection_report, inspection],
+                <td class = 'erase'><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
                            %><strong></td>
+</div>
                 
-                
+
                 
               </tr>
+
             <% end %>
           </table>
 
@@ -290,7 +315,7 @@
               <th>Union - 14</th>
               <th>Union - 731</th>     
               <th>Union - 3</th>
-              <th>Erase</th>
+              <th class = "erase">Erase</th>
             </tr>
 
             <% @inspection_report.forces.each do |force| %>
@@ -302,7 +327,7 @@
                 <td><%=force.union731 %></td>
                 <td><%=force.union3 %></td>
 
-            <td><strong><%= button_to 'o', [force.inspection_report, force],
+            <td class = "erase" ><strong><%= button_to 'o', [force.inspection_report, force],
                            method: :delete,:class => "btn btn-link" 
                            %><strong></td>
 
@@ -340,9 +365,12 @@
     $("#spinner").show();
   });
 
-  $(".image").click(function(){
-    $(".image").hide();
+  $(".print").click(function(){
+    $(".image").slideToggle();
+    $(".erase").slideToggle();
+    $(".edit").slideToggle();
   });
+
 
     $( document ).ready(function() {
     $('select#inspection_scope').on( 'change', function()
@@ -714,6 +742,9 @@
         $("#panel_obs").show();
         $("#panel").show();
         $("#excel").slideToggle("slow");
+        $(".print_nav").slideToggle("slow");
+        
+
         
 
 
