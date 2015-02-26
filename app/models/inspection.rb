@@ -14,6 +14,6 @@ class Inspection < ActiveRecord::Base
 	 validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
 	def self.search_for(query)
-    where('heading LIKE :query OR element LIKE :query OR operation LIKE :query OR inspector LIKE :query OR created_at LIKE :query', query: "%#{query}%")
+    where('heading LIKE :query OR element LIKE :query OR operation LIKE :query OR inspector LIKE :query ', query: "%#{query}%")
   end
 end 
