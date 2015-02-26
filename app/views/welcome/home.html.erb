@@ -1,12 +1,11 @@
-<!-- <h1>Daily TRACK</h1> -->
-      <div class="container">
+      <!-- Navigation -->
+      <div class="container"> 
         <div class="header">
             <ul class="nav nav-pills pull-right">
                 <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
                 <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
-                <!-- <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li> -->
                 <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Profile', users_path  if current_user  %></li>
                 <li><%= link_to 'Enter', users_path  if !current_user  %></li>
@@ -16,28 +15,9 @@
         </div>
       </div> 
 
+
 <p id = 'image'><%= image_tag("background.JPG", :size => "700x300" )%></p>
 
 
-<h3>	
-<!-- <a href="/project_visuals">Project Story - </a> -->
-<br>
-<!-- <a href="/inspection_reports">Inspection Reports </a> -->
-<br>
-<!-- <a href="/daily_reports">Daily Reports  </a> -->
-<br>
-<!-- <a href="/project_dashboards">Project Dashboard  </a>
-<br> -->
-<!-- <a href="/users">Profile  </a> -->
-<br>
-<!-- <a href="/data_visuals">DATA Visuals - </a>
-<br> -->
-<!-- <a href="/daily_reports">Weekly Report</a> -->
-<br>
-<!-- <a href="/export_dashboard">Export Dashboard - </a> -->
-
-<!-- <h5><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></h5> -->
-
-</h3>
 
 

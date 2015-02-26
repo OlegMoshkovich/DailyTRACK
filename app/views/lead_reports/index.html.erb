@@ -1,42 +1,28 @@
+      <!-- Navigation -->
+      <div class="container"> 
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
+                <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Profile', users_path  if current_user  %></li>
+                <li><%= link_to 'Enter', users_path  if !current_user  %></li>
+                <li> <%= button_to "Sign out", destroy_user_session_path , :class => "btn btn-link" , method: :delete  if current_user%></li>
+            </ul>
+          <h2 ><%= link_to 'Daily Track', root_path%><h2>
+        </div>
+      </div> 
+
+
 <div class = "container">
   <h1 class="text-center ">Lead Report</h1>
   <div class="text-center ">  
   <br>     
   <p ><%= image_tag(@user.image.url(:thumb)) %></p>
-
-
 <br>
 
-<p>Howard</p>
-<div class ="btn btn-link"><%=link_to @howard_report_latest.date ,inspection_report_path(@howard_report_latest)%></div>
-
-
-<div class='row'>
-        <div class ='span4'>
-        </div>
-
-
-<div class ='span4'>
-
-<div class = "text-center">  
-    <u id="flip" class="btn btn-link" ><h4> Howard All Reports</h4> </u>
-
-</div>
-
-
-  <div class = "table" id = "panel" style=" display: none;" >
-
-<% @howard_reports.reverse_each do |inspection_report| %>
-  
-
-              <p><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></p>
-
-
-
-        <% end %>
-              </div>
-</div>
-</div>
 
 
 <script type="text/javascript">

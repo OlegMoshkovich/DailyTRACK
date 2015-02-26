@@ -1,11 +1,11 @@
-       <div class="container">
+      <!-- Navigation -->
+      <div class="container"> 
         <div class="header">
             <ul class="nav nav-pills pull-right">
                 <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
                 <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
-                <!-- <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li> -->
                 <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Profile', users_path  if current_user  %></li>
                 <li><%= link_to 'Enter', users_path  if !current_user  %></li>
@@ -15,26 +15,14 @@
         </div>
       </div> 
 
-
-
- <h1 class="text-center" >Inspection Reports</h1>
-<div class="text-center">       
-<!-- 
-        <p> 
-            
-            <%= link_to 'VDC Coordinator', users_path  if current_user.admin? %>
-            <%= link_to 'Inspector', users_path  if !current_user.admin? %>
-        </p> -->
-
-        <br>
-       <p ><%= image_tag(@user.image.url(:thumb)) %></p>
-</div>
-
-
-
+<h1 class="text-center" >Inspection Reports</h1>
+    <div class="text-center">       
+          <br>
+          <p ><%= image_tag(@user.image.url(:thumb)) %></p>
+    </div>
 
 <div class="text-center">
-<%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
+    <%= button_to 'New Report', new_inspection_report_path, :class => "btn btn-primary", :method => :get %>
 
 <h4 class = "text-center" ><u><%=link_to "Current Report" ,inspection_report_path(@inspection_report_current)  %></u></h4>
 

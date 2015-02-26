@@ -1,47 +1,27 @@
+      <!-- Navigation -->
+      <div class="container"> 
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
+                <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Profile', users_path  if current_user  %></li>
+                <li><%= link_to 'Enter', users_path  if !current_user  %></li>
+                <li> <%= button_to "Sign out", destroy_user_session_path , :class => "btn btn-link" , method: :delete  if current_user%></li>
+            </ul>
+          <h2 ><%= link_to 'Daily Track', root_path%><h2>
+        </div>
+      </div> 
 
-
-
-
-<!-- <h3>IMAGES</h3> -->
-
-
-<!-- <strong><div> IT IS TO BE IMPLEMENTED ON East Side Aaccess PROJECT.</div></strong>
-<BR>
-<strong><div> FEW WORDS ABOUT East Side Access...</div></strong> -->
-
-<!-- <strong><div> DISPLAY ALL OF CONTRACT SPECIFIC IMAGES.</div></strong>
-<strong><div> INCLUDES VIDE0S, DIAGRAMS, PHOTOS.</div></strong> -->
-<br>
-<br>
-
-
-<!-- <div>
-<%= image_tag("esa_grand_central.PNG", :size => "640x360" )%>
-<p><strong>GRAND CENTRAL</strong></p>
-<%= image_tag("esa_concourse_scale.PNG", :size => "580x360" )%>
-<p><strong>Expansion PLAN</strong></p>
-
-<%= image_tag("esa_scale_cavern.PNG", :size => "580x360" )%>
-<p><strong>SCALE/Current CONDITIONS</strong></p>
-<%= image_tag("esa_complexity_paper.PNG", :size => "640x360" )%>
-
-<br>
-
-
-
-</div> -->
 
 <div class="text-center"> <%= image_tag("current_process.PNG", :width => "500" )%></div>
 <p><div class = 'text-center'> DT aims to simplify the data flow of the construction management process.</div></p>
-
 <div class="text-center"><%= image_tag("ideal_process.PNG", :width => "500" )%></div>
 
 
 
 
-<!-- <h5><%= link_to 'Inspection REPORTS', inspection_reports_path%>
-	<BR>
-
-<%= link_to 'PROJECT CONTROLLER', root_path%></h5> -->
 
 

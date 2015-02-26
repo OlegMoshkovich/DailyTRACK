@@ -1,11 +1,11 @@
-      <div class="container">
+      <!-- Navigation -->
+      <div class="container"> 
         <div class="header">
             <ul class="nav nav-pills pull-right">
                 <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
                 <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
-                <!-- <li><%= link_to 'Dashboard', project_dashboards_path  if current_user && current_user.admin? %></li> -->
                 <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Profile', users_path  if current_user  %></li>
                 <li><%= link_to 'Enter', users_path  if !current_user  %></li>
@@ -20,19 +20,10 @@
 <%if user_signed_in?%>
 	
 	<strong><h3 class= "text-center"><%= current_user.username %></h3></strong>
-	<!-- <strong><p> Inspector Picture:</p></strong> -->
 	<p class= "text-center"><%= image_tag(@user.image.url(:medium)) %></p>
-
-
-
-
 
 <h3 class = 'text-center'><%= link_to 'VDC Coordinator', daily_reports_path  if current_user.admin? %></h3>
 <h3 class = 'text-center'><%= link_to 'Inspector', inspection_reports_path  if !current_user.admin? %></h3>
-
-
-<!-- <div class ='text-center'>Inspector</div>  -->
-
 <% end%>
 
 
