@@ -36,6 +36,8 @@ DailyTrack::Application.routes.draw do
       resources :inspections,only: [:show, :create, :destroy, :edit] 
       resources :notes,only: [:show, :create, :destroy] 
       resources :forces,only: [:show, :create, :destroy] 
+      collection {put :approved}
+
   end
 
  resources :graph, only: [:index] 

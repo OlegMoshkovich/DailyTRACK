@@ -13,6 +13,11 @@ class InspectionReportsController < ApplicationController
 		@user = current_user
 	end
 
+	def update
+		@inspection_report = InspectionReport.find(params[:id])
+	  redirect_to inspection_report_path	
+	end
+
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
 		@user = current_user
@@ -44,7 +49,12 @@ class InspectionReportsController < ApplicationController
 		redirect_to inspection_reports_path	
 	end
 
-
+def approved
+	
+	@inspection_report = InspectionReport.find(params[:id])
+	redirect_to @inspection_report
+	
+end
 
 	private
   	def inspection_report_params

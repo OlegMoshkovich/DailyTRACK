@@ -1,9 +1,9 @@
       <!-- Navigation -->
+      <div class ="navbar">
       <div class="container"> 
         <div class="header">
             <ul class="nav nav-pills pull-right">
-                <!-- <li><%= link_to 'Concept', project_visuals_path  %></li> -->
-                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li>  
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li> 
                 <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
                 <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
@@ -13,34 +13,54 @@
             </ul>
           <h2 ><%= link_to 'Daily Track', root_path%><h2>
         </div>
+      </div>
       </div> 
 
 
 <h1 class="text-center ">Inspection Report</h1> 
 
-<h5 class ="text-center">
- <%= @inspection_report.contract %> -
- <%= @inspection_report.contractor %> -
- <%= @inspection_report.shift %></h5>
+        <h5 class ="text-center">
+         <%= @inspection_report.contract %> -
+         <%= @inspection_report.contractor %> -
+         <%= @inspection_report.shift %></h5>
+         <br>
+        <%= @inspection_report.status %>
 <br>
-<p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
 
+<p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
 <p class="text-center "><%= @inspection_report.date %></p>
 
 
+<!-- Waiting symbol -->
 <p><%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %></p>
 
+
 <div class="text-center" id = "excel">
-<%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %>
+        <%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %></div>
+
+
+
+
+<!-- Lead Inspector Approval -->
+<% if current_user.admin?%>
+
+<div class = "text-center">
+<%= form_for  inspection_report_path, :method => :patch do |f| %> 
+     <%= f.select :status, options_for_select(['Approved',"Needs more Work"]) %>
+    <p><%= f.submit 'Set status', class: "btn" %></p>
+
+<% end -%>
 </div>
+<% end %>
 
+
+<!-- Printing trigger -->
 <div class = "print" >
-
 <div class = "text-center">PRINT VERSION</div>
 </div>
 
 
-
+<!-- Input Menus -->
 <div class = "menu">
 <div class="container">
 <div class="row">
@@ -137,26 +157,25 @@
         </div> 
         </table>  
     <br>
+
     <p><%= f.submit class: 'btn btn-primary' , value: 'Log MANHOURS '%></p>
     <% end %>
-    </div>
-    </div>
+</div>
+</div>
           
-
     <div class="span4">
     <!-- OBSERVATIONS INPUT-->
     <div class="text-center" >
-                <h3 >Observation:</h3>
-                <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
-                    <table>
-                        
-                    <tr>
-                    <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "11" %></th>
-                    </tr>
-                    </table>
-                        <br>
-                  <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
-                <% end %>
+    <h3 >Observation:</h3>
+    <%= form_for([@inspection_report, @inspection_report.notes.build]) do |f| %>
+        <table>         
+            <tr>
+            <%= f.text_area :observation,  :placeholder =>"The purpose of observations is to record shift specific remarks..." ,:cols => "50", :rows => "11" %></th>
+            </tr>
+        </table>
+    <br>
+    <p><%= f.submit class: 'btn btn-primary' , value: 'Create NOTE '%></p>
+    <% end %>
     </div>
 
 
@@ -238,9 +257,6 @@
     <h4>Inspections</h4>
    
     <br>
- 
-
-
           <table class = "table">
             <tr>
 
@@ -253,9 +269,7 @@
               <th>Notes</th>
               <th class = "image">Image</th>
               <th class = "edit">Edit</th>
-              <th class = "erase">Erase</th>
-        
-              
+              <th class = "erase">Erase</th>             
             </tr>
             <% @inspection_report.inspections.reverse_each do |inspection| %>
               <tr>
@@ -268,22 +282,14 @@
                 <td><%= inspection.operation %></td>
                 <td><%= inspection.note %></td>
    
-                 
-<div class = 'edit'>
-                <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>
-                
-               
-                <td class = 'edit'><%= link_to 'Edit', [inspection.inspection_report, inspection] %></td> 
-                
-                <td class = 'erase'><strong><%= button_to 'o', [inspection.inspection_report, inspection],
+    <div class = 'edit'>
+            <td class = "image"><%= image_tag inspection.image.url(:thumb)  %></td>           
+            <td class = 'edit'><%= link_to 'Edit', [inspection.inspection_report, inspection] %></td> 
+            <td class = 'erase'><strong><%= button_to 'o', [inspection.inspection_report, inspection],
                            method: :delete,:class => "btn btn-link" 
                            %><strong></td>
-</div>
-                
-
-                
+    </div>        
               </tr>
-
             <% end %>
           </table>
 
@@ -355,7 +361,6 @@
 
 <!-- JAVASCRIPTS -->
 <!-- JAVASCRIPTS Inspection options -->
-
 <script>
   $("#button").click(function(){
     $("#spinner").show();
@@ -365,6 +370,8 @@
     // $(".image").slideToggle();
     $(".erase").slideToggle();
     $(".edit").slideToggle();
+    $(".navbar").slideToggle();
+
   });
 
 
@@ -746,10 +753,6 @@
 
         });
     });
-
-
-
-
 </script>
          
 
