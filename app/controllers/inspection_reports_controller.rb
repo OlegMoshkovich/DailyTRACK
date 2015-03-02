@@ -48,7 +48,7 @@ class InspectionReportsController < ApplicationController
         respond_to do |format|
       if @inspection_report.update(inspection_report_params)
         format.html { redirect_to @inspection_report, notice: 'Inspection was successfully updated.' }
-        pry
+
       else
         format.html { render action: 'edit' }
         format.json { render json: @inspection_report.errors, status: :unprocessable_entity }
