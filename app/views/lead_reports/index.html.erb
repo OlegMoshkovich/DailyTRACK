@@ -33,9 +33,33 @@
 <div class = "text-center">  
     <u id="flip" class="btn btn-link" ><h4> Howard All Reports</h4> </u>
 </div>
+
+<table class = "table" id = "panel" style=" display: none;" >
+          <tr>
+            <td >Date</td>
+            <td >Status</td>
+          
+          </tr>
+          <% @howard_reports.reverse_each do |inspection_report| %>
+          <tr>    
+            <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+            <td ><strong><%= link_to inspection_report.status, inspection_report_path(inspection_report) %><strong></td>
+
+          </tr>
+        <% end %>
+      </table>
+
+
+
+
+
+
   <div class = "table" id = "panel" style=" display: none;" >
-<% @howard_reports.reverse_each do |inspection_report| %>
+
+      <% @howard_reports.reverse_each do |inspection_report| %>
       <p><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></p>
+
+
   <% end %>
   </div>
   
