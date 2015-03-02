@@ -27,7 +27,7 @@
 <h4 class = "text-center" ><u><%=link_to "Current Report" ,inspection_report_path(@inspection_report_current)  %></u></h4>
 
 <div class = "text-center">  
-    <u id="flip" class="btn btn-link" ><h4> Show Past Reports</h4> </u>
+    <u id="flip" class="btn btn-link" ><h4> Check Status</h4> </u>
 
 </div>
 
@@ -41,11 +41,14 @@
   <table class = "table" id = "panel" style=" display: none;" >
           <tr>
             <td >Date</td>
+            <td >Status</td>
             <td >Erase</td>
           </tr>
         <% @inspection_reports.reverse_each do |inspection_report| %>
           <tr>    
             <td ><strong><%= link_to inspection_report.date, inspection_report_path(inspection_report) %><strong></td>
+    <td ><strong><%= link_to inspection_report.status, inspection_report_path(inspection_report) %><strong></td>
+
 
             <td><strong><%= button_to 'o', inspection_report_path(inspection_report), :class => "btn btn-link" ,method: :delete %></strong></td>
           </tr>

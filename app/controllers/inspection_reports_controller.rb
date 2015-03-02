@@ -13,10 +13,6 @@ class InspectionReportsController < ApplicationController
 		@user = current_user
 	end
 
-	def update
-		@inspection_report = InspectionReport.find(params[:id])
-	  redirect_to inspection_report_path	
-	end
 
 	def show
   		@inspection_report = InspectionReport.find(params[:id])
@@ -42,6 +38,23 @@ class InspectionReportsController < ApplicationController
   			render 'new'
   		end
 	end
+ 	  def edit
+      @inspection_report = InspectionReport.find(params[:id])
+      
+  	end
+
+ def update
+        @inspection_report = InspectionReport.find(params[:id])
+        respond_to do |format|
+      if @inspection_report.update(inspection_report_params)
+        format.html { redirect_to @inspection_report, notice: 'Inspection was successfully updated.' }
+        pry
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @inspection_report.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
 	def destroy
 		@inspection_report = InspectionReport.find(params[:id])
@@ -49,16 +62,10 @@ class InspectionReportsController < ApplicationController
 		redirect_to inspection_reports_path	
 	end
 
-def approved
-	
-	@inspection_report = InspectionReport.find(params[:id])
-	redirect_to @inspection_report
-	
-end
 
 	private
   	def inspection_report_params
-    	params.require(:inspection_report).permit( :date, :contract, :contractor, :shift, :timeStart, :timeEnd)
+    	params.require(:inspection_report).permit( :date, :contract, :contractor, :shift, :timeStart, :timeEnd, :status)
   	end
 
   	def inspection_params

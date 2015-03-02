@@ -23,9 +23,11 @@
          <%= @inspection_report.contract %> -
          <%= @inspection_report.contractor %> -
          <%= @inspection_report.shift %></h5>
-         <br>
-        <%= @inspection_report.status %>
-<br>
+     <h5 class ="text-center">
+         <%= @inspection_report.status %></h5>
+      
+        
+
 
 <p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
 <p class="text-center "><%= @inspection_report.date %></p>
@@ -36,26 +38,24 @@
 
 
 <div class="text-center" id = "excel">
-        <%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %></div>
-
-
-
-
-<!-- Lead Inspector Approval -->
+        <%= button_to "Export Excel", inspection_report_path(format: "xls"), :class => "btn ", :method => :get %>
 <% if current_user.admin?%>
-
-<div class = "text-center">
-<%= form_for  inspection_report_path, :method => :patch do |f| %> 
-     <%= f.select :status, options_for_select(['Approved',"Needs more Work"]) %>
-    <p><%= f.submit 'Set status', class: "btn" %></p>
-
-<% end -%>
-</div>
+<h4 class = "text-center">
+ <%= link_to 'Set Status', edit_inspection_report_path(@inspection_report) %> 
+</h4>
 <% end %>
 
 
+    </div>
+
+<!-- Lead Inspector Approval -->
+
+
+    
 <!-- Printing trigger -->
 <div class = "print" >
+
+
 <div class = "text-center">PRINT VERSION</div>
 </div>
 

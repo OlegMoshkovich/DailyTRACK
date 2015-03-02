@@ -1,0 +1,49 @@
+      <!-- Navigation -->
+      <div class ="navbar">
+      <div class="container"> 
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li><%= link_to 'Inspection Report', inspection_reports_path  if current_user  %></li> 
+                <li><%= link_to 'Daily Report', daily_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Lead Report', lead_reports_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Search', inspections_path  if current_user && current_user.admin? %></li>
+                <li><%= link_to 'Profile', users_path  if current_user  %></li>
+                <li><%= link_to 'Enter', users_path  if !current_user  %></li>
+                <li> <%= button_to "Sign out", destroy_user_session_path , :class => "btn btn-link" , method: :delete  if current_user%></li>
+            </ul>
+          <h2 ><%= link_to 'Daily Track', root_path%><h2>
+        </div>
+      </div>
+      </div> 
+<h1 class="text-center ">Inspection Report</h1> 
+
+        <h5 class ="text-center">
+         <%= @inspection_report.contract %> -
+         <%= @inspection_report.contractor %> -
+         <%= @inspection_report.shift %></h5>
+        <h5 class ="text-center">
+         <%= @inspection_report.status %></h5>
+<br>
+
+<p class="text-center "><%= image_tag(@inspection_report.user.image.url(:thumb)) %></p>
+<p class="text-center "><%= @inspection_report.date %></p>
+
+
+<!-- Waiting symbol -->
+<p><%= image_tag 'loader1.gif', :id => 'spinner', :style => "display:none " %></p>
+
+
+
+
+
+<!-- Lead Inspector Approval -->
+<% if current_user.admin?%>
+
+<div class = "text-center">
+<%=  form_for(@inspection_report) do |f| %> 
+     <%= f.select :status, options_for_select(['Approved',"Needs more Work"]) %>
+    <p><%= f.submit 'Set status', class: "btn" %></p>
+
+<% end -%>
+</div>
+<% end %>
