@@ -47,6 +47,11 @@ class InspectionsController < ApplicationController
     end
   end
 
+  def organization
+    @walls = Inspection.where(created_at: (Time.now.midnight)..Time.now).order(created_at: :asc)
+  end
+
+
 private
     def inspection_report_params
       params.require(:inspection_report).permit( :date)
