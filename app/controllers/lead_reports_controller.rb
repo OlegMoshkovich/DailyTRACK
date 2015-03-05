@@ -10,11 +10,13 @@ class LeadReportsController < ApplicationController
 
 		@brian_reports = InspectionReport.where(:inspector => "Brian_S")
 		@howard_reports = InspectionReport.where(:inspector => "Howard_Y")
-		# @howard_reports = InspectionReport.where(:inspector => "Oleg_Mosh")
+		@oleg_reports = InspectionReport.where(:inspector => "OlegM")
 
 		@brian_report_latest = InspectionReport.where(:inspector => "Brian_S").last
 		@howard_report_latest = InspectionReport.where(:inspector => "Howard_Y").last
-		# @howard_report_latest = InspectionReport.where(:inspector => "Oleg_Mosh").last
+		@oleg_report_latest = InspectionReport.where(:inspector => "OlegM").last
+
+
 
 
 		# where(:inspector => current_user.username)
